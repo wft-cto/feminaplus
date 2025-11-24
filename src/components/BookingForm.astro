@@ -3,10 +3,23 @@ import { Image } from "astro:assets";
 import arrow from "../../public/arrow-top-right.svg";
 ---
 
-<section id="contact" class="py-16 bg-[#f6f6f6]">
-  <div
-    class="max-w-7xl bg-white mx-auto px-4 pt-[60px] pb-[53px] sm:px-6 lg:px-8"
+<section
+  id="contact"
+  class="relative py-16 bg-[#f6f6f6]"
+  style="background-image: url('/form-back-bg.svg'); background-repeat: no-repeat; background-position: bottom; background-size: 100%;"
+>
+  <!-- <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-[229px] bottom-0 z-0"
   >
+  </div> -->
+  <div
+    class="max-w-7xl relative bg-white mx-auto px-4 pt-[60px] pb-[53px] sm:px-6 lg:px-8"
+  >
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat h-[229px] opacity-20 z-0"
+      style="background-image: url('/gen-health-bg.svg');"
+    >
+    </div>
     <div class="w-full flex justify-center items-center">
       <h2
         class="text-[54px] leading-[64px] font-anticdidone w-[677px] text-black mb-12 text-center"
@@ -16,7 +29,9 @@ import arrow from "../../public/arrow-top-right.svg";
     </div>
     <div class="">
       <form class="space-y-6">
-        <div class="grid md:grid-cols-4 gap-[42px]">
+        <div
+          class="space-y-3 md:space-y-0 md:grid md:grid-cols-4 block gap-[42px]"
+        >
           <div class="flex flex-col gap-[11px]">
             <label
               for="firstName"
@@ -27,7 +42,8 @@ import arrow from "../../public/arrow-top-right.svg";
               id="firstName"
               name="firstName"
               placeholder="Enter Name"
-              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-1 focus:ring-black"
+              required
             />
           </div>
           <div class="flex flex-col gap-[11px]">
@@ -40,9 +56,43 @@ import arrow from "../../public/arrow-top-right.svg";
               id="lastName"
               name="lastName"
               placeholder="Enter Name"
-              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-1 focus:ring-black"
+              required
             />
           </div>
+
+          <div class="flex flex-col gap-[11px]">
+            <label for="cars">Select Salon*</label>
+
+            <select
+              name="cars"
+              id="cars"
+              class="border border-[#D9D9D9] py-[18px] pl-[21px] pr-[11px] rounded-[10px]"
+              required
+            >
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-[11px]">
+            <label for="cars">Select Service*</label>
+
+            <select
+              name="cars"
+              id="newcar"
+              required
+              class="border border-[#D9D9D9] py-[18px] pl-[21px] pr-[11px] rounded-[10px]"
+            >
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
+
           <div class="flex flex-col gap-[11px]">
             <label for="email" class="block text-sm font-medium text-gray-700"
               >Email Address*</label
@@ -52,7 +102,8 @@ import arrow from "../../public/arrow-top-right.svg";
               id="email"
               name="email"
               placeholder="Email Address*"
-              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-1 focus:ring-black"
+              required
             />
           </div>
 
@@ -65,55 +116,29 @@ import arrow from "../../public/arrow-top-right.svg";
               id="number"
               name="number"
               placeholder="Phone Number*"
-              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+              class="w-full px-4 border py-[18px] pl-[21px] pr-[11px] rounded-[10px] border-gray-300 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              required
             />
           </div>
 
-          <div class="flex flex-col gap-[11px]">
-            <label for="cars">Select Salon*</label>
-
-            <select
-              name="cars"
-              id="cars"
-              class="border border-[#D9D9D9] py-[18px] pl-[21px] pr-[11px] rounded-[10px]"
-            >
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-          <div class="flex flex-col gap-[11px]">
-            <label for="cars">Select Service*</label>
-
-            <select
-              name="cars"
-              id="newcar"
-              class="border border-[#D9D9D9] py-[18px] pl-[21px] pr-[11px] rounded-[10px]"
-            >
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-
-          <div class="flex flex-col gap-[11px] grid-cols-2">
+          <div class="flex flex-col gap-[11px] col-span-2">
             <label for="cars">Appointment Date & Time</label>
 
             <input
               class="border border-[#D9D9D9] py-[18px] pl-[21px] pr-[11px] rounded-[10px]"
               type="date"
+              required
             />
           </div>
         </div>
 
         <div class="w-full flex justify-center">
           <button
-            class="bg-black book-btn rounded-full hidden lg:flex items-center gap-3 text-[14px] text-white
+            class="bg-black book-btn rounded-full flex items-center gap-3 text-[14px] text-white
           pl-6 pr-[6px] py-2 transition-all duration-300
           shadow-[0_0_0px_0_white]
           hover:shadow-[0_0_15px_3px_white]"
+            type="submit"
           >
             Book Appointment
             <Image

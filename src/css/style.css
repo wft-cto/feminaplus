@@ -91,6 +91,26 @@
   text-align: center;
 }
 
+.instagram-slider .slick-prev {
+  font-size: 30px;
+  position: absolute;
+  left: 0px;
+  border: 1px solid white;
+  width: 81px;
+  text-align: center;
+  top: 270px;
+  height: 52px;
+  z-index: 99;
+  padding-inline: 20px;
+  border-radius: 50px;
+  color: black;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .customArrow {
   position: relative;
   top: -3px !important;
@@ -112,6 +132,25 @@
   align-items: center;
   text-align: center;
 }
+.instagram-slider .slick-next {
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  text-align: center;
+  top: 270px;
+  width: 81px;
+  height: 52px;
+  padding-inline: 20px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .testimonals .slick-dots {
   position: absolute;
   top: -30px;
@@ -221,7 +260,7 @@
     flex-direction: row !important;
   }
 
- .testimonals .slick-prev {
+  .testimonals .slick-prev {
     font-size: 30px;
     position: absolute;
     right: 68px;

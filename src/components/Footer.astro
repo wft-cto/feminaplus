@@ -1,51 +1,79 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../../public/FP-logo.svg";
+import visa from "../../public/visa.svg";
+import mastercard from "../../public/mastercard.svg";
+import rupay from "../../public/rupay.svg";
+import marqueLogo from "../../public/white-logo-marquee.svg";
+
 const locations = [
   {
     name: "FP44",
-    address: "SCO 268, Sector 44, CHD",
+    address: "SCO 268, SECTOR 44-C, CHD ",
     phone: "0172 46228844",
     whatsapp: "+91 8725055006",
   },
   {
-    name: "FP Luxe",
-    address: "SCO 164-165, Sector 9-C, CHD",
-    phone: "0172 4024040",
+    name: "FP KHARAR",
+    address: "SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
+    whatsapp: "+91 9815931884",
+  },
+  {
+    name: "FP LUXE",
+    address: "SCO 164-165, SECTOR 9-C, CHD.",
+    phone: " 0172 4024040",
     whatsapp: "+91 7973268966",
   },
   {
-    name: "FP Kharar",
-    address: "SCO 55, Sector 125, New Sunny Enclave",
-    phone: "+91 9815931884",
-    wwhatsapp: "",
+    name: "FP PKL",
+    address: "SCO 386, SECTOR 8",
+    phone: "0172-4025050",
+    whatsapp: "+91 9815962884",
+  },
+];
+
+const marqueText = [
+  {
+    name: "Your Path to Better Health",
   },
   {
-    name: "FP PKL",
-    address: "SCO 386, Sector 8, Panchkula",
-    phone: "0172 40225050",
-    wwhatsapp: "+91 9815962884",
+    name: "Wellness for Women",
+  },
+  {
+    name: "Shaping Women's Wellness",
   },
 ];
 ---
 
 <footer class="w-full bg-black text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Top section -->
-    <div class="grid md:grid-cols-2 gap-8 mb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[46px]">
+    <div
+      class="flex flex-col md:flex-row md:gap-[40px] lg:gap-[218px]"
+      style="background-image: url('/gen-health-bg.svg'); "
+    >
+      <!-- Top section -->
+
       <div>
-        <div class="mb-4">
+        <div class="mb-4 text-center">
           <a href="/" class="inline-block">
-            <img
-              src="/logo.svg"
-              alt="Femina Plus"
+            <Image
+              src={logo}
+              alt={`${logo}`}
               class="h-12 md:h-16 w-auto brightness-0 invert"
             />
           </a>
+          <p class="font-anticdidone text-[30px] uppercase">Femina Plus</p>
         </div>
-        <p class="text-gray-300 mb-4">
-          Your Hair | Makeup | Nails | Skin | Lashes
+        <p
+          class="text-gray-300 mx-auto md:mb-4 uppercase font-anticdidone text-[24px] text-center w-[340px]"
+        >
+          hair | Beauty | Makeup | Hair wigs | Extensions
         </p>
-        <div class="flex gap-4">
-          <a href="#" class="text-gray-300 hover:text-white transition">
+        <div class="flex relative gap-4 items-center justify-center my-[20px]">
+          <a
+            href="#"
+            class="text-gray-300 border py-3 px-[18px] border-[#2c2c2c] rounded-full hover:text-white transition"
+          >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
@@ -56,7 +84,7 @@ const locations = [
             href="https://instagram.com/feminaplus11"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-300 hover:text-white transition"
+            class="text-gray-300 border py-3 px-[18px] rounded-full border-[#2c2c2c] hover:text-white transition"
           >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -64,91 +92,132 @@ const locations = [
               ></path>
             </svg>
           </a>
-          <a href="#" class="text-gray-300 hover:text-white transition">
+          <a
+            href="#"
+            class="text-gray-300 border py-3 px-[18px] rounded-full border-[#2c2c2c] hover:text-white transition"
+          >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
               ></path>
             </svg>
           </a>
+          <a
+            href="#"
+            class="text-gray-300 border py-3 px-[18px] rounded-full border-[#2c2c2c] hover:text-white transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              viewBox="0 0 13 14"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.57764e-05 0.188477H3.76997L12.7422 13.006H8.97232L4.57764e-05 0.188477ZM1.82361 1.13792L9.46665 12.0566H10.9187L3.27564 1.13792H1.82361Z"
+                fill="white"></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.429688 12.5802L11.111 0L11.8347 0.614511L1.15345 13.1947L0.429688 12.5802Z"
+                fill="white"></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-gray-300 border py-3 px-[18px] rounded-full border-[#2c2c2c] hover:text-white transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              viewBox="0 0 18 12"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.03663 7.80532V3.236C8.79146 3.99929 10.1506 4.73664 11.758 5.5316C10.4322 6.21124 8.79146 6.97383 7.03663 7.80532ZM16.8163 0.963468C16.5136 0.594816 15.9977 0.307852 15.4485 0.212848C13.834 -0.070546 3.7621 -0.0713521 2.14853 0.212848C1.70807 0.289174 1.31585 0.473665 0.978919 0.760307C-0.440745 1.97832 0.00411021 8.51011 0.346304 9.56817C0.4902 10.0261 0.676221 10.3564 0.910492 10.5732C1.21232 10.8599 1.62558 11.0572 2.10027 11.1457C3.42955 11.3999 10.2778 11.542 15.4204 11.1839C15.8942 11.1076 16.3136 10.9039 16.6444 10.605C17.957 9.3919 17.8675 2.49329 16.8163 0.963468Z"
+                fill="white"></path>
+            </svg>
+          </a>
         </div>
       </div>
-    </div>
 
-    <!-- Locations grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-      {
-        locations.map((location) => (
-          <div>
-            <div class="flex items-start gap-2 mb-2">
-              <svg
-                class="w-5 h-5 text-gray-300 mt-0.5 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
+      <!-- Locations grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {
+          locations.map((location) => (
+            <div class="flex items-center justify-start  gap-[24px]">
+              <div class="flex items-start gap-2 mb-2">
+                <svg
+                  width="40"
+                  height="48"
+                  viewBox="0 0 40 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M35.3929 20.4737H33.1867C30.6772 20.4737 28.6429 18.4393 28.6429 15.9298L28.6277 16.1435C28.4552 18.5829 26.4259 20.4737 23.9804 20.4737H23.8653C21.3558 20.4737 19.3214 18.4393 19.3214 15.9298L18.9402 17.2772C18.4051 19.1682 16.679 20.4737 14.7138 20.4737C12.2879 20.4737 10.3214 18.5072 10.3214 16.0813V15.9298C9.75923 18.579 7.42027 20.4737 4.71209 20.4737H2.60714M35.3929 20.4737V30M35.3929 20.4737C36.2805 20.4737 37 19.7541 37 18.8665V12.8053L30.25 1H8.07143L1 12.8053V18.8665C1 19.7541 1.71954 20.4737 2.60714 20.4737M2.60714 20.4737V34.4298M2.60714 34.4298V38H28M2.60714 34.4298H27.5"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M33.5 29.5C36.8137 29.5 39.5 32.1863 39.5 35.5C39.5 36.2955 39.188 37.4189 38.6621 38.6992C38.1422 39.9649 37.4359 41.3314 36.6943 42.5928C35.9526 43.8544 35.1831 44.9994 34.543 45.8232C34.2217 46.2367 33.9413 46.5581 33.7197 46.7715C33.6299 46.858 33.5559 46.918 33.5 46.959C33.4441 46.918 33.3701 46.858 33.2803 46.7715C33.0587 46.5581 32.7783 46.2367 32.457 45.8232C31.8169 44.9994 31.0474 43.8544 30.3057 42.5928C29.5641 41.3314 28.8578 39.9649 28.3379 38.6992C27.812 37.4189 27.5 36.2955 27.5 35.5C27.5 32.1863 30.1863 29.5 33.5 29.5Z"
+                    stroke="white"
+                  />
+                  <circle cx="33.5" cy="35.5" r="2.5" fill="white" />
+                </svg>
+              </div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{location.name}</h3>
                 <p class="text-sm text-gray-300 mb-1">{location.address}</p>
-                <p class="text-sm text-gray-300">{location.phone}</p>
+                <p class="text-sm text-gray-300">
+                  {location.phone}, {location.whatsapp}
+                </p>
               </div>
             </div>
+          ))
+        }
+      </div>
+    </div>
+    <!-- Bottom section -->
+  </div>
+  <div class="border-t border-[#d3d3d359] pt-8">
+    <div
+      class="flex max-w-7xl mx-auto flex-col md:flex-row justify-between items-center gap-4 mb-6"
+    >
+      <p class="text-sm text-gray-300">
+        Copyright 2025 Femina Plus. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="#" class="grayscale hover:grayscale-0 transition"
+          ><Image src={visa} alt={`${visa}`} /></a
+        >
+        <a href="#" class="grayscale hover:grayscale-0 transition"
+          ><Image src={mastercard} alt={`${mastercard}`} /></a
+        >
+        <a href="#" class="grayscale hover:grayscale-0 transition"
+          ><Image src={rupay} alt={`${rupay}`} /></a
+        >
+      </div>
+    </div>
+
+    <!-- Footer taglines -->
+  </div>
+  <marquee
+    class="border border-[#d3d3d359] pt-9 pb-8 border-r-0 border-l-0"
+    direction="left"
+  >
+    <div class="flex gap-16">
+      {
+        marqueText.map((marquee) => (
+          <div class="flex gap-5">
+            <Image src={marqueLogo} alt={`${marqueLogo}`} />
+            <p class="text-[34px] ml-[5px] font-anticdidone">{marquee.name}</p>
           </div>
         ))
       }
     </div>
-
-    <!-- Bottom section -->
-    <div class="border-t border-gray-700 pt-8">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6"
-      >
-        <p class="text-sm text-gray-300">
-          Copyright 2025 Femina Plus. All rights reserved.
-        </p>
-        <div class="flex gap-6">
-          <a href="#" class="text-sm text-gray-300 hover:text-white transition"
-            >Privacy Policy</a
-          >
-          <a href="#" class="text-sm text-gray-300 hover:text-white transition"
-            >Terms & Conditions</a
-          >
-          <a href="#" class="text-sm text-gray-300 hover:text-white transition"
-            >Sitemap</a
-          >
-        </div>
-      </div>
-
-      <!-- Footer taglines -->
-      <div class="bg-black py-6">
-        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
-          <div class="flex items-center gap-2 text-white">
-            <span class="text-yellow-500">*</span>
-            <span>Your Path to Better Health</span>
-          </div>
-          <div class="flex items-center gap-2 text-white">
-            <span class="text-yellow-500">*</span>
-            <span>Wellness for Women</span>
-          </div>
-          <div class="flex items-center gap-2 text-white">
-            <span class="text-yellow-500">*</span>
-            <span>Shaping Women's Wellness</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </marquee>
 </footer>

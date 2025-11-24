@@ -1,103 +1,410 @@
 ---
+import { Image } from "astro:assets";
+import userOne from "../../public/instagram-user-1.svg";
+import userTwo from "../../public/instagram-user-2.svg";
+import userThree from "../../public/instagram-user-3.svg";
+import userFour from "../../public/instagram-user-4.png";
+import instagram from "../../public/instagram.svg";
+import Logo from "../../public/femina-logo.svg";
+
 // Instagram feed component - integrates with Instagram API
 // Note: You'll need to set up Instagram Basic Display API or use a service like Instagram Feed API
 
 interface InstagramPost {
-	id: string;
-	media_url: string;
-	permalink: string;
-	caption?: string;
-	timestamp: string;
+  id: string;
+  media_url: string;
+  permalink: string;
+  caption?: string;
+  timestamp: string;
 }
 
 // For demo purposes, using placeholder data
 // In production, replace this with actual Instagram API call
 const instagramPosts: InstagramPost[] = [
-	{
-		id: '1',
-		media_url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80',
-		permalink: 'https://instagram.com/p/example1',
-		caption: 'Beautiful hair transformation ✨',
-		timestamp: '2024-01-15'
-	},
-	{
-		id: '2',
-		media_url: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80',
-		permalink: 'https://instagram.com/p/example2',
-		caption: 'Makeup magic 💄',
-		timestamp: '2024-01-14'
-	},
-	{
-		id: '3',
-		media_url: 'https://images.unsplash.com/photo-1616394584738-fc6e612e785b?w=400&q=80',
-		permalink: 'https://instagram.com/p/example3',
-		caption: 'Nail art perfection 💅',
-		timestamp: '2024-01-13'
-	},
-	{
-		id: '4',
-		media_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-		permalink: 'https://instagram.com/p/example4',
-		caption: 'Before & After transformation',
-		timestamp: '2024-01-12'
-	},
-	{
-		id: '5',
-		media_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
-		permalink: 'https://instagram.com/p/example5',
-		caption: 'Hair styling session',
-		timestamp: '2024-01-11'
-	}
+  {
+    id: "1",
+    media_url:
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80",
+    permalink: "https://instagram.com/p/example1",
+    caption:
+      "Hair stylists at JUICE believe that beauty is different for every person",
+    timestamp: "2024-01-15",
+  },
+  {
+    id: "2",
+    media_url:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80",
+    permalink: "https://instagram.com/p/example2",
+    caption:
+      "Hair stylists at JUICE believe that beauty is different for every person",
+    timestamp: "2024-01-14",
+  },
+  {
+    id: "3",
+    media_url:
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e785b?w=400&q=80",
+    permalink: "https://instagram.com/p/example3",
+    caption:
+      "Hair stylists at JUICE believe that beauty is different for every person",
+    timestamp: "2024-01-13",
+  },
+  {
+    id: "4",
+    media_url:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    permalink: "https://instagram.com/p/example4",
+    caption:
+      "Hair stylists at JUICE believe that beauty is different for every person",
+    timestamp: "2024-01-12",
+  },
+  {
+    id: "5",
+    media_url:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    permalink: "https://instagram.com/p/example5",
+    caption:
+      "Hair stylists at JUICE believe that beauty is different for every person",
+    timestamp: "2024-01-11",
+  },
 ];
 
 // Function to fetch Instagram posts
 // Option 1: Use direct Instagram API (recommended for production)
 // Option 2: Use placeholder data (current implementation)
 async function fetchInstagramPosts(): Promise<InstagramPost[]> {
-	// To use Instagram API directly, uncomment and configure:
-	// const INSTAGRAM_ACCESS_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
-	// const INSTAGRAM_USER_ID = import.meta.env.INSTAGRAM_USER_ID || 'me';
-	// 
-	// if (INSTAGRAM_ACCESS_TOKEN) {
-	// 	try {
-	// 		const response = await fetch(
-	// 			`https://graph.instagram.com/${INSTAGRAM_USER_ID}/media?fields=id,media_url,permalink,caption,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=5`
-	// 		);
-	// 		if (response.ok) {
-	// 			const data = await response.json();
-	// 			return data.data || [];
-	// 		}
-	// 	} catch (error) {
-	// 		console.error('Failed to fetch Instagram posts:', error);
-	// 	}
-	// }
-	
-	// Fallback to placeholder data
-	return instagramPosts;
+  // To use Instagram API directly, uncomment and configure:
+  // const INSTAGRAM_ACCESS_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+  // const INSTAGRAM_USER_ID = import.meta.env.INSTAGRAM_USER_ID || 'me';
+  //
+  // if (INSTAGRAM_ACCESS_TOKEN) {
+  // 	try {
+  // 		const response = await fetch(
+  // 			`https://graph.instagram.com/${INSTAGRAM_USER_ID}/media?fields=id,media_url,permalink,caption,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=5`
+  // 		);
+  // 		if (response.ok) {
+  // 			const data = await response.json();
+  // 			return data.data || [];
+  // 		}
+  // 	} catch (error) {
+  // 		console.error('Failed to fetch Instagram posts:', error);
+  // 	}
+  // }
+
+  // Fallback to placeholder data
+  return instagramPosts;
 }
 
 const posts = await fetchInstagramPosts();
 ---
 
-<section class="py-16 bg-white">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-3xl md:text-4xl font-bold text-black mb-8 text-center">#feminaplus11 on instagram</h2>
-
-		<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-			{posts.map((post) => (
-				<a href={post.permalink} target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden rounded-lg aspect-square">
-					<img src={post.media_url} alt={post.caption || 'Instagram post'} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-					<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-						<span class="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">View on Instagram</span>
-					</div>
-				</a>
-			))}
-		</div>
-
-		<div class="text-center mt-8">
-			<a href="https://instagram.com/feminaplus11" target="_blank" rel="noopener noreferrer" class="text-black hover:text-gray-600 underline">
-				Follow us on Instagram
-			</a>
-		</div>
-	</div>
+<section class="py-16 bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2
+      class="text-[44px] font-anticdidone text-center font-normal text-white mb-8"
+    >
+      #feminaplus44 on instagram
+    </h2>
+    <div class="instagram-slider">
+      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+        <Image class="w-full" src={userOne} alt={`${userOne}`} />
+        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+          <p class="text-white font-manropefont-medium text-[14px]">
+            Hair stylists at JUICE believe that beauty is different for every
+            person.
+          </p>
+          <div
+            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
+          >
+            <span>#hairstyle</span>
+            <span>#fashion</span>
+          </div>
+          <div
+            class="flex
+          items-center
+              mt-[15px]
+          justify-between"
+          >
+            <div class="flex items-center gap-[10px]">
+              <div
+                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
+              >
+                <Image src={Logo} alt={`${Logo}`} />
+              </div>
+              <div>
+                <p
+                  class="font-manrope text-white font-bold text-[16px] text-whites"
+                >
+                  Familnaplus
+                </p>
+                <div class="flex items-center gap-[9px]">
+                  <p
+                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                  >
+                    @famina
+                  </p>
+                  <ul class="list-disc pl-[9px]">
+                    <li
+                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                    >
+                      2 hours ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div><Image src={instagram} alt={`${instagram}`} /></div>
+          </div>
+        </div>
+      </div>
+      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+        <Image class="w-full" src={userTwo} alt={`${userTwo}`} />
+        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+          <p class="text-white font-manropefont-medium text-[14px]">
+            Hair stylists at JUICE believe that beauty is different for every
+            person.
+          </p>
+          <div
+            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
+          >
+            <span>#hairstyle</span>
+            <span>#fashion</span>
+          </div>
+          <div
+            class="flex
+          items-center
+              mt-[15px]
+          justify-between"
+          >
+            <div class="flex items-center gap-[10px]">
+              <div
+                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
+              >
+                <Image src={Logo} alt={`${Logo}`} />
+              </div>
+              <div>
+                <p
+                  class="font-manrope text-white font-bold text-[16px] text-whites"
+                >
+                  Familnaplus
+                </p>
+                <div class="flex items-center gap-[9px]">
+                  <p
+                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                  >
+                    @famina
+                  </p>
+                  <ul class="list-disc pl-[9px]">
+                    <li
+                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                    >
+                      2 hours ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div><Image src={instagram} alt={`${instagram}`} /></div>
+          </div>
+        </div>
+      </div>
+      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+        <Image class="w-full" src={userThree} alt={`${userThree}`} />
+        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+          <p class="text-white font-manropefont-medium text-[14px]">
+            Hair stylists at JUICE believe that beauty is different for every
+            person.
+          </p>
+          <div
+            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
+          >
+            <span>#hairstyle</span>
+            <span>#fashion</span>
+          </div>
+          <div
+            class="flex
+          items-center
+              mt-[15px]
+          justify-between"
+          >
+            <div class="flex items-center gap-[10px]">
+              <div
+                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
+              >
+                <Image src={Logo} alt={`${Logo}`} />
+              </div>
+              <div>
+                <p
+                  class="font-manrope text-white font-bold text-[16px] text-whites"
+                >
+                  Familnaplus
+                </p>
+                <div class="flex items-center gap-[9px]">
+                  <p
+                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                  >
+                    @famina
+                  </p>
+                  <ul class="list-disc pl-[9px]">
+                    <li
+                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                    >
+                      2 hours ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div><Image src={instagram} alt={`${instagram}`} /></div>
+          </div>
+        </div>
+      </div>
+      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+        <Image class="w-full" src={userOne} alt={`${userOne}`} />
+        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+          <p class="text-white font-manropefont-medium text-[14px]">
+            Hair stylists at JUICE believe that beauty is different for every
+            person.
+          </p>
+          <div
+            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
+          >
+            <span>#hairstyle</span>
+            <span>#fashion</span>
+          </div>
+          <div
+            class="flex
+          items-center
+              mt-[15px]
+          justify-between"
+          >
+            <div class="flex items-center gap-[10px]">
+              <div
+                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
+              >
+                <Image src={Logo} alt={`${Logo}`} />
+              </div>
+              <div>
+                <p
+                  class="font-manrope text-white font-bold text-[16px] text-whites"
+                >
+                  Familnaplus
+                </p>
+                <div class="flex items-center">
+                  <p
+                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                  >
+                    @famina
+                  </p>
+                  <ul class="list-disc pl-[9px]">
+                    <li
+                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                    >
+                      2 hours ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div><Image src={instagram} alt={`${instagram}`} /></div>
+          </div>
+        </div>
+      </div>
+      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+        <Image class="w-full" src={userThree} alt={`${userThree}`} />
+        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+          <p class="text-white font-manropefont-medium text-[14px]">
+            Hair stylists at JUICE believe that beauty is different for every
+            person.
+          </p>
+          <div
+            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
+          >
+            <span>#hairstyle</span>
+            <span>#fashion</span>
+          </div>
+          <div class="flex items-center mt-[15px] justify-between">
+            <div class="flex items-center gap-[10px]">
+              <div
+                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
+              >
+                <Image src={Logo} alt={`${Logo}`} />
+              </div>
+              <div>
+                <p
+                  class="font-manrope text-white font-bold text-[16px] text-whites"
+                >
+                  Familnaplus
+                </p>
+                <div class="flex items-center gap-[9px]">
+                  <p
+                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                  >
+                    @famina
+                  </p>
+                  <ul class="list-disc pl-[9px]">
+                    <li
+                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
+                    >
+                      2 hours ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div><Image src={instagram} alt={`${instagram}`} /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .slick-slide {
+    margin: 0 8px;
+  }
+
+  .slick-slide:not(.slick-active) {
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .slick-slide.slick-current {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+<script is:inline>
+  $(".instagram-slider").slick({
+    centerMode: true,
+    slidesToScroll: 1,
+    autoplay: true,
+    prevArrow:
+      '<button class="slick-prev slick-arrow"><span class="customArrow">←</span></button>',
+    nextArrow:
+      '<button class="slick-next slick-arrow"><span class="customArrow">→</span></button>',
+    autoplaySpeed: 3000,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 1110,
+        settings: {
+          arrows: true,
+          centerPadding: "40px",
+          centerMode: true,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 590,
+        settings: {
+          arrows: true,
+          centerPadding: "40px",
+          centerMode: true,
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+</script>
