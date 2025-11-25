@@ -8,70 +8,50 @@ import instagram from "../../public/instagram.svg";
 import Logo from "../../public/femina-logo.svg";
 
 // Instagram feed component - integrates with Instagram API
-// Note: You'll need to set up Instagram Basic Display API or use a service like Instagram Feed API
-
-interface InstagramPost {
-  id: string;
-  media_url: string;
-  permalink: string;
-  caption?: string;
-  timestamp: string;
-}
-
 // For demo purposes, using placeholder data
 // In production, replace this with actual Instagram API call
-const instagramPosts: InstagramPost[] = [
+const instagramPosts = [
   {
     id: "1",
-    media_url:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80",
+    media_url: userTwo,
     permalink: "https://instagram.com/p/example1",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
-    timestamp: "2024-01-15",
   },
   {
     id: "2",
-    media_url:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80",
+    media_url: userThree,
     permalink: "https://instagram.com/p/example2",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
-    timestamp: "2024-01-14",
   },
   {
     id: "3",
-    media_url:
-      "https://images.unsplash.com/photo-1616394584738-fc6e612e785b?w=400&q=80",
+    media_url: userOne,
     permalink: "https://instagram.com/p/example3",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
-    timestamp: "2024-01-13",
   },
   {
     id: "4",
-    media_url:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    media_url: userTwo,
     permalink: "https://instagram.com/p/example4",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
-    timestamp: "2024-01-12",
   },
   {
     id: "5",
-    media_url:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    media_url: userOne,
     permalink: "https://instagram.com/p/example5",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
-    timestamp: "2024-01-11",
   },
 ];
 
 // Function to fetch Instagram posts
 // Option 1: Use direct Instagram API (recommended for production)
 // Option 2: Use placeholder data (current implementation)
-async function fetchInstagramPosts(): Promise<InstagramPost[]> {
+async function fetchInstagramPosts() {
   // To use Instagram API directly, uncomment and configure:
   // const INSTAGRAM_ACCESS_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
   // const INSTAGRAM_USER_ID = import.meta.env.INSTAGRAM_USER_ID || 'me';
@@ -93,8 +73,6 @@ async function fetchInstagramPosts(): Promise<InstagramPost[]> {
   // Fallback to placeholder data
   return instagramPosts;
 }
-
-const posts = await fetchInstagramPosts();
 ---
 
 <section id="media" class="py-16 bg-black">
@@ -105,256 +83,56 @@ const posts = await fetchInstagramPosts();
       #feminaplus44 on instagram
     </h2>
     <div class="instagram-slider">
-      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-        <Image class="w-full" src={userOne} alt={`${userOne}`} />
-        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-          <p class="text-white font-manropefont-medium text-[14px]">
-            Hair stylists at JUICE believe that beauty is different for every
-            person.
-          </p>
-          <div
-            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
-          >
-            <span>#hairstyle</span>
-            <span>#fashion</span>
-          </div>
-          <div
-            class="flex
+      {
+        instagramPosts.map((posts) => (
+          <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+            <Image
+              class="w-full"
+              src={posts.media_url}
+              alt={`${posts.media_url}`}
+            />
+            <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+              <p class="text-white font-manropefont-medium text-[14px]">
+                {posts.caption}
+              </p>
+              <div class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope">
+                <span>#hairstyle</span>
+                <span>#fashion</span>
+              </div>
+              <div
+                class="flex
           items-center
               mt-[15px]
           justify-between"
-          >
-            <div class="flex items-center gap-[10px]">
-              <div
-                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
               >
-                <Image src={Logo} alt={`${Logo}`} />
-              </div>
-              <div>
-                <p
-                  class="font-manrope text-white font-bold text-[16px] text-whites"
-                >
-                  Familnaplus
-                </p>
-                <div class="flex items-center gap-[9px]">
-                  <p
-                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                  >
-                    @famina
-                  </p>
-                  <ul class="list-disc pl-[9px]">
-                    <li
-                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                    >
-                      2 hours ago
-                    </li>
-                  </ul>
+                <div class="flex items-center gap-[10px]">
+                  <div class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]">
+                    <Image src={Logo} alt={`${Logo}`} />
+                  </div>
+                  <div>
+                    <p class="font-manrope text-white font-bold text-[16px] text-whites">
+                      Familnaplus
+                    </p>
+                    <div class="flex items-start md:items-center flex-col md:flex-row gap-[9px]">
+                      <p class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
+                        @famina
+                      </p>
+                      <ul class="list-disc pl-[9px]">
+                        <li class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
+                          2 hours ago
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Image src={instagram} alt={`${instagram}`} />
                 </div>
               </div>
             </div>
-            <div><Image src={instagram} alt={`${instagram}`} /></div>
           </div>
-        </div>
-      </div>
-      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-        <Image class="w-full" src={userTwo} alt={`${userTwo}`} />
-        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-          <p class="text-white font-manropefont-medium text-[14px]">
-            Hair stylists at JUICE believe that beauty is different for every
-            person.
-          </p>
-          <div
-            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
-          >
-            <span>#hairstyle</span>
-            <span>#fashion</span>
-          </div>
-          <div
-            class="flex
-          items-center
-              mt-[15px]
-          justify-between"
-          >
-            <div class="flex items-center gap-[10px]">
-              <div
-                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
-              >
-                <Image src={Logo} alt={`${Logo}`} />
-              </div>
-              <div>
-                <p
-                  class="font-manrope text-white font-bold text-[16px] text-whites"
-                >
-                  Familnaplus
-                </p>
-                <div class="flex items-center gap-[9px]">
-                  <p
-                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                  >
-                    @famina
-                  </p>
-                  <ul class="list-disc pl-[9px]">
-                    <li
-                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                    >
-                      2 hours ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div><Image src={instagram} alt={`${instagram}`} /></div>
-          </div>
-        </div>
-      </div>
-      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-        <Image class="w-full" src={userThree} alt={`${userThree}`} />
-        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-          <p class="text-white font-manropefont-medium text-[14px]">
-            Hair stylists at JUICE believe that beauty is different for every
-            person.
-          </p>
-          <div
-            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
-          >
-            <span>#hairstyle</span>
-            <span>#fashion</span>
-          </div>
-          <div
-            class="flex
-          items-center
-              mt-[15px]
-          justify-between"
-          >
-            <div class="flex items-center gap-[10px]">
-              <div
-                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
-              >
-                <Image src={Logo} alt={`${Logo}`} />
-              </div>
-              <div>
-                <p
-                  class="font-manrope text-white font-bold text-[16px] text-whites"
-                >
-                  Familnaplus
-                </p>
-                <div class="flex items-center gap-[9px]">
-                  <p
-                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                  >
-                    @famina
-                  </p>
-                  <ul class="list-disc pl-[9px]">
-                    <li
-                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                    >
-                      2 hours ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div><Image src={instagram} alt={`${instagram}`} /></div>
-          </div>
-        </div>
-      </div>
-      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-        <Image class="w-full" src={userOne} alt={`${userOne}`} />
-        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-          <p class="text-white font-manropefont-medium text-[14px]">
-            Hair stylists at JUICE believe that beauty is different for every
-            person.
-          </p>
-          <div
-            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
-          >
-            <span>#hairstyle</span>
-            <span>#fashion</span>
-          </div>
-          <div
-            class="flex
-          items-center
-              mt-[15px]
-          justify-between"
-          >
-            <div class="flex items-center gap-[10px]">
-              <div
-                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
-              >
-                <Image src={Logo} alt={`${Logo}`} />
-              </div>
-              <div>
-                <p
-                  class="font-manrope text-white font-bold text-[16px] text-whites"
-                >
-                  Familnaplus
-                </p>
-                <div class="flex items-center">
-                  <p
-                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                  >
-                    @famina
-                  </p>
-                  <ul class="list-disc pl-[9px]">
-                    <li
-                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                    >
-                      2 hours ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div><Image src={instagram} alt={`${instagram}`} /></div>
-          </div>
-        </div>
-      </div>
-      <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-        <Image class="w-full" src={userThree} alt={`${userThree}`} />
-        <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-          <p class="text-white font-manropefont-medium text-[14px]">
-            Hair stylists at JUICE believe that beauty is different for every
-            person.
-          </p>
-          <div
-            class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope"
-          >
-            <span>#hairstyle</span>
-            <span>#fashion</span>
-          </div>
-          <div class="flex items-center mt-[15px] justify-between">
-            <div class="flex items-center gap-[10px]">
-              <div
-                class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]"
-              >
-                <Image src={Logo} alt={`${Logo}`} />
-              </div>
-              <div>
-                <p
-                  class="font-manrope text-white font-bold text-[16px] text-whites"
-                >
-                  Familnaplus
-                </p>
-                <div class="flex items-center gap-[9px]">
-                  <p
-                    class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                  >
-                    @famina
-                  </p>
-                  <ul class="list-disc pl-[9px]">
-                    <li
-                      class="font-manrope opacity-[70%] font-medium text-[14px] text-white"
-                    >
-                      2 hours ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div><Image src={instagram} alt={`${instagram}`} /></div>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>

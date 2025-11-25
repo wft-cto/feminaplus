@@ -247,6 +247,43 @@
 }
 
 @media (max-width: 590px) {
+  .instagram-slider .slick-prev {
+    font-size: 30px;
+    position: absolute;
+    left: 0px;
+    border: 1px solid white;
+    width: 81px;
+    top: -30px;
+    height: 46px;
+    z-index: 99;
+    padding-inline: 20px;
+    border-radius: 50px;
+    color: black;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instagram-slider .slick-next {
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    top: -30px;
+    height: 46px;
+    width: 81px;
+    padding-inline: 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   .slick-dots {
     position: absolute;
     top: -30px;
