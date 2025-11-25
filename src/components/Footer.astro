@@ -46,7 +46,7 @@ const marqueText = [
 ---
 
 <footer class="w-full bg-black text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[46px]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-[46px]">
     <div
       class="flex flex-col md:flex-row md:gap-[40px] lg:gap-[218px]"
       style="background-image: url('/gen-health-bg.svg'); "
@@ -128,7 +128,7 @@ const marqueText = [
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M4.57764e-05 0.188477H3.76997L12.7422 13.006H8.97232L4.57764e-05 0.188477ZM1.82361 1.13792L9.46665 12.0566H10.9187L3.27564 1.13792H1.82361Z"
-               ></path>
+              ></path>
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -157,40 +157,45 @@ const marqueText = [
       </div>
 
       <!-- Locations grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {
-          locations.map((location) => (
-            <div class="flex items-center justify-start  gap-[24px]">
-              <div class="flex items-start gap-2 mb-2">
-                <svg
-                  width="40"
-                  height="48"
-                  viewBox="0 0 40 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M35.3929 20.4737H33.1867C30.6772 20.4737 28.6429 18.4393 28.6429 15.9298L28.6277 16.1435C28.4552 18.5829 26.4259 20.4737 23.9804 20.4737H23.8653C21.3558 20.4737 19.3214 18.4393 19.3214 15.9298L18.9402 17.2772C18.4051 19.1682 16.679 20.4737 14.7138 20.4737C12.2879 20.4737 10.3214 18.5072 10.3214 16.0813V15.9298C9.75923 18.579 7.42027 20.4737 4.71209 20.4737H2.60714M35.3929 20.4737V30M35.3929 20.4737C36.2805 20.4737 37 19.7541 37 18.8665V12.8053L30.25 1H8.07143L1 12.8053V18.8665C1 19.7541 1.71954 20.4737 2.60714 20.4737M2.60714 20.4737V34.4298M2.60714 34.4298V38H28M2.60714 34.4298H27.5"
-                    stroke="white"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M33.5 29.5C36.8137 29.5 39.5 32.1863 39.5 35.5C39.5 36.2955 39.188 37.4189 38.6621 38.6992C38.1422 39.9649 37.4359 41.3314 36.6943 42.5928C35.9526 43.8544 35.1831 44.9994 34.543 45.8232C34.2217 46.2367 33.9413 46.5581 33.7197 46.7715C33.6299 46.858 33.5559 46.918 33.5 46.959C33.4441 46.918 33.3701 46.858 33.2803 46.7715C33.0587 46.5581 32.7783 46.2367 32.457 45.8232C31.8169 44.9994 31.0474 43.8544 30.3057 42.5928C29.5641 41.3314 28.8578 39.9649 28.3379 38.6992C27.812 37.4189 27.5 36.2955 27.5 35.5C27.5 32.1863 30.1863 29.5 33.5 29.5Z"
-                    stroke="white"
-                  />
-                  <circle cx="33.5" cy="35.5" r="2.5" fill="white" />
-                </svg>
+      <div class="flex flex-col">
+        <p class="font-manrope text-[22px] font-bold pb-[60px] text-white">
+          Get in Touch
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {
+            locations.map((location) => (
+              <div class="flex items-center justify-start  gap-[24px]">
+                <div class="flex items-start gap-2 mb-2">
+                  <svg
+                    width="40"
+                    height="48"
+                    viewBox="0 0 40 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M35.3929 20.4737H33.1867C30.6772 20.4737 28.6429 18.4393 28.6429 15.9298L28.6277 16.1435C28.4552 18.5829 26.4259 20.4737 23.9804 20.4737H23.8653C21.3558 20.4737 19.3214 18.4393 19.3214 15.9298L18.9402 17.2772C18.4051 19.1682 16.679 20.4737 14.7138 20.4737C12.2879 20.4737 10.3214 18.5072 10.3214 16.0813V15.9298C9.75923 18.579 7.42027 20.4737 4.71209 20.4737H2.60714M35.3929 20.4737V30M35.3929 20.4737C36.2805 20.4737 37 19.7541 37 18.8665V12.8053L30.25 1H8.07143L1 12.8053V18.8665C1 19.7541 1.71954 20.4737 2.60714 20.4737M2.60714 20.4737V34.4298M2.60714 34.4298V38H28M2.60714 34.4298H27.5"
+                      stroke="white"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M33.5 29.5C36.8137 29.5 39.5 32.1863 39.5 35.5C39.5 36.2955 39.188 37.4189 38.6621 38.6992C38.1422 39.9649 37.4359 41.3314 36.6943 42.5928C35.9526 43.8544 35.1831 44.9994 34.543 45.8232C34.2217 46.2367 33.9413 46.5581 33.7197 46.7715C33.6299 46.858 33.5559 46.918 33.5 46.959C33.4441 46.918 33.3701 46.858 33.2803 46.7715C33.0587 46.5581 32.7783 46.2367 32.457 45.8232C31.8169 44.9994 31.0474 43.8544 30.3057 42.5928C29.5641 41.3314 28.8578 39.9649 28.3379 38.6992C27.812 37.4189 27.5 36.2955 27.5 35.5C27.5 32.1863 30.1863 29.5 33.5 29.5Z"
+                      stroke="white"
+                    />
+                    <circle cx="33.5" cy="35.5" r="2.5" fill="white" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white mb-1">{location.name}</h3>
+                  <p class="text-sm text-gray-300 mb-1">{location.address}</p>
+                  <p class="text-sm text-gray-300">
+                    {location.phone}, {location.whatsapp}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{location.name}</h3>
-                <p class="text-sm text-gray-300 mb-1">{location.address}</p>
-                <p class="text-sm text-gray-300">
-                  {location.phone}, {location.whatsapp}
-                </p>
-              </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
     </div>
     <!-- Bottom section -->
@@ -218,7 +223,7 @@ const marqueText = [
     <!-- Footer taglines -->
   </div>
   <marquee
-    class="border border-[#d3d3d359] pt-9 pb-8 border-r-0 border-l-0"
+    class="border border-[#d3d3d359] py-1 md:pt-9 md:pb-8 border-r-0 border-l-0"
     direction="left"
   >
     <div class="flex gap-16">

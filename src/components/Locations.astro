@@ -14,17 +14,17 @@ const shopLocaiton = [
   {
     title: "FP LUXE",
     location: "SCO 164-165, SECTOR 9-C, CHD. - 0172 4024040, 7973268966",
-    image: showroomTwo,
+    image: showroomThree,
   },
   {
     title: "FP KHARAR",
     location: "SCO 55, SECTOR 125, NEW SUNNY ENCLAVE - 9815931884",
-    image: showroomThree,
+    image: showroomFour,
   },
   {
     title: "FP PKL",
     location: "SCO 386, SECTOR 8 - 0172-4025050, 9815962884",
-    image: showroomFour,
+    image: showroomTwo,
   },
 ];
 ---
@@ -43,7 +43,9 @@ const shopLocaiton = [
           <div class="h-[10px] w-[33px] rounded-full bg-black"></div>
           <p>Location area</p>
         </div>
-        <h2 class="text-[50px] md:text-[54px] leading-[64px] font-anticdidone">
+        <h2
+          class="text-[37px] md:text-[54px] md:leading-[64px] leading-[50px] font-anticdidone"
+        >
           Explore Our Convenient <br /> Salon Locations
         </h2>
       </div>
@@ -62,17 +64,17 @@ const shopLocaiton = [
         shopLocaiton.map((location) => (
           <div class="relative border border-[#D3D3D3] group-hover:border-0 main-inner group after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-[12px] lg:after:-bottom-[8px] after:left-0 hover:after:w-full after:transition-all after:duration-300">
             <div
-              class="relative inner transition-all duration-[400ms] ease-in-out
+              class="image_wrapper relative inner transition-all duration-[400ms] ease-in-out
                 group-hover:rounded-none "
             >
               <Image
-                class="max-w-[229px] w-full h-[347px] mx-auto object-cove grayscale rounded-[147px] transition-all duration-[400ms ease-in-out group-hover:max-w-full group-hover:grayscale-0 group-hover:rounded-none"
+                class="max-w-[229px] w-full max-h-[347px] mx-auto object-cove grayscale rounded-[147px] transition-all duration-[400ms] ease-in-out group-hover:max-w-full group-hover:grayscale-0 group-hover:rounded-none"
                 src={location.image}
                 alt={`${location.image}`}
               />
             </div>
 
-            <div class="group-hover:bg-black bg-white px-4  pb-[37px]">
+            <div class="group-hover:bg-black bg-white px-4 pt-[42px] pb-[37px]">
               <p class="text-[32px] leading-[44px] group-hover:text-white text-black font-anticdidone">
                 {location.title}
               </p>
@@ -113,3 +115,4 @@ const shopLocaiton = [
     </div>
   </div>
 </section>
+<style></style>
