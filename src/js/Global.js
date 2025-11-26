@@ -1,4 +1,5 @@
 import $ from "jquery";
+import AOS from "aos";
 
 $(document).ready(function () {
   $(".menu-click").on("click", function () {
@@ -13,5 +14,7 @@ $(document).ready(function () {
   $(".slider").on("beforeChange", function () {
     $(".slick-slide::after").css({ width: 0, opacity: 0 });
   });
-  
+});
+AOS.init({
+  once: true,
 });

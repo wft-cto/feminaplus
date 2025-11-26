@@ -44,6 +44,16 @@ const services = [
     icon: empowringLogoSix,
     lengths: ["Short length", "Medium length", "Long length"],
   },
+  {
+    name: "Botox",
+    icon: empowringLogoFour,
+    lengths: ["Short length", "Medium length", "Long length"],
+  },
+  {
+    name: "Nano Plastia",
+    icon: empowringLogoSix,
+    lengths: ["Short length", "Medium length", "Long length"],
+  },
 ];
 
 const marqueText = [
@@ -69,7 +79,7 @@ const marqueText = [
     class="max-w-7xl mx-auto relative z-[9999] overflow-hidden px-4 sm:px-6 pb-[20px] md:pb-[87px] lg:px-8"
   >
     <div class="md:grid md:grid-cols-10 gap-12 mb-[63px]">
-      <div class="md:col-span-7">
+      <div data-aos="fade-right" class="md:col-span-7">
         <div class="flex gap-[17px] items-center mb-[28px]">
           <div class="h-[10px] w-[33px] rounded-full bg-black"></div>
           <p>Our featured services</p>
@@ -78,7 +88,7 @@ const marqueText = [
           Empowering Women's Health
         </h2>
       </div>
-      <div class="flex items-center col-span-3">
+      <div data-aos="fade-left" class="flex items-center col-span-3">
         <p class="text-[18px] font-manrope text-black">
           Get ready in minutes, glow all day — beauty made effortless.
         </p>
@@ -90,8 +100,10 @@ const marqueText = [
       class="flex space-y-7 flex-wrap lg:flex-nowrap md:space-y-0 gap-6 lg:gap-4 mb-12"
     >
       {
-        mainServices.map((service) => (
+        mainServices.map((service, index) => (
           <div
+            data-aos={index % 2 === 0 ? "flip-right" : "flip-left"}
+            data-aos-delay="400"
             class="bg-[#F6F6F6] group hover:bg-black group-hover:bg-black group-hover:border-none
         relative border-[#D3D3D3] border w-full p-3 cursor-pointer transition-colors duration-300
         flex flex-col after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-[12px] lg:after:-bottom-[15px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
@@ -148,10 +160,13 @@ const marqueText = [
       }
     </div>
 
-    <div class="md:grid md:grid-cols-4 space-y-4 md:space-y-0 gap-4">
+    <div class="service-slider">
       {
         services.map((service) => (
-          <div class="border relative group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">
+          <div
+            data-aos="zoom-in"
+            class="border relative group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+          >
             <div class="w-full text-center flex justify-center">
               <div
                 class="rounded-full w-[135px]  h-[183px] bg-white group-hover:bg-[#363636]
@@ -220,3 +235,37 @@ const marqueText = [
     </div>
   </marquee>
 </section>
+
+<script is:inline>
+  $(".service-slider").slick({
+    slidesToScroll: 1,
+    autoplay: true,
+    prevArrow:
+      '<button class="slick-prev slick-arrow"><span class="customArrow">←</span></button>',
+    nextArrow:
+      '<button class="slick-next slick-arrow"><span class="customArrow">→</span></button>',
+    autoplaySpeed: 3000,
+    centerPadding: "60px",
+    slidesToShow: 4,
+    responsive: [
+      {
+        breakpoint: 1110,
+        settings: {
+          arrows: true,
+          centerPadding: "40px",
+          centerMode: true,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 590,
+        settings: {
+          arrows: true,
+          centerPadding: "00px",
+          centerMode: true,
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+</script>

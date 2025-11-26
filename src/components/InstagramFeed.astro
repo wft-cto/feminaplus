@@ -78,11 +78,19 @@ async function fetchInstagramPosts() {
 <section id="media" class="py-16 bg-black">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2
+      data-aos="flip-down"
+      data-aos-duration="400"
+      data-aos-delay="400"
       class="text-[44px] font-anticdidone text-center font-normal text-white mb-8"
     >
       #feminaplus44 on instagram
     </h2>
-    <div class="instagram-slider">
+    <div
+      data-aos="fade-in"
+      data-aos-duration="400"
+      data-aos-delay="400"
+      class="instagram-slider"
+    >
       {
         instagramPosts.map((posts) => (
           <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
