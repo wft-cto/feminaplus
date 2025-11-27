@@ -1,0 +1,116 @@
+---
+import Header from "../components/Header.astro";
+import HeroWithBooking from "../components/HeroWithBooking.astro";
+import HairPatchWigsServices from "../components/HairPatchWigsServices.astro";
+import BeforeAfterGallery from "../components/BeforeAfterGallery.astro";
+import EmpoweringWomen from "../components/EmpoweringWomen.astro";
+import NextGenHealth from "../components/NextGenHealth.astro";
+import Promotional from "../components/Promotional.astro";
+import Rating from "../components/rating.astro";
+import BrandLogos from "../components/BrandLogos.astro";
+import Locations from "../components/Locations.astro";
+import Testimonials from "../components/Testimonials.astro";
+import BookingForm from "../components/BookingForm.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
+import Footer from "../components/Footer.astro";
+
+const hairPatchWigImages = [
+  {
+    id: "1",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Full Wig Installation",
+    clientName: "Client 1"
+  },
+  {
+    id: "2",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Hair Patch Installation",
+    clientName: "Client 2"
+  },
+  {
+    id: "3",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Lace Front Wig",
+    clientName: "Client 3"
+  },
+  {
+    id: "4",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Hair Topper",
+    clientName: "Client 4"
+  },
+  {
+    id: "5",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Wig Restyling",
+    clientName: "Client 5"
+  },
+  {
+    id: "6",
+    beforeImage: "/hero-section-image.jpg",
+    afterImage: "/hero-section-image.jpg",
+    service: "Custom Wig Design",
+    clientName: "Client 6"
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Femina Plus - Expert Hair Patches & Wigs. Professional Wig Installation | Hair Patches | Custom Wig Design"
+    />
+    <title>Femina Plus - Beauty & Wellness Center | Hair Patches & Wigs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      is:inline></script>
+  </head>
+  <body class="antialiased">
+    <Header />
+    <main>
+      <HeroWithBooking 
+        title="Expert Hair Patches & Wigs"
+        subtitle="Professional Wig Installation | Hair Patches | Custom Designs"
+        videoBackground="/videos/hair-patch.mp4"
+        backgroundImage="/hero-section-image.jpg"
+      />
+      <HairPatchWigsServices />
+      <BeforeAfterGallery 
+        title="Hair Patches & Wigs Gallery"
+        subtitle="See the stunning transformations from our expert wig specialists"
+        images={hairPatchWigImages}
+      />
+      <BookingForm />
+      <Testimonials />
+      <InstagramFeed />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script
+  is:inline
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../js/Global.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,0 +1,288 @@
+---
+import { Image } from "astro:assets";
+import "../css/style.css";
+import arrow from "../../public/arrow-top-right.svg";
+
+const services = [
+  "Hair Cut",
+  "Makeup",
+  "Beauty",
+  "Hair  Patch/Wigs",
+  "Hair Extension",
+  "Nail extension",
+  "Bridal Makeup",
+];
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  videoBackground?: string;
+}
+
+const {
+  title = "Expert Hair, Makeup & Nails",
+  subtitle = "hair | Beauty | Makeup | Hair wigs | Extensions",
+  backgroundImage = "/hero-section-image.jpg",
+  videoBackground,
+} = Astro.props;
+---
+
+<section
+  class="relative w-full min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden"
+>
+  <!-- Background Video or Image -->
+  {videoBackground ? (
+    <div class="absolute inset-0 w-full h-full video-background-container">
+      <div class="video-wrapper">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          class="video-background"
+          aria-label="Background video"
+          poster={backgroundImage}
+        >
+          <source src={videoBackground} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    </div>
+  ) : (
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('${backgroundImage}');`}
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    </div>
+  )}
+
+  <!-- Content Container -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <!-- Hero Text Content -->
+      <div
+        class="text-white space-y-4 lg:space-y-6"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      >
+        <div
+          data-aos="fade-right"
+          data-aos-delay="300"
+          class="flex gap-2 items-center"
+        >
+          <p data-aos="fade-right" data-aos-delay="300" class="font-bold text-lg lg:text-xl">
+            Welcome to
+          </p>
+          <div class="w-[33px] h-[10px] rounded-full bg-white"></div>
+        </div>
+        <h1
+          data-aos="fade-right"
+          data-aos-delay="400"
+          class="text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-anticdidone"
+        >
+          {title}
+        </h1>
+        <p
+          data-aos="fade-right"
+          data-aos-delay="500"
+          class="text-lg md:text-xl lg:text-2xl font-anticdidone uppercase"
+        >
+          {subtitle}
+        </p>
+      </div>
+
+      <!-- Booking Form Overlay -->
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-10"
+        data-aos="fade-left"
+        data-aos-delay="400"
+      >
+        <h2
+          class="text-2xl md:text-3xl lg:text-4xl font-anticdidone text-black mb-6 text-center"
+        >
+          Schedule your salon session
+        </h2>
+        <form class="space-y-4 md:space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2">
+              <label
+                for="firstName"
+                class="block text-sm font-medium text-gray-700"
+                >First Name*</label
+              >
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter Name"
+                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+                required
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label
+                for="lastName"
+                class="block text-sm font-medium text-gray-700"
+                >Last Name*</label
+              >
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter Name"
+                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2">
+              <label for="salon" class="block text-sm font-medium text-gray-700"
+                >Select Salon*</label
+              >
+              <select
+                name="salon"
+                id="feminaSalon"
+                class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+                required
+              >
+                <option selected>Select Salon</option>
+                <option value="salonOne"
+                  >FP44 SCO 268, SECTOR 44-C, Chandigarh
+                </option>
+                <option value="salonTwo">
+                  FP LUXE SCO 164-165, SECTOR 9-C, Chandigar
+                </option>
+                <option value="salonThree"
+                  >FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE
+                </option>
+                <option value="salonFour">SCO 386, SECTOR 8, Panchkula</option>
+                <option value="salonFive"
+                  >Pooja Plazio above Gopal Sweets, Zirakpur
+                </option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="service" class="block text-sm font-medium text-gray-700"
+                >Select Service*</label
+              >
+              <select
+                name="service"
+                id="feminaService"
+                required
+                class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+              >
+                <option selected>Select Services</option>
+                {services.map((service) => (
+                  <option value={service}>{service}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div class="flex flex-col gap-2">
+              <label for="phone" class="block text-sm font-medium text-gray-700"
+                >Phone Number*</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Phone Number"
+                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="appointment" class="block text-sm font-medium text-gray-700"
+              >Appointment Date & Time*</label
+            >
+            <input
+              id="appointment"
+              name="appointment"
+              class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+              type="datetime-local"
+              required
+            />
+          </div>
+
+          <div class="w-full flex justify-center pt-2">
+            <button
+              class="bg-black rounded-full flex items-center gap-3 text-sm md:text-base text-white pl-6 pr-2 py-3 transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]"
+              type="submit"
+            >
+              Book Appointment
+              <Image
+                class="bg-white w-fit rounded-full py-2 px-4"
+                src={arrow}
+                alt="Arrow icon"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+    padding-right: 2.5rem;
+  }
+
+  /* Video background styling with 16:9 aspect ratio */
+  .video-background-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: 16 / 9;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  /* Maintain 16:9 aspect ratio, scale to cover viewport */
+  @media (min-aspect-ratio: 16/9) {
+    .video-wrapper {
+      width: 100vw;
+      height: calc(100vw * 9 / 16);
+      min-height: 100vh;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    .video-wrapper {
+      width: calc(100vh * 16 / 9);
+      height: 100vh;
+      min-width: 100vw;
+    }
+  }
+
+  .video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>

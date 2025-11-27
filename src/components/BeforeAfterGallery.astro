@@ -1,0 +1,223 @@
+---
+import { Image } from "astro:assets";
+import "../css/style.css";
+
+interface BeforeAfterImage {
+  id: string;
+  beforeImage: string;
+  afterImage: string;
+  service: string;
+  clientName?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  images?: BeforeAfterImage[];
+}
+
+const {
+  title = "Before & After Gallery",
+  subtitle = "See the stunning transformations from our expert makeup artists",
+  images = [
+    {
+      id: "1",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Bridal Makeup",
+      clientName: "Client 1"
+    },
+    {
+      id: "2",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Party Makeup",
+      clientName: "Client 2"
+    },
+    {
+      id: "3",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Engagement Makeup",
+      clientName: "Client 3"
+    },
+    {
+      id: "4",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Photoshoot Makeup",
+      clientName: "Client 4"
+    },
+    {
+      id: "5",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Day Makeup",
+      clientName: "Client 5"
+    },
+    {
+      id: "6",
+      beforeImage: "/hero-section-image.jpg",
+      afterImage: "/hero-section-image.jpg",
+      service: "Sangam Makeup",
+      clientName: "Client 6"
+    }
+  ]
+} = Astro.props;
+
+const beforeAfterImages = images;
+---
+
+<section class="py-16 md:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        class="flex gap-[17px] items-center justify-center mb-6"
+      >
+        <div class="h-[10px] w-[33px] rounded-full bg-black"></div>
+        <p class="font-bold text-sm md:text-base">Our Work</p>
+      </div>
+      <h2
+        data-aos="fade-up"
+        data-aos-delay="400"
+        class="text-[40px] md:text-[54px] leading-[50px] md:leading-[64px] font-anticdidone text-black mb-4"
+      >
+        {title}
+      </h2>
+      <p
+        data-aos="fade-up"
+        data-aos-delay="600"
+        class="text-lg md:text-xl text-gray-600 font-manrope max-w-2xl mx-auto"
+      >
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Before/After Gallery Grid -->
+    <div class="before-after-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {beforeAfterImages.map((item, index) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={200 * (index + 1)}
+          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+        >
+          <!-- Before/After Container -->
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <!-- Before Image -->
+            <div class="before-image-container absolute inset-0">
+              <img
+                src={item.beforeImage}
+                alt={`Before - ${item.service}`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <span class="text-white font-bold text-xl md:text-2xl font-anticdidone uppercase tracking-wider">
+                  Before
+                </span>
+              </div>
+            </div>
+
+            <!-- After Image (revealed on hover) -->
+            <div class="after-image-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <img
+                src={item.afterImage}
+                alt={`After - ${item.service}`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-4">
+                <span class="text-white font-bold text-xl md:text-2xl font-anticdidone uppercase tracking-wider">
+                  After
+                </span>
+              </div>
+            </div>
+
+            <!-- Slider Handle (for mobile/interactive) -->
+            <div class="slider-handle absolute top-0 left-0 w-full h-full cursor-ew-resize opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg z-10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-black"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Info Overlay -->
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
+            <p class="text-white font-bold text-lg md:text-xl font-anticdidone mb-1">
+              {item.service}
+            </p>
+            {item.clientName && (
+              <p class="text-white/80 text-sm md:text-base font-manrope">
+                {item.clientName}
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .before-after-gallery .before-image-container,
+  .before-after-gallery .after-image-container {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .before-after-gallery .group:hover .before-image-container {
+    opacity: 0;
+  }
+
+  /* Mobile touch interaction */
+  @media (max-width: 768px) {
+    .before-after-gallery .group:active .before-image-container {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Interactive slider for mobile (tap to toggle)
+    const galleryItems = document.querySelectorAll('.before-after-gallery > div');
+    
+    galleryItems.forEach(item => {
+      let showingAfter = false;
+      const beforeContainer = item.querySelector('.before-image-container');
+      const afterContainer = item.querySelector('.after-image-container');
+      
+      if (beforeContainer && afterContainer) {
+        // Touch/click to toggle on mobile
+        item.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            showingAfter = !showingAfter;
+            
+            if (showingAfter) {
+              beforeContainer.style.opacity = '0';
+              afterContainer.style.opacity = '1';
+            } else {
+              beforeContainer.style.opacity = '1';
+              afterContainer.style.opacity = '0';
+            }
+          }
+        });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,70 @@
+---
+import Header from "../components/Header.astro";
+import HeroWithBooking from "../components/HeroWithBooking.astro";
+import MakeupServices from "../components/MakeupServices.astro";
+import BeforeAfterGallery from "../components/BeforeAfterGallery.astro";
+import EmpoweringWomen from "../components/EmpoweringWomen.astro";
+import NextGenHealth from "../components/NextGenHealth.astro";
+import Promotional from "../components/Promotional.astro";
+import Rating from "../components/rating.astro";
+import BrandLogos from "../components/BrandLogos.astro";
+import Locations from "../components/Locations.astro";
+import Testimonials from "../components/Testimonials.astro";
+import BookingForm from "../components/BookingForm.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Femina Plus - Expert Hair, Makeup & Nails. Your Hair | Makeup | Nails | Skin | Lashes"
+    />
+    <title>Femina Plus - Beauty & Wellness Center | Makeup</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      is:inline></script>
+  </head>
+  <body class="antialiased">
+    <Header />
+    <main>
+      <HeroWithBooking 
+        title="Expert Makeup Services"
+        subtitle="Professional Makeup | Bridal Makeup | Beauty Services"
+        backgroundImage="/makeup-bg.png"
+      />
+      <MakeupServices />
+      <BeforeAfterGallery 
+        title="Before & After Gallery"
+        subtitle="See the stunning transformations from our expert makeup artists"
+      />
+      <BookingForm />
+      
+      <Testimonials />
+      <InstagramFeed />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script
+  is:inline
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../js/Global.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,0 +1,290 @@
+---
+import { Image } from "astro:assets";
+import "../css/style.css";
+import arrow from "../../public/arrow-top-right.svg";
+
+interface MakeupPackage {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  duration: string;
+  features: string[];
+  popular?: boolean;
+}
+
+const makeupPackages: MakeupPackage[] = [
+  {
+    id: "bridal-makeup",
+    title: "Bridal Makeup",
+    description: "Complete bridal makeup package for your special day",
+    price: "₹15,000",
+    duration: "3-4 hours",
+    features: [
+      "Pre-wedding consultation",
+      "Trial session included",
+      "HD makeup application",
+      "Hair styling",
+      "Touch-up kit",
+      "Professional photographer coordination"
+    ],
+    popular: true
+  },
+  {
+    id: "party-makeup",
+    title: "Party Makeup",
+    description: "Glamorous makeup for parties and special events",
+    price: "₹3,500",
+    duration: "1.5 hours",
+    features: [
+      "Full face makeup",
+      "Contouring & highlighting",
+      "Eye makeup",
+      "Lip application",
+      "Setting spray"
+    ]
+  },
+  {
+    id: "engagement-makeup",
+    title: "Engagement Makeup",
+    description: "Elegant makeup for your engagement ceremony",
+    price: "₹5,000",
+    duration: "2 hours",
+    features: [
+      "Trial session",
+      "Full face makeup",
+      "Hair styling",
+      "Draping assistance",
+      "Touch-up kit"
+    ]
+  },
+  {
+    id: "photoshoot-makeup",
+    title: "Photoshoot Makeup",
+    description: "Professional makeup for photoshoots and events",
+    price: "₹4,500",
+    duration: "2 hours",
+    features: [
+      "HD/4K ready makeup",
+      "Color correction",
+      "Long-lasting finish",
+      "Multiple looks",
+      "Professional consultation"
+    ]
+  },
+  {
+    id: "day-makeup",
+    title: "Day Makeup",
+    description: "Natural and fresh makeup for daytime events",
+    price: "₹2,500",
+    duration: "1 hour",
+    features: [
+      "Natural look",
+      "Light foundation",
+      "Soft eye makeup",
+      "Nude lip",
+      "Quick application"
+    ]
+  },
+  {
+    id: "sangam-makeup",
+    title: "Sangam Makeup",
+    description: "Traditional makeup for cultural ceremonies",
+    price: "₹4,000",
+    duration: "2 hours",
+    features: [
+      "Traditional look",
+      "Heavy eye makeup",
+      "Bindi application",
+      "Hair styling",
+      "Traditional accessories"
+    ]
+  }
+];
+
+function openBookingModal(packageId: string, packageTitle: string) {
+  // Store selected package info for the booking form
+  if (typeof window !== 'undefined') {
+    sessionStorage.setItem('selectedPackage', packageId);
+    sessionStorage.setItem('selectedPackageTitle', packageTitle);
+    // Scroll to booking form or open modal
+    const bookingSection = document.getElementById('contact');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+      // Pre-fill service selection if possible
+      const serviceSelect = document.getElementById('feminaService') as HTMLSelectElement;
+      if (serviceSelect) {
+        serviceSelect.value = packageTitle;
+      }
+    }
+  }
+}
+---
+
+<section class="py-16 md:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        class="flex gap-[17px] items-center justify-center mb-6"
+      >
+        <div class="h-[10px] w-[33px] rounded-full bg-black"></div>
+        <p class="font-bold text-sm md:text-base">Our Services</p>
+      </div>
+      <h2
+        data-aos="fade-up"
+        data-aos-delay="400"
+        class="text-[40px] md:text-[54px] leading-[50px] md:leading-[64px] font-anticdidone text-black mb-4"
+      >
+        Makeup Packages & Services
+      </h2>
+      <p
+        data-aos="fade-up"
+        data-aos-delay="600"
+        class="text-lg md:text-xl text-gray-600 font-manrope max-w-2xl mx-auto"
+      >
+        Choose from our curated makeup packages designed for every occasion
+      </p>
+    </div>
+
+    <!-- Packages Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {makeupPackages.map((pkg, index) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={200 * (index + 1)}
+          class={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 ${
+            pkg.popular ? 'border-black md:scale-105' : 'border-gray-200'
+          }`}
+        >
+          {pkg.popular && (
+            <div class="absolute top-4 right-4 bg-black text-white px-4 py-1 rounded-full text-xs font-bold z-10">
+              Most Popular
+            </div>
+          )}
+          
+          <div class="p-6 md:p-8">
+            <div class="mb-4">
+              <h3 class="text-2xl md:text-3xl font-anticdidone text-black mb-2">
+                {pkg.title}
+              </h3>
+              <p class="text-gray-600 font-manrope text-sm md:text-base mb-4">
+                {pkg.description}
+              </p>
+            </div>
+
+            <div class="flex items-baseline gap-2 mb-4">
+              <span class="text-3xl md:text-4xl font-anticdidone text-black">
+                {pkg.price}
+              </span>
+              <span class="text-gray-500 text-sm">/ session</span>
+            </div>
+
+            <div class="flex items-center gap-2 mb-6 text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span class="text-sm font-manrope">{pkg.duration}</span>
+            </div>
+
+            <ul class="space-y-3 mb-6">
+              {pkg.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="h-5 w-5 text-black flex-shrink-0 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-sm md:text-base text-gray-700 font-manrope">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              data-package-id={pkg.id}
+              data-package-title={pkg.title}
+              class="book-package-btn w-full bg-transparent border-2 border-black rounded-full flex items-center justify-center gap-3 text-sm md:text-base text-black pl-6 pr-2 py-3 transition-all duration-300 hover:bg-black hover:text-white group"
+            >
+              Book Appointment
+              <span class="bg-black rounded-full py-2 px-4 group-hover:bg-white transition-all duration-300">
+                <Image
+                  class="w-fit"
+                  src={arrow}
+                  alt="Arrow icon"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const bookButtons = document.querySelectorAll('.book-package-btn');
+    
+    bookButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const packageId = this.getAttribute('data-package-id');
+        const packageTitle = this.getAttribute('data-package-title');
+        
+        // Store selected package info
+        if (typeof sessionStorage !== 'undefined') {
+          sessionStorage.setItem('selectedPackage', packageId);
+          sessionStorage.setItem('selectedPackageTitle', packageTitle);
+        }
+        
+        // Scroll to booking form
+        const bookingSection = document.getElementById('contact');
+        if (bookingSection) {
+          bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Pre-fill service selection after scroll
+          setTimeout(function() {
+            const serviceSelect = document.getElementById('feminaService');
+            if (serviceSelect) {
+              // Try to find matching option
+              const options = Array.from(serviceSelect.options);
+              const matchingOption = options.find(function(opt) {
+                const optText = opt.text.toLowerCase();
+                const pkgTitle = packageTitle.toLowerCase();
+                return optText.includes(pkgTitle) || pkgTitle.includes(optText);
+              });
+              
+              if (matchingOption) {
+                serviceSelect.value = matchingOption.value;
+                // Trigger change event to ensure any listeners are notified
+                serviceSelect.dispatchEvent(new Event('change'));
+              }
+            }
+          }, 500);
+        }
+      });
+    });
+  });
+</script>
