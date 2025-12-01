@@ -12,12 +12,12 @@ import empowringLogoSix from "../../public/empowering-logo-6.svg";
 
 const mainServices = [
   {
-    name: "Global Color",
+    name: "Hair Patch",
     icon: empowringLogoOne,
-    lengths: ["Short length", "Medium length", "Long length"],
+    lengths: ["Shoulder length", "Medium Length", "Long Length"],
   },
   {
-    name: "Highlights Single Color",
+    name: "Makeup",
     icon: empowringLogoTwo,
     lengths: ["Short length", "Medium length", "Long length"],
   },
@@ -27,7 +27,7 @@ const services = [
   {
     name: "Kera Smothening",
     icon: empowringLogoThree,
-    lengths: ["Short length", "Medium length", "Long length"],
+    lengths: ["Shoulder length", "Medium Length", "Long Length"],
   },
   {
     name: "Botox",
@@ -96,68 +96,70 @@ const marqueText = [
     </div>
 
     <!-- Service cards -->
-    <div
-      class="flex space-y-7 flex-wrap lg:flex-nowrap md:space-y-0 gap-6 lg:gap-4 mb-12"
-    >
-      {
-        mainServices.map((service, index) => (
-          <div
-            data-aos={index % 2 === 0 ? "flip-right" : "flip-left"}
-            data-aos-delay="400"
-            class="bg-[#F6F6F6] group hover:bg-black group-hover:bg-black group-hover:border-none
-        relative border-[#D3D3D3] border w-full p-3 cursor-pointer transition-colors duration-300
-        flex flex-col after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-[12px] lg:after:-bottom-[15px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-          >
-            <div class="flex gap-[10px] w-fit transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  rounded-full mb-6 p-[10px] group-hover:border-none border-[#D9D9D9] border bg-white">
-              <Image src={demandingIcon} alt={`${demandingIcon}`} />
-              <p class="text-[12px] font-manrope font-bold">Best Demanding</p>
-            </div>
-            <div class="px-[29px] flex lg:mb-9 gap-[78px] items-center min-h-[210px] justify-center flex-wrap md:flex-nowrap md:justify-center lg:justify-normal">
-              <div class="relative rounded-full min-w-[135px] w-[135px] bg-white group-hover:bg-[#363636] h-[183px]">
-                <Image
-                  class="absolute -right-[7px] top-6"
-                  src={service.icon}
-                  alt={`${service.icon}`}
-                />
+     <div class="px-[16px] py-[24px] flex flex-col gap-[24px] border-[#D3D3D3] border mb-12 bg-white">
+      <div class="flex gap-[10px] w-fit transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  rounded-full p-[10px] group-hover:border-none border-[#D9D9D9] border bg-white">
+        <Image src={demandingIcon} alt={`${demandingIcon}`} />
+        <p class="text-[12px] font-manrope font-bold">Best Demanding</p>
+      </div>
+      <div
+        class="flex space-y-7 flex-wrap lg:flex-nowrap md:space-y-0 gap-6 lg:gap-4"
+        >
+        {
+          mainServices.map((service, index) => (
+            <div
+              data-aos={index % 2 === 0 ? "flip-right" : "flip-left"}
+              data-aos-delay="400"
+              class="bg-[#F6F6F6] group hover:bg-black group-hover:bg-black group-hover:border-none
+          relative border-[#D3D3D3] border w-full p-3 cursor-pointer transition-colors duration-300
+          flex flex-col after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-[12px] lg:after:-bottom-[15px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
+            >
+              <div class="px-[29px] flex lg:mb-9 gap-[78px] items-center min-h-[210px] justify-center flex-wrap md:flex-nowrap md:justify-center lg:justify-normal">
+                <div class="relative rounded-full min-w-[135px] w-[135px] bg-white group-hover:bg-[#363636] h-[183px]">
+                  <Image
+                    class="absolute -right-[7px] top-6"
+                    src={service.icon}
+                    alt={`${service.icon}`}
+                  />
+                </div>
+                <div>
+                  <p class="font-bold text-[32px] min-h-[50px] font-manrope mb-[26px] group-hover:text-white">
+                    {service.name}{" "}
+                  </p>
+                  <ul class="text-[18px] font-manrope group-hover:marker:text-white group-hover:text-white pl-5 list-disc font-medium">
+                    {service.lengths.map((length) => (
+                      <li>{length}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div>
-                <p class="font-bold text-[32px] min-h-[50px] font-manrope mb-9 group-hover:text-white">
-                  {service.name}{" "}
-                </p>
-                <ul class="text-[18px] font-manrope group-hover:marker:text-white group-hover:text-white pl-5 list-disc font-medium">
-                  {service.lengths.map((length) => (
-                    <li>{length}</li>
-                  ))}
-                </ul>
+              <div class="flex absolute md:relative lg:aboslute md:justify-end lg:justify-end md:mt-4 right-5 bottom-4 md:right-1 md:bottom-1 w-full justify-end">
+                <div class="border-[#D9D9D9] transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  bg-white group-hover:bg-black w-fit py-[13px] px-[27px] rounded-full border">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21px"
+                    height="21px"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    class="group-hover:stroke-white"
+                    aria-labelledby="arrowRightTopIconTitle"
+                    stroke="#000000"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                    color="#000000"
+                  >
+                    <title id="arrowRightTopIconTitle">Arrow Right Top</title>
+                    <path d="M19 13V5h-8" />
+                    <path stroke-linecap="round" d="M19 5l-1 1" />
+                    <path d="M18 6L5 19" />
+                  </svg>
+                </div>
               </div>
             </div>
-            <div class="flex absolute md:relative lg:aboslute md:justify-end lg:justify-end md:mt-4 right-5 bottom-4 md:right-1 md:bottom-1 w-full justify-end">
-              <div class="border-[#D9D9D9] transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  bg-white group-hover:bg-black w-fit py-[13px] px-[27px] rounded-full border">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="21px"
-                  height="21px"
-                  viewBox="0 0 24 24"
-                  role="img"
-                  class="group-hover:stroke-white"
-                  aria-labelledby="arrowRightTopIconTitle"
-                  stroke="#000000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                  color="#000000"
-                >
-                  <title id="arrowRightTopIconTitle">Arrow Right Top</title>
-                  <path d="M19 13V5h-8" />
-                  <path stroke-linecap="round" d="M19 5l-1 1" />
-                  <path d="M18 6L5 19" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
 
     <div class="service-slider">
@@ -165,7 +167,7 @@ const marqueText = [
         services.map((service) => (
           <div
             data-aos="zoom-in"
-            class="border relative group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+            class="border relative  group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
           >
             <div class="w-full text-center flex justify-center">
               <div
@@ -180,8 +182,8 @@ const marqueText = [
               </div>
             </div>
 
-            <div class="w-fit lg:w-[250px] lg:m-auto flex gap-[27px] flex-col min-h-[160px]">
-              <p class="font-bold text-[32px] group-hover:text-white leading-[34px] md:text-[20px] lg:text-[20px] font-manrope md:min-h-[70px] lg:min-h-0">
+            <div class="w-fit lg:w-[250px] lg:m-auto flex gap-[27px] flex-col min-h-[160px] mt-[6px]">
+              <p class="font-bold text-[32px] group-hover:text-white leading-[100%] md:text-[20px] lg:text-[34px] font-manrope min-h[70px]">
                 {service.name}
               </p>
               <ul class="marker:text-blackl pl-4 md:text-[12px] lg:text-[16px] group-hover:text-white group-hover:marker:text-white list-disc">
@@ -247,6 +249,7 @@ const marqueText = [
     autoplaySpeed: 3000,
     centerPadding: "60px",
     slidesToShow: 4,
+    infinite: false,
     responsive: [
       {
         breakpoint: 1110,

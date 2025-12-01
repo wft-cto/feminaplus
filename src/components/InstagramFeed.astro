@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import userOne from "../../public/instagram-user-1.svg";
-import userTwo from "../../public/instagram-user-2.svg";
-import userThree from "../../public/instagram-user-3.svg";
-import userFour from "../../public/instagram-user-4.png";
+import userOne from "../../public/insta_image_first.jpg";
+import userTwo from "../../public/insta_image_second.jpg";
+import userThree from "../../public/insta_image_third.jpg";
+import userFour from "../../public/insta_image_forth.jpg";
+import userFive from "../../public/insta_image_fifth.jpg";
 import instagram from "../../public/instagram.svg";
 import Logo from "../../public/femina-logo.svg";
 
@@ -13,36 +14,36 @@ import Logo from "../../public/femina-logo.svg";
 const instagramPosts = [
   {
     id: "1",
-    media_url: userTwo,
-    permalink: "https://instagram.com/p/example1",
+    media_url: userOne,
+    permalink: "https://www.instagram.com/p/DO1C_ovEgL6/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "2",
-    media_url: userThree,
-    permalink: "https://instagram.com/p/example2",
+    media_url: userTwo,
+    permalink: "https://www.instagram.com/p/DRPQRC_kt2_/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "3",
-    media_url: userOne,
-    permalink: "https://instagram.com/p/example3",
+    media_url: userThree,
+    permalink: "https://www.instagram.com/reel/DQbvCYZDAii/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "4",
-    media_url: userTwo,
-    permalink: "https://instagram.com/p/example4",
+    media_url: userFour,
+    permalink: "https://www.instagram.com/reel/DQN8Gw7khXb/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "5",
-    media_url: userOne,
-    permalink: "https://instagram.com/p/example5",
+    media_url: userFive,
+    permalink: "https://www.instagram.com/reel/DRJ8_VFkl_x/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
@@ -93,6 +94,7 @@ async function fetchInstagramPosts() {
     >
       {
         instagramPosts.map((posts) => (
+          <a href={posts.permalink} target="_blank" rel="noopener noreferrer">
           <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
             <Image
               class="w-full"
@@ -139,6 +141,7 @@ async function fetchInstagramPosts() {
               </div>
             </div>
           </div>
+          </a>
         ))
       }
     </div>
