@@ -545,3 +545,20 @@
 .wraper #left-side ul li:hover:after {
   right: 0;
 }
+.service-slider .slick-arrow {
+  top: 50%;
+  left: -30px;
+  width: fit-content;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: 1px solid #D9D9D9;
+}
+
+.service-slider .slick-next.slick-arrow {
+  left: auto;
+  right: -30px;
+}
+
+.service-slider .slick-arrow.slick-disabled {
+    display: none !important;
+}

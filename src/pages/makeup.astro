@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import HeroWithBooking from "../components/HeroWithBooking.astro";
 import MakeupServices from "../components/MakeupServices.astro";
+import MakeUp from "../components/MakeUp.astro";
 import BeforeAfterGallery from "../components/BeforeAfterGallery.astro";
 import EmpoweringWomen from "../components/EmpoweringWomen.astro";
 import NextGenHealth from "../components/NextGenHealth.astro";
@@ -49,14 +50,15 @@ import Footer from "../components/Footer.astro";
         backgroundImage="/makeup-bg.png"
       />
       <MakeupServices />
-      <BeforeAfterGallery 
-        title="Before & After Gallery"
+      <MakeUp
+        title="Makeup Gallery"
         subtitle="See the stunning transformations from our expert makeup artists"
       />
       <BookingForm />
       
       <Testimonials />
       <InstagramFeed />
+        <Locations />
     </main>
     <Footer />
   </body>
