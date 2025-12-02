@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import "../css/style.css";
 
 interface BeforeAfterImage {
@@ -17,43 +16,37 @@ interface Props {
 }
 
 const {
-  title = "Before & After Gallery",
+  title = "Makeup Gallery",
   subtitle = "See the stunning transformations from our expert makeup artists",
   images = [
     {
       id: "1",
      beforeImage: "/bridal_image.jpeg",
-     afterImage: "/bridal_image.jpeg",
       service: "Bridal Makeup",
     },
     {
       id: "2",
       beforeImage: "/bridal_image_second.jpeg",
-      afterImage: "/bridal_image_second.jpeg",
       service: "Party Makeup",
     },
     {
       id: "3",
        beforeImage: "/bridal_image_third.jpeg",
-       afterImage: "/bridal_image_third.jpeg",
       service: "Engagement Makeup",
     },
     {
       id: "4",
        beforeImage: "/bridal_image_forth.jpeg",
-       afterImage: "/bridal_image_forth.jpeg",
       service: "Photoshoot Makeup",
     },
     {
       id: "5",
        beforeImage: "/bridal_image_fifth.jpeg",
-       afterImage: "/bridal_image_fifth.jpeg",
       service: "Day Makeup",
     },
     {
       id: "6",
      beforeImage: "/femina_image_sixth.avif",
-    afterImage: "/femina_image_sixth.avif",
       service: "Sangam Makeup",
     }
   ]
@@ -95,8 +88,8 @@ const beforeAfterImages = images;
       {beforeAfterImages.map((item, index) => (
         <div
           data-aos="fade-up"
-          data-aos-delay={200 * (index + 1)}
-          class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+          data-aos-delay={100 * (index + 1)}
+          class="relative group overflow-hidden rounded-2xl shadow-lg"
         >
           <!-- Before/After Container -->
           <div class="relative aspect-[3/4] overflow-hidden">
@@ -105,47 +98,11 @@ const beforeAfterImages = images;
               <img
                 src={item.beforeImage}
                 alt={`Before - ${item.service}`}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover"
               />
-              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                <span class="text-white font-bold text-xl md:text-2xl font-anticdidone uppercase tracking-wider">
-                  Before
-                </span>
-              </div>
             </div>
-
-            <!-- After Image (revealed on hover) -->
-            <div class="after-image-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <img
-                src={item.afterImage}
-                alt={`After - ${item.service}`}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-4">
-                <span class="text-white font-bold text-xl md:text-2xl font-anticdidone uppercase tracking-wider">
-                  After
-                </span>
-              </div>
-            </div>
-
             <!-- Slider Handle (for mobile/interactive) -->
             <div class="slider-handle absolute top-0 left-0 w-full h-full cursor-ew-resize opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg z-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-black"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                  />
-                </svg>
-              </div>
             </div>
           </div>
 
@@ -154,11 +111,6 @@ const beforeAfterImages = images;
             <p class="text-white font-bold text-lg md:text-xl font-anticdidone mb-1">
               {item.service}
             </p>
-            {/* {item.clientName && (
-              <p class="text-white/80 text-sm md:text-base font-manrope">
-                {item.clientName}
-              </p>
-            )} */}
           </div>
         </div>
       ))}
@@ -167,23 +119,7 @@ const beforeAfterImages = images;
   </div>
 </section>
 
-<style>
-  .before-after-gallery .before-image-container,
-  .before-after-gallery .after-image-container {
-    transition: all 0.5s ease-in-out;
-  }
 
-  .before-after-gallery .group:hover .before-image-container {
-    opacity: 0;
-  }
-
-  /* Mobile touch interaction */
-  @media (max-width: 768px) {
-    .before-after-gallery .group:active .before-image-container {
-      opacity: 0;
-    }
-  }
-</style>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
