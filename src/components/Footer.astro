@@ -30,6 +30,12 @@ const locations = [
     phone: "0172-4025050",
     whatsapp: "+91 9815962884",
   },
+  {
+    name: "FP ZIRAKPUR",
+    address: "Pooja Plazio above Gopal Sweets, Zirakpur",
+    phone: "",
+    whatsapp: "9872234488",
+  },
 ];
 
 const marqueText = [
@@ -53,7 +59,7 @@ const marqueText = [
     >
       <!-- Top section -->
 
-      <div>
+      <div class="flex flex-col">
         <div class="mb-4 text-center">
           <a href="/" class="inline-block">
             <Image
@@ -69,6 +75,48 @@ const marqueText = [
         >
           hair | Beauty | Makeup | Hair wigs | Extensions
         </p>
+
+        <!-- Quick Services Links -->
+        <nav class="mb-6 mt-4" aria-label="Quick services">
+          <ul class="flex flex-wrap justify-center gap-3 md:gap-4 text-sm">
+            <li>
+              <a
+                href="/makeup"
+                class="text-gray-300 hover:text-white transition-colors"
+                >Makeup</a
+              >
+            </li>
+            <li>
+              <a
+                href="/hair-patch-wigs"
+                class="text-gray-300 hover:text-white transition-colors"
+                >Hair Patches</a
+              >
+            </li>
+            <li>
+              <a
+                href="/services/hair-spa"
+                class="text-gray-300 hover:text-white transition-colors"
+                >Hair SPA</a
+              >
+            </li>
+            <li>
+              <a
+                href="/services/facials"
+                class="text-gray-300 hover:text-white transition-colors"
+                >Facials</a
+              >
+            </li>
+            <li>
+              <a
+                href="/services"
+                class="text-gray-300 hover:text-white transition-colors"
+                >More Services</a
+              >
+            </li>
+          </ul>
+        </nav>
+
         <div class="flex relative gap-4 items-center justify-center my-[20px]">
           <a
             href="#"
@@ -158,10 +206,10 @@ const marqueText = [
 
       <!-- Locations grid -->
       <div class="flex flex-col">
-        <p class="font-manrope text-[22px] font-bold pb-[60px] text-white">
+        <p class="font-manrope text-[22px] font-bold pb-6 text-white">
           Get in Touch
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {
             locations.map((location) => (
               <div class="flex items-center justify-start  gap-[24px]">
@@ -189,7 +237,23 @@ const marqueText = [
                   <h3 class="font-semibold text-white mb-1">{location.name}</h3>
                   <p class="text-sm text-gray-300 mb-1">{location.address}</p>
                   <p class="text-sm text-gray-300">
-                    {location.phone}, {location.whatsapp}
+                    {location.phone && (
+                      <a
+                        href={`tel:${location.phone.replace(/\s+/g, "")}`}
+                        class="hover:underline"
+                      >
+                        {location.phone}
+                      </a>
+                    )}
+                    {location.phone && location.whatsapp && <span>, </span>}
+                    {location.whatsapp && (
+                      <a
+                        href={`tel:${location.whatsapp.replace(/\s+/g, "").replace("+", "")}`}
+                        class="hover:underline"
+                      >
+                        {location.whatsapp}
+                      </a>
+                    )}
                   </p>
                 </div>
               </div>
@@ -200,37 +264,248 @@ const marqueText = [
     </div>
     <!-- Bottom section -->
   </div>
-  <div class="grid grid-cols-2 max-w-7xl mx-auto px-[46px] pb-[48px]">
-    <div class="flex flex-col gap-[24px]">
-      <div class="font-manrope font-semibold text-[22px]">Ladies</div>
-      <ul class="flex flex-col gap-[2px]">
-        <li><a href="#" class="text-white">Hair Cut / Hair Styling</a></li>
-        <li><a href="#" class="text-white">Hair SPA</a></li>
-        <li><a href="#" class="text-white">Hair Color</a></li>
-        <li><a href="#" class="text-white">Hair Botox</a></li>
-        <li><a href="#" class="text-white">Nano Plastia</a></li>
-        <li><a href="#" class="text-white">Facials</a></li>
-        <li><a href="#" class="text-white">Pedicure</a></li>
-        <li><a href="#" class="text-white">Manicure</a></li>
-        <li><a href="#" class="text-white">Waxing</a></li>
-        <li><a href="#" class="text-white">Body Services</a></li>
-        <li><a href="#" class="text-white">Party Makeup</a></li>
-        <li><a href="#" class="text-white">Bridal Makeup</a></li>
-        <li><a href="#" class="text-white">Hair Extensions</a></li>
-        <li><a href="#" class="text-white">Nail Extensions</a></li>
-        <li><a href="#" class="text-white">Others</a></li>
-      </ul>
-    </div>
-    <div class="flex flex-col gap-[24px]">
-      <div class="font-manrope font-semibold text-[22px]">Gents</div>
-      <ul class="flex flex-col gap-[2px]">
-        <li><a href="#" class="text-white">Hair Cut </a></li>
-        <li><a href="#" class="text-white">Beard Trim</a></li>
-        <li><a href="#" class="text-white">Hair Patch</a></li>
-        <li><a href="#" class="text-white">Head Massage</a></li>
-        <li><a href="#" class="text-white">Other’s</a></li>
-      </ul>
-    </div>
+  <!-- Services Grid - Scattered Layout -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[46px] pb-8 md:pb-12">
+    <nav
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8"
+      aria-label="Services navigation"
+    >
+      <!-- Hair Services Column -->
+      <section aria-labelledby="hair-services-heading">
+        <h2
+          id="hair-services-heading"
+          class="font-manrope font-semibold text-lg md:text-xl text-white mb-3 md:mb-4"
+        >
+          Hair Services
+        </h2>
+        <ul class="flex flex-col gap-2" role="list">
+          <li role="listitem">
+            <a
+              href="/services/hair-cut"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Cut / Styling
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/hair-spa"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair SPA
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/hair-color"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Color
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/hair-botox"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Botox
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/hair-patch-wigs"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Extensions
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/nano-plastia"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Nano Plastia
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Beauty Services Column -->
+      <section aria-labelledby="beauty-services-heading">
+        <h2
+          id="beauty-services-heading"
+          class="font-manrope font-semibold text-lg md:text-xl text-white mb-3 md:mb-4"
+        >
+          Beauty Services
+        </h2>
+        <ul class="flex flex-col gap-2" role="list">
+          <li role="listitem">
+            <a
+              href="/services/facials"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Facials
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/waxing"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Waxing
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/body-services"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Body Services
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Makeup Services Column -->
+      <section aria-labelledby="makeup-services-heading">
+        <h2
+          id="makeup-services-heading"
+          class="font-manrope font-semibold text-lg md:text-xl text-white mb-3 md:mb-4"
+        >
+          Makeup Services
+        </h2>
+        <ul class="flex flex-col gap-2" role="list">
+          <li role="listitem">
+            <a
+              href="/makeup"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Destination Makeup Services
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/makeup"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Party Makeup
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/makeup"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Bridal Makeup
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/makeup"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Engagement Makeup
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/makeup"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Celebrity Makeup
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Nail Services Column -->
+      <section aria-labelledby="nail-services-heading">
+        <h2
+          id="nail-services-heading"
+          class="font-manrope font-semibold text-lg md:text-xl text-white mb-3 md:mb-4"
+        >
+          Nail Services
+        </h2>
+        <ul class="flex flex-col gap-2" role="list">
+          <li role="listitem">
+            <a
+              href="/services/manicure"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Manicure
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/pedicure"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Pedicure
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/nail-extensions"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Nail Extensions
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Gents Services Column -->
+      <section aria-labelledby="gents-services-heading">
+        <h2
+          id="gents-services-heading"
+          class="font-manrope font-semibold text-lg md:text-xl text-white mb-3 md:mb-4"
+        >
+          Hair Patch & Hair Wigs
+        </h2>
+        <ul class="flex flex-col gap-2" role="list">
+          <li role="listitem">
+            <a
+              href="/services/hair-cut"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              New Hair Patch Installation
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/beard-trim"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Patch Re-tightening & Maintenance
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/hair-patch-wigs"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Lace Front Hair Wigs
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services/head-massage"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Hair Toppers for Ladies
+            </a>
+          </li>
+          <li role="listitem">
+            <a
+              href="/services"
+              class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope"
+            >
+              Female Full Wigs Installation
+            </a>
+          </li>
+        </ul>
+      </section>
+    </nav>
   </div>
   <div class="border-t border-[#d3d3d359] pt-8">
     <div

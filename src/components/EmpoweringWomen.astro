@@ -14,45 +14,93 @@ const mainServices = [
   {
     name: "Hair Patch",
     icon: empowringLogoOne,
-    lengths: ["Shoulder length", "Medium Length", "Long Length"],
+    details: [
+      "New Hair Patch Installation",
+      "Hair patch Re-tightening & Maintenance",
+      "Lace Front Hair Wigs",
+      "Full ladies hair Wig Installation",
+      "Hair Toppers for Ladies",
+      "Customized Hair Wigs",
+    ],
   },
   {
     name: "Makeup",
     icon: empowringLogoTwo,
-    lengths: ["Short length", "Medium length", "Long length"],
+    details: [
+      "Bridal Make Up",
+      "Party Make Up",
+      "Engagement Make Up",
+      "Photoshoot Make Up",
+      "Pre-wedding Make Up",
+      "Celebrity Make up",
+    ],
+  },
+  {
+    name: "Hair Color",
+    icon: empowringLogoTwo,
+    details: [
+      "Global Hair Color",
+      "Highlights & hair streaks",
+      "Balayage & ombre",
+      "Baby-lights",
+      "Color correction",
+      "Color retouch/root touch up",
+      "Color maintenance",
+      "Olaplex treatment",
+    ],
   },
 ];
 
 const services = [
   {
-    name: "Kera Smothening",
+    name: "Kera Smoothing",
     icon: empowringLogoThree,
-    lengths: ["Shoulder length", "Medium Length", "Long Length"],
+    details: [
+      "80-90% straight hair results",
+      "Smooths frizzy hair",
+      "Long-lasting results",
+      "Feel wow while touching your hair",
+      "Reduces hair styling time",
+      "Adds shine & smoothness",
+    ],
   },
   {
-    name: "Botox",
+    name: "Hair Botox",
     icon: empowringLogoFour,
-    lengths: ["Short length", "Medium length", "Long length"],
+    details: [
+      "50-70% straight hair results",
+      "Works on chemically treated damaged hair",
+      "Reduces frizziness & breakage",
+      "Feel wow while touching your hair",
+      "Adds elasticity",
+      "No formaldehyde or harmful chemicals",
+      "Restores hair health & strength",
+    ],
   },
   {
-    name: "Keratin",
+    name: "Keratin Treatment",
     icon: empowringLogoFive,
-    lengths: ["Short length", "Medium length", "Long length"],
+    details: [
+      "30-50% straight hair results",
+      "Improves hair texture",
+      "Feel wow while touching your hair",
+      "Eliminates frizziness",
+      "Makes hair manageable",
+      "Lasts 3-4 months",
+      "Adds natural shine",
+    ],
   },
   {
     name: "Nano Plastia",
     icon: empowringLogoSix,
-    lengths: ["Short length", "Medium length", "Long length"],
-  },
-  {
-    name: "Botox",
-    icon: empowringLogoFour,
-    lengths: ["Short length", "Medium length", "Long length"],
-  },
-  {
-    name: "Nano Plastia",
-    icon: empowringLogoSix,
-    lengths: ["Short length", "Medium length", "Long length"],
+    details: [
+      "50-70% straight hair results",
+      "The most advanced hair treatment at present",
+      "Repairs, straightens & strengthens your chemically treated hair",
+      "Feel wow while touching your hair",
+      "Reduces hair fall",
+      "Long-lasting results",
+    ],
   },
 ];
 
@@ -85,25 +133,29 @@ const marqueText = [
           <p>Our featured services</p>
         </div>
         <h2 class="text-5xl md:text-[54px] font-anticdidone text-black mb-6">
-          Empowering Women's Health
+          Where Transformation Begins..
         </h2>
       </div>
       <div data-aos="fade-left" class="flex items-center col-span-3">
         <p class="text-[18px] font-manrope text-black">
-          Get ready in minutes, glow all day — beauty made effortless.
+          Glow all day — beauty made effortless.
         </p>
       </div>
     </div>
 
     <!-- Service cards -->
-     <div class="px-[16px] py-[24px] flex flex-col gap-[24px] border-[#D3D3D3] border mb-12 bg-white">
-      <div class="flex gap-[10px] w-fit transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  rounded-full p-[10px] group-hover:border-none border-[#D9D9D9] border bg-white">
+    <div
+      class="px-[16px] py-[24px] flex flex-col gap-[24px] border-[#D3D3D3] border mb-12 bg-white"
+    >
+      <div
+        class="flex gap-[10px] w-fit transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white] rounded-full p-[10px] group-hover:border-none border-[#D9D9D9] border bg-white"
+      >
         <Image src={demandingIcon} alt={`${demandingIcon}`} />
         <p class="text-[12px] font-manrope font-bold">Best Demanding</p>
       </div>
       <div
         class="flex space-y-7 flex-wrap lg:flex-nowrap md:space-y-0 gap-6 lg:gap-4"
-        >
+      >
         {
           mainServices.map((service, index) => (
             <div
@@ -126,8 +178,8 @@ const marqueText = [
                     {service.name}{" "}
                   </p>
                   <ul class="text-[18px] font-manrope group-hover:marker:text-white group-hover:text-white pl-5 list-disc font-medium">
-                    {service.lengths.map((length) => (
-                      <li>{length}</li>
+                    {service.details.map((detail) => (
+                      <li>{detail}</li>
                     ))}
                   </ul>
                 </div>
@@ -187,8 +239,8 @@ const marqueText = [
                 {service.name}
               </p>
               <ul class="marker:text-blackl pl-4 md:text-[12px] lg:text-[16px] group-hover:text-white group-hover:marker:text-white list-disc">
-                {service.lengths.map((length) => (
-                  <li>{length}</li>
+                {service.details.map((detail) => (
+                  <li>{detail}</li>
                 ))}
               </ul>
             </div>
