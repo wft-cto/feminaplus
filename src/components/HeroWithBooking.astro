@@ -1,23 +1,13 @@
 ---
-import { Image } from "astro:assets";
 import "../css/style.css";
-import arrow from "../../public/arrow-top-right.svg";
-
-const services = [
-  "Hair Cut",
-  "Makeup",
-  "Beauty",
-  "Hair  Patch/Wigs",
-  "Hair Extension",
-  "Nail extension",
-  "Bridal Makeup",
-];
 
 interface Props {
   title?: string;
   subtitle?: string;
   backgroundImage?: string;
   videoBackground?: string;
+  whatsappNumber?: string;
+  filterSalons?: string[];
 }
 
 const {
@@ -25,7 +15,42 @@ const {
   subtitle = "hair | Beauty | Makeup | Hair wigs | Extensions",
   backgroundImage = "/hero-section-image.jpg",
   videoBackground,
+  whatsappNumber = "8725055006",
+  filterSalons,
 } = Astro.props;
+
+const allSalons = [
+  {
+    value: "fp44",
+    name: "FP44 SCO 268, SECTOR 44-C, Chandigarh",
+    whatsapp: "8725055006"
+  },
+  {
+    value: "fp-luxe",
+    name: "FP LUXE SCO 164-165, SECTOR 9-C, Chandigar",
+    whatsapp: "7973268966"
+  },
+  {
+    value: "fp-kharar",
+    name: "FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
+    whatsapp: "9815931884"
+  },
+  {
+    value: "fp-pkl",
+    name: "SCO 386, SECTOR 8, Panchkula",
+    whatsapp: "9815962884"
+  },
+  {
+    value: "fp-zirakpur",
+    name: "Pooja Plazio above Gopal Sweets, Zirakpur",
+    whatsapp: "9872234488"
+  }
+];
+
+// Filter salons if filterSalons prop is provided
+const salons = filterSalons 
+  ? allSalons.filter(salon => filterSalons.includes(salon.value))
+  : allSalons;
 ---
 
 <section
@@ -103,132 +128,48 @@ const {
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-anticdidone text-black mb-6 text-center"
         >
-          Schedule your salon session
+          Book Your Appointment
         </h2>
-        <form class="space-y-4 md:space-y-5">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex flex-col gap-2">
-              <label
-                for="firstName"
-                class="block text-sm font-medium text-gray-700"
-                >First Name*</label
-              >
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="Enter Name"
-                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label
-                for="lastName"
-                class="block text-sm font-medium text-gray-700"
-                >Last Name*</label
-              >
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Enter Name"
-                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex flex-col gap-2">
-              <label for="salon" class="block text-sm font-medium text-gray-700"
-                >Select Salon*</label
-              >
-              <select
-                name="salon"
-                id="feminaSalon"
-                class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                required
-              >
-                <option selected>Select Salon</option>
-                <option value="salonOne"
-                  >FP44 SCO 268, SECTOR 44-C, Chandigarh
-                </option>
-                <option value="salonTwo">
-                  FP LUXE SCO 164-165, SECTOR 9-C, Chandigar
-                </option>
-                <option value="salonThree"
-                  >FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE
-                </option>
-                <option value="salonFour">SCO 386, SECTOR 8, Panchkula</option>
-                <option value="salonFive"
-                  >Pooja Plazio above Gopal Sweets, Zirakpur
-                </option>
-              </select>
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="service" class="block text-sm font-medium text-gray-700"
-                >Select Service*</label
-              >
-              <select
-                name="service"
-                id="feminaService"
-                required
-                class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-              >
-                <option selected>Select Services</option>
-                {services.map((service) => (
-                  <option value={service}>{service}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <div class="flex flex-col gap-2">
-              <label for="phone" class="block text-sm font-medium text-gray-700"
-                >Phone Number*</label
-              >
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Phone Number"
-                class="w-full px-4 border py-3 rounded-lg border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                required
-              />
-            </div>
-          </div>
-
+        <div class="space-y-6">
           <div class="flex flex-col gap-2">
-            <label for="appointment" class="block text-sm font-medium text-gray-700"
-              >Appointment Date & Time*</label
+            <label for="salon" class="block text-sm md:text-base font-medium text-gray-700"
+              >Select Salon*</label
             >
-            <input
-              id="appointment"
-              name="appointment"
-              class="border border-gray-300 py-3 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-              type="datetime-local"
+            <select
+              name="salon"
+              id="heroSalonSelect"
+              class="border border-gray-300 py-4 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-base"
               required
-            />
+              data-default-whatsapp={whatsappNumber}
+            >
+              <option value="" selected disabled>Select Salon</option>
+              {salons.map((salon) => (
+                <option value={salon.value} data-whatsapp={salon.whatsapp}>
+                  {salon.name}
+                </option>
+              ))}
+            </select>
           </div>
 
-          <div class="w-full flex justify-center pt-2">
-            <button
-              class="bg-black rounded-full flex items-center gap-3 text-sm md:text-base text-white pl-6 pr-2 py-3 transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]"
-              type="submit"
+          <a
+            id="whatsappBookingBtn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center gap-3 text-base md:text-lg font-manrope font-semibold py-4 px-6 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            onclick="return handleWhatsAppBooking(event)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
             >
-              Book Appointment
-              <Image
-                class="bg-white w-fit rounded-full py-2 px-4"
-                src={arrow}
-                alt="Arrow icon"
-              />
-            </button>
-          </div>
-        </form>
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Book Appointment on WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -286,3 +227,45 @@ const {
     display: block;
   }
 </style>
+
+<script is:inline>
+  function handleWhatsAppBooking(event) {
+    event.preventDefault();
+    const salonSelect = document.getElementById('heroSalonSelect');
+    const whatsappBtn = document.getElementById('whatsappBookingBtn');
+    
+    if (!salonSelect || salonSelect.value === '' || salonSelect.value === null) {
+      alert('Please select a salon first');
+      salonSelect.focus();
+      return false;
+    }
+    
+    const selectedOption = salonSelect.options[salonSelect.selectedIndex];
+    const salonName = selectedOption.text;
+    const defaultWhatsApp = salonSelect.getAttribute('data-default-whatsapp') || '8725055006';
+    const salonWhatsApp = selectedOption.getAttribute('data-whatsapp') || defaultWhatsApp;
+    
+    const message = `Hi, I would like to book an appointment at ${salonName}.`;
+    const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+    
+    return false;
+  }
+  
+  // Update button state based on salon selection
+  document.addEventListener('DOMContentLoaded', function() {
+    const salonSelect = document.getElementById('heroSalonSelect');
+    const whatsappBtn = document.getElementById('whatsappBookingBtn');
+    
+    if (salonSelect && whatsappBtn) {
+      salonSelect.addEventListener('change', function() {
+        if (this.value && this.value !== '') {
+          whatsappBtn.classList.remove('disabled:opacity-50', 'disabled:cursor-not-allowed');
+        } else {
+          whatsappBtn.classList.add('disabled:opacity-50', 'disabled:cursor-not-allowed');
+        }
+      });
+    }
+  });
+</script>
