@@ -1,35 +1,54 @@
 ---
 import curve from "../../public/our-customers-shape.png";
-import customerThree from "../../public/customer-1.png";
-import customerOne from "../../public/customer-2.png";
-import customerTwo from "../../public/customer-3.png";
-import customerOneVideo from "../../public/videos/testimonial_image_first.mp4";
+import customerFifth from ".../../public/testimonial/testimonial_image_fifth.jpeg";
+import customerForth from ".../../public/testimonial/testimonial_image_forth.jpeg";
+import customerThree from ".../../public/testimonial/testimonial_image_third.jpeg";
+import customerOne from "../../public/testimonial/testimonial_image_first.png";
+import customerTwo from "../../public/testimonial/testimonial_image_second.jpeg";
+import customerOneVideo from "../../public/videos/testimonial_video_first.mp4";
+import customerTwoVideo from "../../public/videos/testimonial_video_second.mp4";
+import customerThirdVideo from "../../public/videos/testimonial_video_third.mp4";
+import customerForthVideo from "../../public/videos/testimonial_video_forth.mp4";
+import customerFifthVideo from "../../public/videos/testimonial_video_fifth.mp4";
+import customerSixthVideo from "../../public/videos/testimonial_video_sixth.mp4";
 
 import four from "../../public/slider-image-four.png";
 
 const solutions = [
   {
     name: "Sheela devi",
-    image: customerOne,
-    Video: customerOneVideo,
-    description: "wedding dressing, Mackup",
-  },
-  {
-    name: "Kareena kapoor",
-    image: customerThree,
-    Video: customerOneVideo,
-    description: "wedding dressing, Mackup",
-  },
-  {
-    name: "Jasmeet kaur",
     image: customerTwo,
     Video: customerOneVideo,
     description: "wedding dressing, Mackup",
   },
   {
     name: "Kareena kapoor",
+    image: customerOne,
+    Video: customerTwoVideo,
+    description: "wedding dressing, Mackup",
+  },
+  {
+    name: "Jasmeet kaur",
     image: customerThree,
-    Video: customerOneVideo,
+    Video: customerThirdVideo,
+    description: "wedding dressing, Mackup",
+  },
+  {
+    name: "Kareena kapoor",
+    image: customerForth,
+    Video: customerForthVideo,
+    description: "wedding dressing, Mackup",
+  },
+   {
+    name: "Kareena kapoor",
+    image: customerFifth,
+    Video: customerFifthVideo,
+    description: "wedding dressing, Mackup",
+  },
+   {
+    name: "Kareena kapoor",
+    image: customerFifth,
+    Video: customerFifthVideo,
     description: "wedding dressing, Mackup",
   },
 ];
@@ -74,11 +93,13 @@ import { Image } from "astro:assets";
 
   <!-- VIDEO (hidden by default) -->
   <video
-    class="slide-video w-full h-full object-cover hidden"
+    class="slide-video w-full h-full object-cover hidden absolute left-0 top-0  "
     src={facility.Video}
     muted
     playsinline
   ></video>
+  
+  
             <div class="absolute bottom-[38px] w-full">
               <div class="w-full flex justify-center items-center pb-[42px]">
                <div class="play-btn absolute bottom-[38px] left-0 right-0 mx-auto w-[81px] h-[52px] bg-white rounded-[50px] flex justify-center items-center cursor-pointer">
@@ -210,12 +231,19 @@ document.addEventListener("DOMContentLoaded", () => {
     playBtn.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      img.classList.add("hidden");
+      // hide image
+      if (img) img.classList.add("hidden");
+
+      // hide play button
       playBtn.classList.add("hidden");
 
-      video.classList.remove("hidden");
-      video.play();
+      // show video
+      if (video) {
+        video.classList.remove("hidden");
+        video.play();
+      }
     });
   });
 });
+
 </script>
