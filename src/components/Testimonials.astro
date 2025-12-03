@@ -3,6 +3,7 @@ import curve from "../../public/our-customers-shape.png";
 import customerThree from "../../public/customer-1.png";
 import customerOne from "../../public/customer-2.png";
 import customerTwo from "../../public/customer-3.png";
+import customerOneVideo from "../../public/videos/testimonial_image_first.mp4";
 
 import four from "../../public/slider-image-four.png";
 
@@ -10,21 +11,25 @@ const solutions = [
   {
     name: "Sheela devi",
     image: customerOne,
+    Video: customerOneVideo,
     description: "wedding dressing, Mackup",
   },
   {
     name: "Kareena kapoor",
     image: customerThree,
+    Video: customerOneVideo,
     description: "wedding dressing, Mackup",
   },
   {
     name: "Jasmeet kaur",
     image: customerTwo,
+    Video: customerOneVideo,
     description: "wedding dressing, Mackup",
   },
   {
     name: "Kareena kapoor",
     image: customerThree,
+    Video: customerOneVideo,
     description: "wedding dressing, Mackup",
   },
 ];
@@ -61,14 +66,22 @@ import { Image } from "astro:assets";
       {
         solutions.map((facility) => (
           <div class="relative slide-item">
-            <Image
-              class="slide-img w-full object-cover h-full"
-              src={facility.image}
-              alt={`${facility.image}`}
-            />
+         <img 
+    class="video-thumb w-full h-full object-cover"
+    src={facility.image.src}
+    alt={facility.name}
+  />
+
+  <!-- VIDEO (hidden by default) -->
+  <video
+    class="slide-video w-full h-full object-cover hidden"
+    src={facility.Video}
+    muted
+    playsinline
+  ></video>
             <div class="absolute bottom-[38px] w-full">
               <div class="w-full flex justify-center items-center pb-[42px]">
-                <div class="w-[81px] h-[52px] bg-white rounded-[50px] flex justify-center items-center">
+               <div class="play-btn absolute bottom-[38px] left-0 right-0 mx-auto w-[81px] h-[52px] bg-white rounded-[50px] flex justify-center items-center cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="35"
@@ -181,4 +194,28 @@ import { Image } from "astro:assets";
       },
     ],
   });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".slide-item");
+
+  cards.forEach(card => {
+    const img = card.querySelector(".video-thumb");
+    const video = card.querySelector(".slide-video");
+    const playBtn = card.querySelector(".play-btn");
+
+    if (!playBtn) return;
+
+    playBtn.style.cursor = "pointer";
+
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      img.classList.add("hidden");
+      playBtn.classList.add("hidden");
+
+      video.classList.remove("hidden");
+      video.play();
+    });
+  });
+});
 </script>
