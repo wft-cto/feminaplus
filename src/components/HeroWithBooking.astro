@@ -23,7 +23,7 @@ const allSalons = [
   {
     value: "fp44",
     name: "FP44 SCO 268, SECTOR 44-C, Chandigarh",
-    whatsapp: "8725055006"
+    whatsapp: "9877399758"
   },
   {
     value: "fp-luxe",
@@ -40,11 +40,11 @@ const allSalons = [
     name: "SCO 386, SECTOR 8, Panchkula",
     whatsapp: "9815962884"
   },
-  {
-    value: "fp-zirakpur",
-    name: "Pooja Plazio above Gopal Sweets, Zirakpur",
-    whatsapp: "9872234488"
-  }
+  // {
+  //   value: "fp-zirakpur",
+  //   name: "Pooja Plazio above Gopal Sweets, Zirakpur",
+  //   whatsapp: "9872234488"
+  // }
 ];
 
 // Filter salons if filterSalons prop is provided
@@ -143,8 +143,8 @@ const salons = filterSalons
               data-default-whatsapp={whatsappNumber}
             >
               <option value="" selected disabled>Select Salon</option>
-              {salons.map((salon) => (
-                <option value={salon.value} data-whatsapp={salon.whatsapp}>
+              {salons.map((salon,index) => (
+                <option value={salon.value} data-whatsapp={salon.whatsapp}  selected={index === 0} >
                   {salon.name}
                 </option>
               ))}

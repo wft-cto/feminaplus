@@ -1,17 +1,13 @@
 ---
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import EmpoweringWomen from "../components/EmpoweringWomen.astro";
-import NextGenHealth from "../components/NextGenHealth.astro";
-import Promotional from "../components/Promotional.astro";
-import Rating from "../components/rating.astro";
-import BrandLogos from "../components/BrandLogos.astro";
+import HeroWithBooking from "../components/HeroWithBooking.astro";
+import HairColorService from "../components/HairColorService.astro";
 import Locations from "../components/Locations.astro";
 import Testimonials from "../components/Testimonials.astro";
 import BookingForm from "../components/BookingForm.astro";
 import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
-import YoutubeVideos from "../components/YoutubeVideos.astro";
+import HairColorGallery from "../components/HairColor.astro";
 import GMT from '../components/GMT.astro';
 ---
 
@@ -25,9 +21,10 @@ import GMT from '../components/GMT.astro';
       name="description"
       content="Femina Plus - Expert Hair, Makeup & Nails. Your Hair | Makeup | Nails | Skin | Lashes"
     />
-    <title>Femina Plus - Beauty Salon</title>
+    <title>Femina Plus - Beauty & Wellness Center | Makeup</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
     ></script>
+     <GMT /> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link
@@ -39,25 +36,30 @@ import GMT from '../components/GMT.astro';
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
-       <GMT /> 
   </head>
   <body class="antialiased">
-     <GMT /> 
-    <Header />
-    <main>
-      <Hero />
-      <Rating />
-      <EmpoweringWomen />
-      <NextGenHealth />
-      <Promotional />
-      <BrandLogos />
-      <Locations />
-      <Testimonials />
+    <GMT /> 
+    <Header class="mb-4"/>
+    <main class="mt-4">
+      <HeroWithBooking 
+        title="To our Hair Color Studio"
+        subtitle="Professional Hair color  Services"
+        backgroundImage="/hair_color.jpeg"
+      />
+      <HairColorService />
+      <HairColorGallery
+        title="hair color gallery"
+        subtitle="see the stunning transformations from our expert hair color artists"
+      />
       <!-- <BookingForm /> -->
+      
+      <Testimonials />
       <InstagramFeed />
-      <YoutubeVideos />
+        <Locations />
     </main>
     <Footer />
+   
+
   </body>
 </html>
 
