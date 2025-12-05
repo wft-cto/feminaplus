@@ -1,8 +1,7 @@
 ---
 import "../css/style.css";
-import { Image } from "astro:assets";
-import customerOne from "../../public/testimonial/testimonial_image_first.png";
-import customerTwo from "../../public/testimonial/testimonial_image_second.jpeg";
+
+
 
 
 // Fixed Posts Array
@@ -11,13 +10,13 @@ const title = "#feminaplus on Youtube";
 const instagramPosts = [
   {
     id: "1",
-    beforeImage: "../../public/youtubeVideos/youtube_image_third.png",
+    beforeImage: "/youtubeVideos/youtube_image_third.png",
     permalink: "https://youtu.be/i-JAI7--rSE?si=TmqymeNbbYQENUVk",
     content: "Bridal Makeup Look"
   },
   {
     id: "2",
-   beforeImage: "../../public/youtubeVideos/youtube_image_second.jpeg",
+   beforeImage: "/youtubeVideos/youtube_image_second.jpeg",
     permalink: "https://www.instagram.com/p/DRPQRC_kt2_/",
     content: "Party Glam Makeup"
   },
@@ -76,7 +75,7 @@ const beforeAfterImages = instagramPosts;
     class="ml-4"
   >
     <img 
-      src="../../public/youtube_logo.png"
+      src="/youtube_logo.png"
       alt="YouTube Logo" 
       class="w-[100px] h-[60px] object-contain"
     />
