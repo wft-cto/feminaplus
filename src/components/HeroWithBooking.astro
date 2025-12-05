@@ -8,6 +8,7 @@ interface Props {
   videoBackground?: string;
   whatsappNumber?: string;
   filterSalons?: string[];
+  autoSelectFirst?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   videoBackground,
   whatsappNumber = "8725055006",
   filterSalons,
+  autoSelectFirst = false,
 } = Astro.props;
 
 const allSalons = [
@@ -142,9 +144,9 @@ const salons = filterSalons
               required
               data-default-whatsapp={whatsappNumber}
             >
-              <option value="" selected disabled>Select Salon</option>
+              <option value="" disabled selected >Select Salon</option>
               {salons.map((salon,index) => (
-                <option value={salon.value} data-whatsapp={salon.whatsapp}  selected={index === 0} >
+                <option value={salon.value} data-whatsapp={salon.whatsapp} selected={autoSelectFirst && index === 0}>
                   {salon.name}
                 </option>
               ))}
