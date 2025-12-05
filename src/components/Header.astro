@@ -210,6 +210,19 @@ import { Image } from "astro:assets";
       <!-- Service name will be inserted here -->
     </p>
     <div class="space-y-6">
+        <div class="flex flex-col gap-2">
+        <label for="modalSalonSelect" class="block text-sm md:text-base font-medium text-gray-700">
+          Select Service*
+        </label>
+        <select
+          name="service"
+          id="modalSelectSelect"
+          class="border border-gray-300 py-4 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-base"
+          required
+        >
+          <option value="" selected disabled>Select Service</option>
+        </select>
+      </div>
       <div class="flex flex-col gap-2">
         <label for="modalSalonSelect" class="block text-sm md:text-base font-medium text-gray-700">
           Select Salon*
@@ -324,6 +337,29 @@ import { Image } from "astro:assets";
 </style>
 
 <script is:inline>
+
+  const services = [
+    {
+      value: "hair-services",
+      name: "Hair Services"
+    },
+    {
+      value: "beauty-services",
+      name: "Beauty Services"
+    },
+    {
+      value: "makeup-services",
+      name: "Makeup Services"
+    },
+    {
+      value: "nail-services",
+      name: "Nail Services"
+    },
+    {
+      value: "hair-patch-wigs",
+      name: "Hair Patch & Hair Wigs"
+    }
+  ];
   const allSalons = [
     {
       value: "fp44",
@@ -354,56 +390,65 @@ import { Image } from "astro:assets";
 
   let currentService = "";
 
-  function openBookingModal(button) {
-    const modal = document.getElementById('bookingModal');
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    const serviceNameDisplay = document.getElementById('modal-service-name');
-    
-    if (!modal || !salonSelect || !whatsappBtn) return;
-    
-    // Get service name
-    currentService = button.getAttribute('data-service') || '';
-   const isHairPatchWig =
-  currentService.toLowerCase().includes("patch") ||
-  currentService.toLowerCase().includes("wig");
+ function openBookingModal(button) {
+  const modal = document.getElementById('bookingModal');
+  const salonSelect = document.getElementById('modalSalonSelect');
+  const whatsappBtn = document.getElementById('modalWhatsappBtn');
+  const serviceNameDisplay = document.getElementById('modal-service-name');
+  const serviceSelect = document.getElementById('modalSelectSelect');
 
-const salonsToShow = isHairPatchWig
-  ? allSalons.filter(salon => salon.value === 'fp44')
-  : allSalons;
+  if (!modal || !salonSelect || !whatsappBtn || !serviceSelect) return;
 
-    
-    // Display service name in modal
-    if (serviceNameDisplay && currentService) {
-      serviceNameDisplay.textContent = `Service: ${currentService}`;
-    }
-    
-    // Clear previous options
-    salonSelect.innerHTML = '<option value="" selected disabled>Select Salon</option>';
-    
-    // Filter salons - only FP44 for Hair Patch & Hair Wigs services
+  // Reset service dropdown
+  serviceSelect.innerHTML = '<option value="" disabled selected>Select Service</option>';
 
-    
-    // Populate dropdown
-    salonsToShow.forEach(salon => {
-      const option = document.createElement('option');
-      option.value = salon.value;
-      option.textContent = salon.name;
-      option.setAttribute('data-whatsapp', salon.whatsapp);
-      salonSelect.appendChild(option);
-    });
-    
-    // Reset button state
-    whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
-    whatsappBtn.classList.remove('pointer-events-auto');
-    
-    // Show modal
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    
-    // Focus on select
-    setTimeout(() => salonSelect.focus(), 100);
+  // Populate services
+  services.forEach(service => {
+    const option = document.createElement('option');
+    option.value = service.value;
+    option.textContent = service.name;
+    serviceSelect.appendChild(option);
+  });
+
+  // Read the clicked service name
+  currentService = button.getAttribute('data-service') || '';
+
+  const isHairPatchWig =
+    currentService.toLowerCase().includes("patch") ||
+    currentService.toLowerCase().includes("wig");
+
+  const salonsToShow = isHairPatchWig
+    ? allSalons.filter(salon => salon.value === 'fp44')
+    : allSalons;
+
+  // Show service name on top (display only)
+  if (serviceNameDisplay && currentService) {
+    serviceNameDisplay.textContent = `Service: ${currentService}`;
   }
+
+  // Reset salon options
+  salonSelect.innerHTML = '<option value="" disabled selected>Select Salon</option>';
+
+  // Populate salons
+  salonsToShow.forEach(salon => {
+    const option = document.createElement('option');
+    option.value = salon.value;
+    option.textContent = salon.name;
+    option.setAttribute('data-whatsapp', salon.whatsapp);
+    salonSelect.appendChild(option);
+  });
+
+  // Disable WhatsApp button until selection
+  whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
+  whatsappBtn.classList.remove('pointer-events-auto');
+
+  // Open modal
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  setTimeout(() => salonSelect.focus(), 100);
+}
+
 
   function closeBookingModal() {
     const modal = document.getElementById('bookingModal');
@@ -413,31 +458,43 @@ const salonsToShow = isHairPatchWig
     }
   }
 
-  function handleModalWhatsAppBooking(event) {
-    event.preventDefault();
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    
-    if (!salonSelect || salonSelect.value === '' || salonSelect.value === null) {
-      alert('Please select a salon first');
-      salonSelect.focus();
-      return false;
-    }
-    
-    const selectedOption = salonSelect.options[salonSelect.selectedIndex];
-    const salonName = selectedOption.text;
-    const salonWhatsApp = selectedOption.getAttribute('data-whatsapp') || '8725055006';
-    
-    // Ensure service name is included in the message
-    const serviceText = currentService ? ` for ${currentService}` : '';
-    const message = `Hi, I would like to book an appointment${serviceText} at ${salonName}.`;
-    const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
-    
-    window.open(whatsappUrl, '_blank');
-    closeBookingModal();
-    
+ function handleModalWhatsAppBooking(event) {
+  event.preventDefault();
+
+  const salonSelect = document.getElementById('modalSalonSelect');
+  const serviceSelect = document.getElementById('modalSelectSelect');
+
+  // Validate service
+  if (!serviceSelect || serviceSelect.value === '') {
+    alert('Please select a service first');
+    serviceSelect.focus();
     return false;
   }
+
+  const selectedServiceText = serviceSelect.options[serviceSelect.selectedIndex].text;
+
+  // Validate salon
+  if (!salonSelect || salonSelect.value === '') {
+    alert('Please select a salon first');
+    salonSelect.focus();
+    return false;
+  }
+
+  const selectedOption = salonSelect.options[salonSelect.selectedIndex];
+  const salonName = selectedOption.text;
+  const salonWhatsApp = selectedOption.getAttribute('data-whatsapp') || '8725055006';
+
+  // Final message
+  const message = `Hi, I would like to book an appointment for ${selectedServiceText} at ${salonName}.`;
+
+  const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappUrl, '_blank');
+  closeBookingModal();
+
+  return false;
+}
+
 
   // Initialize modal functionality
   document.addEventListener('DOMContentLoaded', function() {
