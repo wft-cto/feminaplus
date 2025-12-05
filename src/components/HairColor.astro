@@ -1,0 +1,154 @@
+---
+import "../css/style.css";
+
+interface BeforeAfterImage {
+  id: string;
+  beforeImage: string;
+  afterImage: string;
+  service: string;
+  clientName?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  images?: BeforeAfterImage[];
+}
+
+const {
+  title = "hair color gallery",
+  subtitle = "see the stunning transformations from our expert hair color artists",
+  images = [
+    {
+      id: "1",
+     beforeImage: "/hairColor/hair_color_image_first.jpeg",
+      service: "Global Hair color",
+    },
+    {
+      id: "2",
+      beforeImage: "/hairColor/hair_color_image_second.jpeg",
+      service: "Highlights & hair streaks",
+    },
+    {
+      id: "3",
+      beforeImage: "/hairColor/hair_color_image_third.jpeg",
+      service: "Balayage & Ombre"
+    },
+    {
+      id: "4",
+       beforeImage: "/hairColor/hair_color_image_forth.jpeg",
+      service: "Baby Lights",
+    },
+    {
+      id: "5",
+       beforeImage: "/hairColor/hair_color_image_fifth.jpeg",
+      service: "Color Maintenance",
+    },
+    {
+      id: "6",
+    beforeImage: "/hairColor/hair_color_image_sixth.jpeg",
+      service: "Color & root touch up",
+    }
+    
+  ]
+} = Astro.props;
+
+const beforeAfterImages = images;
+---
+
+<section class="py-16 md:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        class="flex gap-[17px] items-center justify-center mb-6"
+      >
+        <div class="h-[10px] w-[33px] rounded-full bg-black"></div>
+        <p class="font-bold text-sm md:text-base">Our Work</p>
+      </div>
+      <h2
+        data-aos="fade-up"
+        data-aos-delay="400"
+        class="text-[40px] md:text-[54px] leading-[50px] md:leading-[64px] font-anticdidone text-black mb-4"
+      >
+        {title}
+      </h2>
+      <p
+        data-aos="fade-up"
+        data-aos-delay="600"
+        class="text-lg md:text-xl text-gray-600 font-manrope max-w-2xl mx-auto"
+      >
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Before/After Gallery Grid -->
+    <div class="before-after-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {beforeAfterImages.map((item, index) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={100 * (index + 1)}
+          class="relative group overflow-hidden rounded-2xl shadow-lg"
+        >
+          <!-- Before/After Container -->
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <!-- Before Image -->
+            <div class="before-image-container absolute inset-0">
+              <img
+                src={item.beforeImage}
+                alt={`Before - ${item.service}`}
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <!-- Slider Handle (for mobile/interactive) -->
+            <div class="slider-handle absolute top-0 left-0 w-full h-full cursor-ew-resize opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            </div>
+          </div>
+
+          <!-- Service Info Overlay -->
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
+            <p class="text-white font-bold text-lg md:text-xl font-anticdidone mb-1">
+              {item.service}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Interactive slider for mobile (tap to toggle)
+    const galleryItems = document.querySelectorAll('.before-after-gallery > div');
+    
+    galleryItems.forEach(item => {
+      let showingAfter = false;
+      const beforeContainer = item.querySelector('.before-image-container');
+      const afterContainer = item.querySelector('.after-image-container');
+      
+      if (beforeContainer && afterContainer) {
+        // Touch/click to toggle on mobile
+        item.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            showingAfter = !showingAfter;
+            
+            if (showingAfter) {
+              beforeContainer.style.opacity = '0';
+              afterContainer.style.opacity = '1';
+            } else {
+              beforeContainer.style.opacity = '1';
+              afterContainer.style.opacity = '0';
+            }
+          }
+        });
+      }
+    });
+  });
+</script>

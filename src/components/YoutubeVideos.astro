@@ -1,0 +1,128 @@
+---
+import "../css/style.css";
+import { Image } from "astro:assets";
+import customerOne from "../../public/testimonial/testimonial_image_first.png";
+import customerTwo from "../../public/testimonial/testimonial_image_second.jpeg";
+
+
+// Fixed Posts Array
+const title = "#feminaplus on Youtube";
+
+const instagramPosts = [
+  {
+    id: "1",
+    beforeImage: "../../public/youtubeVideos/Youtube_image_third.png",
+    permalink: "https://youtu.be/i-JAI7--rSE?si=TmqymeNbbYQENUVk",
+    content: "Bridal Makeup Look"
+  },
+  {
+    id: "2",
+   beforeImage: "../../public/youtubeVideos/Youtube_image_second.jpeg",
+    permalink: "https://www.instagram.com/p/DRPQRC_kt2_/",
+    content: "Party Glam Makeup"
+  },
+];
+
+const beforeAfterImages = instagramPosts;
+---
+
+
+<section class="py-16 md:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2 
+        data-aos="fade-up"
+        data-aos-delay="400"
+        class="text-[40px] md:text-[54px] font-anticdidone text-black mb-4"
+      >
+        {title}
+      </h2>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="before-after-gallery flex flex-1 gap-8 justify-items-center">
+
+      {beforeAfterImages.map((item, index) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={100 * (index + 1)}
+          class="rounded-2xl shadow-lg overflow-hidden bg-black"
+        >
+          
+          <!-- Image (Clickable) -->
+          <a href={item.permalink} target="_blank" rel="noopener noreferrer">
+            <img 
+              src={item.beforeImage} 
+              alt="Gallery Image" 
+              class="w-full h-[350px] object-cover"
+            />
+          </a>
+
+          <!-- Content & YouTube Logo -->
+     <div class="flex items-center justify-between px-4 py-3">
+
+  <!-- Left Content -->
+  <p class="text-[20px] font-semibold text-white">
+    {item.content}
+  </p>
+
+  <!-- Right Logo Bigger -->
+  <a 
+    href={item.permalink} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="ml-4"
+  >
+    <img 
+      src="../../public/youtube_logo.png"
+      alt="YouTube Logo" 
+      class="w-[100px] h-[60px] object-contain"
+    />
+  </a>
+</div>
+
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Interactive slider for mobile (tap to toggle)
+    const galleryItems = document.querySelectorAll('.before-after-gallery > div');
+    
+    galleryItems.forEach(item => {
+      let showingAfter = false;
+      const beforeContainer = item.querySelector('.before-image-container');
+      const afterContainer = item.querySelector('.after-image-container');
+      
+      if (beforeContainer && afterContainer) {
+        // Touch/click to toggle on mobile
+        item.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            showingAfter = !showingAfter;
+            
+            if (showingAfter) {
+              beforeContainer.style.opacity = '0';
+              afterContainer.style.opacity = '1';
+            } else {
+              beforeContainer.style.opacity = '1';
+              afterContainer.style.opacity = '0';
+            }
+          }
+        });
+      }
+    });
+  });
+</script>
+
+
