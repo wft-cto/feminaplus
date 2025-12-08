@@ -89,7 +89,7 @@ import { Image } from "astro:assets";
     hover:after:w-full
 
     ${
-      Astro.url.pathname == '/hair-patch-wigs'  ? 'after:w-full text-gray-300' : 'after:w-0'
+      Astro.url.pathname == '/hair-patch-wigs'  ? 'active-link text-gray-300' : 'after:w-0'
     }
   `}
 
@@ -333,6 +333,9 @@ import { Image } from "astro:assets";
 
   #modalSalonSelect option {
     color: #000 !important;
+  }
+   .active-link::after {
+    width: 100%;
   }
 </style>
 
