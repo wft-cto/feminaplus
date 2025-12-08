@@ -48,7 +48,7 @@ const instagramPosts = [
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
-   {
+  {
     id: "5",
     media_url: userSixth,
     permalink: "https://www.instagram.com/reel/DPY1ywwiL1h/",
@@ -103,52 +103,52 @@ async function fetchInstagramPosts() {
       {
         instagramPosts.map((posts) => (
           <a href={posts.permalink} target="_blank" rel="noopener noreferrer">
-          <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-            <Image
-              class="w-full h-[480px] object-cover object-top"
-              src={posts.media_url}
-              alt={`${posts.media_url}`}
-            />
-            <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
-              <p class="text-white font-manropefont-medium text-[14px]">
-                {posts.caption}
-              </p>
-              <div class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope">
-                <span>#hairstyle</span>
-                <span>#fashion</span>
-              </div>
-              <div
-                class="flex
+            <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
+              <Image
+                class="w-full h-[480px] object-cover object-top"
+                src={posts.media_url}
+                alt={`${posts.media_url}`}
+              />
+              <div class="bg-black px-[9px] pt-[14px] pb-[20px]">
+                <p class="text-white font-manropefont-medium text-[14px]">
+                  {posts.caption}
+                </p>
+                <div class="text-[#13D2EB] flex items-center gap-[9px] text-[14px] font-manrope">
+                  <span>#hairstyle</span>
+                  <span>#fashion</span>
+                </div>
+                <div
+                  class="flex
           items-center
               mt-[15px]
           justify-between"
-              >
-                <div class="flex items-center gap-[10px]">
-                  <div class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]">
-                    <Image src={Logo} alt={`${Logo}`} />
-                  </div>
-                  <div>
-                    <p class="font-manrope text-white font-bold text-[16px] text-whites">
-                      Familnaplus
-                    </p>
-                    <div class="flex items-start md:items-center flex-col md:flex-row gap-[9px]">
-                      <p class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
-                        @famina
+                >
+                  <div class="flex items-center gap-[10px]">
+                    <div class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]">
+                      <Image src={Logo} alt={`${Logo}`} />
+                    </div>
+                    <div>
+                      <p class="font-manrope text-white font-bold text-[16px] text-whites">
+                        Faminaplus
                       </p>
-                      <ul class="list-disc pl-[9px]">
-                        <li class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
-                          2 hours ago
-                        </li>
-                      </ul>
+                      <div class="flex items-start md:items-center flex-col md:flex-row gap-[9px]">
+                        <p class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
+                          @famina
+                        </p>
+                        <ul class="list-disc pl-[9px]">
+                          <li class="font-manrope opacity-[70%] font-medium text-[14px] text-white">
+                            2 hours ago
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <Image src={instagram} alt={`${instagram}`} />
+                  <div>
+                    <Image src={instagram} alt={`${instagram}`} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </a>
         ))
       }

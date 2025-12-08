@@ -4,28 +4,28 @@ const allSalons = [
   {
     value: "fp44",
     name: "FP44 SCO 268, SECTOR 44-C, Chandigarh",
-    whatsapp: "8725055006"
+    whatsapp: "8725055006",
   },
   {
     value: "fp-luxe",
     name: "FP LUXE SCO 164-165, SECTOR 9-C, Chandigar",
-    whatsapp: "7973268966"
+    whatsapp: "7973268966",
   },
   {
     value: "fp-kharar",
     name: "FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
-    whatsapp: "9815931884"
+    whatsapp: "9815931884",
   },
   {
     value: "fp-pkl",
     name: "SCO 386, SECTOR 8, Panchkula",
-    whatsapp: "9815962884"
+    whatsapp: "9815962884",
   },
   {
     value: "fp-zirakpur",
     name: "Pooja Plazio above Gopal Sweets, Zirakpur",
-    whatsapp: "9872234488"
-  }
+    whatsapp: "9872234488",
+  },
 ];
 
 // Hair Patch & Hair Wigs services - only FP44
@@ -34,7 +34,7 @@ const hairPatchWigServices = [
   "Hair Patch Re-tightening & Maintenance",
   "Lace Front Hair Wigs",
   "Hair Toppers for Ladies",
-  "Female Full Wigs Installation"
+  "Female Full Wigs Installation",
 ];
 ---
 
@@ -360,8 +360,7 @@ const hairPatchWigServices = [
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-        />
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
@@ -380,7 +379,26 @@ const hairPatchWigServices = [
     </p>
     <div class="space-y-6">
       <div class="flex flex-col gap-2">
-        <label for="modalSalonSelect" class="block text-sm md:text-base font-medium text-gray-700">
+        <label
+          for="modelSelectService"
+          class="block text-sm md:text-base font-medium text-gray-700"
+        >
+          Select Service*
+        </label>
+        <select
+          name="service"
+          id="modelSelectService"
+          class="border border-gray-300 py-4 px-4 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-base text-black"
+          required
+        >
+          <option value="" selected disabled>Select Service</option>
+        </select>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label
+          for="modalSalonSelect"
+          class="block text-sm md:text-base font-medium text-gray-700"
+        >
           Select Salon*
         </label>
         <select
@@ -407,7 +425,9 @@ const hairPatchWigServices = [
           fill="currentColor"
           viewBox="0 0 24 24"
         >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          ></path>
         </svg>
         Book Appointment on WhatsApp
       </a>
@@ -425,6 +445,14 @@ const hairPatchWigServices = [
     background-repeat: no-repeat;
     background-size: 1.25em 1.25em;
     padding-right: 2.5rem;
+    background-color: none;
+  }
+  #modalSalonSelect,
+  #modalSalonSelect option,
+  #modalSalonSelect:focus,
+  #modalSalonSelect option:checked {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
   }
 
   #bookingModal {
@@ -435,7 +463,7 @@ const hairPatchWigServices = [
     display: none;
   }
 
-   #modalSalonSelect {
+  #modalSalonSelect {
     color: #000 !important;
     background-color: #fff !important;
   }
@@ -443,29 +471,31 @@ const hairPatchWigServices = [
   #modalSalonSelect option {
     color: #000 !important;
   }
+  .active-link::after {
+    width: 100%;
+  }
 </style>
-
 <script is:inline>
   const allSalons = [
     {
       value: "fp44",
       name: "FP44 SCO 268, SECTOR 44-C, Chandigarh",
-      whatsapp: "9877399758"
+      whatsapp: "9877399758",
     },
     {
       value: "fp-luxe",
       name: "FP LUXE SCO 164-165, SECTOR 9-C, Chandigar",
-      whatsapp: "7973268966"
+      whatsapp: "7973268966",
     },
     {
       value: "fp-kharar",
       name: "FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
-      whatsapp: "9815931884"
+      whatsapp: "9815931884",
     },
     {
       value: "fp-pkl",
       name: "SCO 386, SECTOR 8, Panchkula",
-      whatsapp: "9815962884"
+      whatsapp: "9815962884",
     },
     // {
     //   value: "fp-zirakpur",
@@ -474,119 +504,218 @@ const hairPatchWigServices = [
     // }
   ];
 
+  const services = [
+    {
+      value: "hair-services",
+      name: "Hair Services",
+    },
+    {
+      value: "beauty-services",
+      name: "Beauty Services",
+    },
+    {
+      value: "makeup-services",
+      name: "Makeup Services",
+    },
+    {
+      value: "nail-services",
+      name: "Nail Services",
+    },
+    {
+      value: "hair-patch-wigs",
+      name: "Hair Patch & Hair Wigs",
+    },
+  ];
+
   let currentService = "";
 
   function openBookingModal(button) {
-    const modal = document.getElementById('bookingModal');
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    const serviceNameDisplay = document.getElementById('modal-service-name');
-    
-    if (!modal || !salonSelect || !whatsappBtn) return;
-    
-    // Get service name
-    currentService = button.getAttribute('data-service') || '';
-    const isHairPatchWig = button.getAttribute('data-hair-patch-wig') === 'true';
-    
-    // Display service name in modal
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+    const serviceNameDisplay = document.getElementById("modal-service-name");
+    const serviceSelect = document.getElementById("modelSelectService");
+
+    if (!modal || !salonSelect || !whatsappBtn || !serviceSelect) return;
+
+    // Reset service dropdown
+    serviceSelect.innerHTML =
+      '<option value="" disabled selected>Select Service</option>';
+
+    // Populate services
+    services.forEach((service) => {
+      const option = document.createElement("option");
+      option.value = service.value;
+      option.textContent = service.name;
+      serviceSelect.appendChild(option);
+    });
+
+    console.log(services, "servicccccecxxx");
+
+    console.log(serviceSelect, "serviccccce");
+
+    // Read the clicked service name
+    currentService = button.getAttribute("data-service") || "";
+    console.log(currentService, "service");
+
+    if (currentService && currentService.trim() !== "") {
+      serviceSelect.parentElement.classList.add("hidden");
+    } else {
+      serviceSelect.parentElement.classList.remove("hidden");
+    }
+
+    const isHairPatchWig =
+      currentService.toLowerCase().includes("patch") ||
+      currentService.toLowerCase().includes("wig");
+
+    const salonsToShow = isHairPatchWig
+      ? allSalons.filter((salon) => salon.value === "fp44")
+      : allSalons;
+
+    // Show service name on top (display only)
     if (serviceNameDisplay && currentService) {
       serviceNameDisplay.textContent = `Service: ${currentService}`;
     }
-    
-    // Clear previous options
-    salonSelect.innerHTML = '<option value="" selected disabled>Select Salon</option>';
-    
-    // Filter salons - only FP44 for Hair Patch & Hair Wigs services
-    const salonsToShow = isHairPatchWig 
-      ? allSalons.filter(salon => salon.value === 'fp44')
-      : allSalons;
-    
-    // Populate dropdown
-    salonsToShow.forEach(salon => {
-      const option = document.createElement('option');
+
+    // Reset salon options
+    salonSelect.innerHTML =
+      '<option value="" disabled selected>Select Salon</option>';
+
+    // Populate salons
+    salonsToShow.forEach((salon) => {
+      const option = document.createElement("option");
       option.value = salon.value;
       option.textContent = salon.name;
-      option.setAttribute('data-whatsapp', salon.whatsapp);
+      option.setAttribute("data-whatsapp", salon.whatsapp);
       salonSelect.appendChild(option);
     });
-    
-    // Reset button state
-    whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
-    whatsappBtn.classList.remove('pointer-events-auto');
-    
-    // Show modal
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    
-    // Focus on select
+
+    // Disable WhatsApp button until selection
+    whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+    whatsappBtn.classList.remove("pointer-events-auto");
+
+    // Open modal
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
     setTimeout(() => salonSelect.focus(), 100);
   }
 
   function closeBookingModal() {
-    const modal = document.getElementById('bookingModal');
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const serviceSelect = document.getElementById("modelSelectService");
+    const serviceNameDisplay = document.getElementById("modal-service-name");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+
     if (modal) {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+
+      // RESET ALL DATA
+      currentService = "";
+
+      // Reset service display text
+      if (serviceNameDisplay) {
+        serviceNameDisplay.textContent = "";
+      }
+
+      console.log(serviceSelect, "servicsse");
+
+      // Reset service dropdown
+      if (serviceSelect) {
+        serviceSelect.innerHTML =
+          '<option value="" disabled selected>Select Service</option>';
+        serviceSelect.parentElement.classList.remove("hidden"); // show by default
+      }
+
+      // Reset salon dropdown
+      if (salonSelect) {
+        salonSelect.innerHTML =
+          '<option value="" disabled selected>Select Salon</option>';
+      }
+
+      // Disable WhatsApp button
+      if (whatsappBtn) {
+        whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+        whatsappBtn.classList.remove("pointer-events-auto");
+      }
     }
   }
 
   function handleModalWhatsAppBooking(event) {
     event.preventDefault();
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    
-    if (!salonSelect || salonSelect.value === '' || salonSelect.value === null) {
-      alert('Please select a salon first');
+
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const serviceSelect = document.getElementById("modelSelectService");
+
+    // Validate service
+    if (!currentService && (!serviceSelect || serviceSelect.value === "")) {
+      alert("Please select a service first");
+      serviceSelect.focus();
+      return false;
+    }
+
+    // Set selected service text
+    const selectedServiceText =
+      currentService && currentService.trim() !== ""
+        ? currentService
+        : serviceSelect.options[serviceSelect.selectedIndex].text;
+
+    // Validate salon
+    if (!salonSelect || salonSelect.value === "") {
+      alert("Please select a salon first");
       salonSelect.focus();
       return false;
     }
-    
+
     const selectedOption = salonSelect.options[salonSelect.selectedIndex];
     const salonName = selectedOption.text;
-    const salonWhatsApp = selectedOption.getAttribute('data-whatsapp') || '8725055006';
-    
-    // Ensure service name is included in the message
-    const serviceText = currentService ? ` for ${currentService}` : '';
-    const message = `Hi, I would like to book an appointment${serviceText} at ${salonName}.`;
+    const salonWhatsApp =
+      selectedOption.getAttribute("data-whatsapp") || "8725055006";
+
+    // Final message
+    const message = `Hi, I would like to book an appointment for ${selectedServiceText} at ${salonName}.`;
+
     const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
-    
-    window.open(whatsappUrl, '_blank');
+
+    window.open(whatsappUrl, "_blank");
     closeBookingModal();
-    
+
     return false;
   }
 
   // Initialize modal functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('bookingModal');
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+
     // Close modal on backdrop click
     if (modal) {
-      modal.addEventListener('click', function(e) {
+      modal.addEventListener("click", function (e) {
         if (e.target === modal) {
           closeBookingModal();
         }
       });
     }
-    
+
     // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
         closeBookingModal();
       }
     });
-    
+
     // Enable/disable WhatsApp button based on salon selection
     if (salonSelect && whatsappBtn) {
-      salonSelect.addEventListener('change', function() {
-        if (this.value && this.value !== '') {
-          whatsappBtn.classList.remove('pointer-events-none', 'opacity-50');
-          whatsappBtn.classList.add('pointer-events-auto');
+      salonSelect.addEventListener("change", function () {
+        if (this.value && this.value !== "") {
+          whatsappBtn.classList.remove("pointer-events-none", "opacity-50");
+          whatsappBtn.classList.add("pointer-events-auto");
         } else {
-          whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
-          whatsappBtn.classList.remove('pointer-events-auto');
+          whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+          whatsappBtn.classList.remove("pointer-events-auto");
         }
       });
     }
