@@ -448,17 +448,24 @@ import { Image } from "astro:assets";
       '<option value="" disabled selected>Select Salon</option>';
 
     // Populate salons
-    salonsToShow.forEach((salon) => {
+    salonsToShow.forEach((salon, index) => {
       const option = document.createElement("option");
       option.value = salon.value;
       option.textContent = salon.name;
       option.setAttribute("data-whatsapp", salon.whatsapp);
+      if (isHairPatchWig && index === 0) {
+        option.selected = true;
+      }
       salonSelect.appendChild(option);
     });
 
     // Disable WhatsApp button until selection
     whatsappBtn.classList.add("pointer-events-none", "opacity-50");
     whatsappBtn.classList.remove("pointer-events-auto");
+    if (isHairPatchWig) {
+      whatsappBtn.classList.remove("pointer-events-none", "opacity-50");
+      whatsappBtn.classList.add("pointer-events-auto");
+    }
 
     // Open modal
     modal.classList.remove("hidden");
