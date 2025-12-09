@@ -17,7 +17,7 @@ import { Image } from "astro:assets";
   <!-- Main navigation -->
   <nav class="bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4 ">
+      <div class="flex justify-between items-center py-4">
         <!-- Logo -->
         <div class="flex items-center">
           <a href="/" class="flex items-center">
@@ -30,90 +30,92 @@ import { Image } from "astro:assets";
         </div>
 
         <!-- Navigation links -->
-         <div class="flex items-center gap-9">
-        <div class="main-navbar">
-          <div class="navigation">
-            <button class="block  lg:hidden w-6 h-6 menu-close">
-              <Image src={close} alt="close" />
-            </button>
+        <div class="flex items-center gap-9">
+          <div class="main-navbar">
+            <div class="navigation">
+              <button class="block lg:hidden w-6 h-6 menu-close">
+                <Image src={close} alt="close" />
+              </button>
 
-            <div class="nav lg:flex items-center gap-9 font-manrope uppercase font-semibold">
-              <a
-                href="#locations"
-               class="relative text-white hover:text-gray-300 transition
+              <div
+                class="nav lg:flex items-center gap-9 font-manrope uppercase font-semibold"
+              >
+                <a
+                  href="#locations"
+                  class="relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
     hover:after:w-full"
-              >
-                Locations
-              </a>
+                >
+                  Locations
+                </a>
 
-             <a
-  href="/makeup"
-  class={`relative text-white hover:text-gray-300 transition
+                <a
+                  href="/makeup"
+                  class={`relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
     hover:after:w-full ${
-      Astro.url.pathname == '/makeup' 
-        ? 'after:w-full text-gray-300'
-        : 'after:w-0'
+      Astro.url.pathname == "/makeup"
+        ? "after:w-full text-gray-300"
+        : "after:w-0"
     }`}
->
-  Makeup
-</a>
-  <a
-  href="/hair-color"
-  class={`relative text-white transition
+                >
+                  Makeup
+                </a>
+                <a
+                  href="/hair-color"
+                  class={`relative text-white transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
 
     hover:after:w-full
 
     ${
-      Astro.url.pathname == '/hair-color' ? 'after:w-full text-gray-300' : 'after:w-0'
+      Astro.url.pathname == "/hair-color"
+        ? "after:w-full text-gray-300"
+        : "after:w-0"
     }
   `}
+                >
+                  Hair Color
+                </a>
 
->
-  Hair Color
-</a>
-
-
-
-            <a
-  href="/hair-patch-wigs"
-  class={`relative text-white transition
+                <a
+                  href="/hair-patch-wigs"
+                  class={`relative text-white transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
 
     hover:after:w-full
 
     ${
-      Astro.url.pathname == '/hair-patch-wigs'  ? 'active-link text-gray-300' : 'after:w-0'
+      Astro.url.pathname == "/hair-patch-wigs"
+        ? "active-link text-gray-300"
+        : "after:w-0"
     }
   `}
+                >
+                  Hair Patch/Wigs
+                </a>
 
->
-  Hair Patch/Wigs
-</a>
-
-            <a
-  href="#testimonials"
-  class={`relative text-white hover:text-gray-300 transition
+                <a
+                  href="#testimonials"
+                  class={`relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
     hover:after:w-full
     ${
-      Astro.url.hash == '#testimonials' ? 'after:w-full text-gray-300' : 'after:w-0'
+      Astro.url.hash == "#testimonials"
+        ? "after:w-full text-gray-300"
+        : "after:w-0"
     }
   `}
->
-  Testimonials
-</a>
+                >
+                  Testimonials
+                </a>
 
-
-
-              <!-- <a
+                <!-- <a
                 href="#media"
                 class="relative text-white hover:text-gray-300 transition
               after:content-[''] after:absolute after:left-0 after:-bottom-1
@@ -121,49 +123,48 @@ import { Image } from "astro:assets";
               hover:after:w-full"
                 >Media</a
               > -->
+              </div>
+            </div>
+            <!-- Mobile Toggle Button -->
+            <div class="moile-menu lg:hidden">
+              <button class="menu-click text-white">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
             </div>
           </div>
-          <!-- Mobile Toggle Button -->
-          <div class="moile-menu lg:hidden">
-            <button class="menu-click text-white">
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <!-- Book Appointment Button -->
-        <button
-          class="bg-black book-btn rounded-full hidden lg:flex items-center gap-3 text-[14px] text-white
+          <!-- Book Appointment Button -->
+          <button
+            class="bg-black book-btn rounded-full hidden lg:flex items-center gap-3 text-[14px] text-white
           pl-6 pr-[6px] py-2 transition-all duration-300
           shadow-[0_0_0px_0_white]
           hover:shadow-[0_0_15px_3px_white]"
-           onclick="openBookingModal(this)"
-        >
-          Book Appointment
-          <Image
-            class="bg-white w-fit rounded-full py-[11px] px-[21px]"
-            src={arrow}
-            alt={`${arrow}`}
-          />
-        </button>
+            onclick="openBookingModal(this)"
+          >
+            Book Appointment
+            <Image
+              class="bg-white w-fit rounded-full py-[11px] px-[21px]"
+              src={arrow}
+              alt={`${arrow}`}
+            />
+          </button>
         </div>
       </div>
     </div>
   </nav>
 </header>
 
-<!-- Model Code  -->
- <div
+<div
   id="bookingModal"
   class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
   role="dialog"
@@ -191,8 +192,7 @@ import { Image } from "astro:assets";
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-        />
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
@@ -210,8 +210,11 @@ import { Image } from "astro:assets";
       <!-- Service name will be inserted here -->
     </p>
     <div class="space-y-6">
-        <div class="flex flex-col gap-2">
-        <label for="modalSalonSelect" class="block text-sm md:text-base font-medium text-gray-700">
+      <div class="flex flex-col gap-2">
+        <label
+          for="modalSalonSelect"
+          class="block text-sm md:text-base font-medium text-gray-700"
+        >
           Select Service*
         </label>
         <select
@@ -224,7 +227,10 @@ import { Image } from "astro:assets";
         </select>
       </div>
       <div class="flex flex-col gap-2">
-        <label for="modalSalonSelect" class="block text-sm md:text-base font-medium text-gray-700">
+        <label
+          for="modalSalonSelect"
+          class="block text-sm md:text-base font-medium text-gray-700"
+        >
           Select Salon*
         </label>
         <select
@@ -251,7 +257,9 @@ import { Image } from "astro:assets";
           fill="currentColor"
           viewBox="0 0 24 24"
         >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          ></path>
         </svg>
         Book Appointment on WhatsApp
       </a>
@@ -270,7 +278,7 @@ import { Image } from "astro:assets";
       left: 0;
       background-color: rgb(0, 0, 0);
       display: none;
-    } 
+    }
 
     /* .navigation {
       height: 100%;
@@ -307,7 +315,7 @@ import { Image } from "astro:assets";
       filter: invert(1);
     }
   }
-    select {
+  select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -326,7 +334,7 @@ import { Image } from "astro:assets";
     display: none;
   }
 
-   #modalSalonSelect {
+  #modalSalonSelect {
     color: #000 !important;
     background-color: #fff !important;
   }
@@ -334,55 +342,54 @@ import { Image } from "astro:assets";
   #modalSalonSelect option {
     color: #000 !important;
   }
-   .active-link::after {
+  .active-link::after {
     width: 100%;
   }
 </style>
 
 <script is:inline>
-
   const services = [
     {
       value: "hair-services",
-      name: "Hair Services"
+      name: "Hair Services",
     },
     {
       value: "beauty-services",
-      name: "Beauty Services"
+      name: "Beauty Services",
     },
     {
       value: "makeup-services",
-      name: "Makeup Services"
+      name: "Makeup Services",
     },
     {
       value: "nail-services",
-      name: "Nail Services"
+      name: "Nail Services",
     },
     {
       value: "hair-patch-wigs",
-      name: "Hair Patch & Hair Wigs"
-    }
+      name: "Hair Patch & Hair Wigs",
+    },
   ];
   const allSalons = [
     {
       value: "fp44",
       name: "FP44 SCO 268, SECTOR 44-C, Chandigarh",
-      whatsapp: "9877399758"
+      whatsapp: "9877399758",
     },
     {
       value: "fp-luxe",
       name: "FP LUXE SCO 164-165, SECTOR 9-C, Chandigar",
-      whatsapp: "7973268966"
+      whatsapp: "7973268966",
     },
     {
       value: "fp-kharar",
       name: "FP KHARAR SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
-      whatsapp: "9815931884"
+      whatsapp: "9815931884",
     },
     {
       value: "fp-pkl",
       name: "SCO 386, SECTOR 8, Panchkula",
-      whatsapp: "9815962884"
+      whatsapp: "9815962884",
     },
     // {
     //   value: "fp-zirakpur",
@@ -393,146 +400,188 @@ import { Image } from "astro:assets";
 
   let currentService = "";
 
- function openBookingModal(button) {
-  const modal = document.getElementById('bookingModal');
-  const salonSelect = document.getElementById('modalSalonSelect');
-  const whatsappBtn = document.getElementById('modalWhatsappBtn');
-  const serviceNameDisplay = document.getElementById('modal-service-name');
-  const serviceSelect = document.getElementById('modalSelectSelect');
+  function openBookingModal(button) {
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+    const serviceNameDisplay = document.getElementById("modal-service-name");
+    const serviceSelect = document.getElementById("modalSelectSelect");
 
-  if (!modal || !salonSelect || !whatsappBtn || !serviceSelect) return;
+    if (!modal || !salonSelect || !whatsappBtn || !serviceSelect) return;
 
-  // Reset service dropdown
-  serviceSelect.innerHTML = '<option value="" disabled selected>Select Service</option>';
+    // Reset service dropdown
+    serviceSelect.innerHTML =
+      '<option value="" disabled selected>Select Service</option>';
 
-  // Populate services
-  services.forEach(service => {
-    const option = document.createElement('option');
-    option.value = service.value;
-    option.textContent = service.name;
-    serviceSelect.appendChild(option);
-  });
+    // Populate services
+    services.forEach((service) => {
+      const option = document.createElement("option");
+      option.value = service.value;
+      option.textContent = service.name;
+      serviceSelect.appendChild(option);
+    });
 
-  // Read the clicked service name
-  currentService = button.getAttribute('data-service') || '';
+    // Read the clicked service name
+    currentService = button.getAttribute("data-service") || "";
 
-  const isHairPatchWig =
-    currentService.toLowerCase().includes("patch") ||
-    currentService.toLowerCase().includes("wig");
+    if (currentService && currentService.trim() !== "") {
+      serviceSelect.parentElement.classList.add("hidden");
+    } else {
+      serviceSelect.parentElement.classList.remove("hidden");
+    }
 
-  const salonsToShow = isHairPatchWig
-    ? allSalons.filter(salon => salon.value === 'fp44')
-    : allSalons;
+    const isHairPatchWig =
+      currentService.toLowerCase().includes("patch") ||
+      currentService.toLowerCase().includes("wig");
 
-  // Show service name on top (display only)
-  if (serviceNameDisplay && currentService) {
-    serviceNameDisplay.textContent = `Service: ${currentService}`;
+    const salonsToShow = isHairPatchWig
+      ? allSalons.filter((salon) => salon.value === "fp44")
+      : allSalons;
+
+    // Show service name on top (display only)
+    if (serviceNameDisplay && currentService) {
+      serviceNameDisplay.textContent = `Service: ${currentService}`;
+    }
+
+    // Reset salon options
+    salonSelect.innerHTML =
+      '<option value="" disabled selected>Select Salon</option>';
+
+    // Populate salons
+    salonsToShow.forEach((salon) => {
+      const option = document.createElement("option");
+      option.value = salon.value;
+      option.textContent = salon.name;
+      option.setAttribute("data-whatsapp", salon.whatsapp);
+      salonSelect.appendChild(option);
+    });
+
+    // Disable WhatsApp button until selection
+    whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+    whatsappBtn.classList.remove("pointer-events-auto");
+
+    // Open modal
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => salonSelect.focus(), 100);
   }
 
-  // Reset salon options
-  salonSelect.innerHTML = '<option value="" disabled selected>Select Salon</option>';
-
-  // Populate salons
-  salonsToShow.forEach(salon => {
-    const option = document.createElement('option');
-    option.value = salon.value;
-    option.textContent = salon.name;
-    option.setAttribute('data-whatsapp', salon.whatsapp);
-    salonSelect.appendChild(option);
-  });
-
-  // Disable WhatsApp button until selection
-  whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
-  whatsappBtn.classList.remove('pointer-events-auto');
-
-  // Open modal
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-
-  setTimeout(() => salonSelect.focus(), 100);
-}
-
-
   function closeBookingModal() {
-    const modal = document.getElementById('bookingModal');
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const serviceSelect = document.getElementById("modalSelectSelect");
+    const serviceNameDisplay = document.getElementById("modal-service-name");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+
     if (modal) {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+
+      // RESET ALL DATA
+      currentService = "";
+
+      // Reset service display text
+      if (serviceNameDisplay) {
+        serviceNameDisplay.textContent = "";
+      }
+
+      // Reset service dropdown
+      if (serviceSelect) {
+        serviceSelect.innerHTML =
+          '<option value="" disabled selected>Select Service</option>';
+        serviceSelect.parentElement.classList.remove("hidden"); // show by default
+      }
+
+      // Reset salon dropdown
+      if (salonSelect) {
+        salonSelect.innerHTML =
+          '<option value="" disabled selected>Select Salon</option>';
+      }
+
+      // Disable WhatsApp button
+      if (whatsappBtn) {
+        whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+        whatsappBtn.classList.remove("pointer-events-auto");
+      }
     }
   }
 
- function handleModalWhatsAppBooking(event) {
-  event.preventDefault();
+  function handleModalWhatsAppBooking(event) {
+    event.preventDefault();
 
-  const salonSelect = document.getElementById('modalSalonSelect');
-  const serviceSelect = document.getElementById('modalSelectSelect');
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const serviceSelect = document.getElementById("modalSelectSelect");
 
-  // Validate service
-  if (!serviceSelect || serviceSelect.value === '') {
-    alert('Please select a service first');
-    serviceSelect.focus();
+    // Validate service
+    if (!currentService && (!serviceSelect || serviceSelect.value === "")) {
+      alert("Please select a service first");
+      serviceSelect.focus();
+      return false;
+    }
+
+    // Set selected service text
+    const selectedServiceText =
+      currentService && currentService.trim() !== ""
+        ? currentService
+        : serviceSelect.options[serviceSelect.selectedIndex].text;
+
+    // Validate salon
+    if (!salonSelect || salonSelect.value === "") {
+      alert("Please select a salon first");
+      salonSelect.focus();
+      return false;
+    }
+
+    const selectedOption = salonSelect.options[salonSelect.selectedIndex];
+    const salonName = selectedOption.text;
+    const salonWhatsApp =
+      selectedOption.getAttribute("data-whatsapp") || "8725055006";
+
+    // Final message
+    const message = `Hi, I would like to book an appointment for ${selectedServiceText} at ${salonName}.`;
+
+    const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, "_blank");
+    closeBookingModal();
+
     return false;
   }
-
-  const selectedServiceText = serviceSelect.options[serviceSelect.selectedIndex].text;
-
-  // Validate salon
-  if (!salonSelect || salonSelect.value === '') {
-    alert('Please select a salon first');
-    salonSelect.focus();
-    return false;
-  }
-
-  const selectedOption = salonSelect.options[salonSelect.selectedIndex];
-  const salonName = selectedOption.text;
-  const salonWhatsApp = selectedOption.getAttribute('data-whatsapp') || '8725055006';
-
-  // Final message
-  const message = `Hi, I would like to book an appointment for ${selectedServiceText} at ${salonName}.`;
-
-  const whatsappUrl = `https://wa.me/91${salonWhatsApp}?text=${encodeURIComponent(message)}`;
-
-  window.open(whatsappUrl, '_blank');
-  closeBookingModal();
-
-  return false;
-}
-
 
   // Initialize modal functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('bookingModal');
-    const salonSelect = document.getElementById('modalSalonSelect');
-    const whatsappBtn = document.getElementById('modalWhatsappBtn');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("bookingModal");
+    const salonSelect = document.getElementById("modalSalonSelect");
+    const whatsappBtn = document.getElementById("modalWhatsappBtn");
+
     // Close modal on backdrop click
     if (modal) {
-      modal.addEventListener('click', function(e) {
+      modal.addEventListener("click", function (e) {
         if (e.target === modal) {
           closeBookingModal();
         }
       });
     }
-    
+
     // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
         closeBookingModal();
       }
     });
-    
+
     // Enable/disable WhatsApp button based on salon selection
     if (salonSelect && whatsappBtn) {
-      salonSelect.addEventListener('change', function() {
-        if (this.value && this.value !== '') {
-          whatsappBtn.classList.remove('pointer-events-none', 'opacity-50');
-          whatsappBtn.classList.add('pointer-events-auto');
+      salonSelect.addEventListener("change", function () {
+        if (this.value && this.value !== "") {
+          whatsappBtn.classList.remove("pointer-events-none", "opacity-50");
+          whatsappBtn.classList.add("pointer-events-auto");
         } else {
-          whatsappBtn.classList.add('pointer-events-none', 'opacity-50');
-          whatsappBtn.classList.remove('pointer-events-auto');
+          whatsappBtn.classList.add("pointer-events-none", "opacity-50");
+          whatsappBtn.classList.remove("pointer-events-auto");
         }
       });
     }
   });
 </script>
-

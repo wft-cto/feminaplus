@@ -8,7 +8,7 @@ import four from "../../public/slider-image-four.png";
 const solutions = [
   {
     title: "Beauty & Skincare Services",
-    image: "/solutions/beauty_skin_care.jpg",
+    image: "/solutions/beauty_image.jpg",
   },
   {
     title: "Hair Color Services",
@@ -90,7 +90,11 @@ import { Image } from "astro:assets";
               height={1000}
             />
             <div class="absolute overlay inset-0 bg-black bg-opacity-50" />
-            <div class="content-slider flex-col md:flex-row gap-[7px] slide-text absolute bottom-[4px] lg:bottom-[20px] w-full px-[20px] items-center flex justify-between bg-white">
+            <div
+              class="content-slider flex-col md:flex-row gap-[7px] slide-text absolute bottom-[4px] lg:bottom-[20px] w-full px-[20px] items-center flex justify-between bg-white"
+              data-service={facility.title}
+              onclick="openBookingModal(this)"
+            >
               <p class="text-[24px] md:text-[24px] lg:text-[38px] font-anticdidone text-start leading-[30px] md:leading-[30px] lg:leading-[44px]">
                 {facility.title}
               </p>
