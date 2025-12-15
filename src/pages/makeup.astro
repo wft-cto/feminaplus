@@ -14,7 +14,7 @@ import Testimonials from "../components/Testimonials.astro";
 import BookingForm from "../components/BookingForm.astro";
 import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
-import GMT from '../components/GMT.astro';
+import GMT from "../components/GMT.astro";
 ---
 
 <html lang="en">
@@ -41,17 +41,35 @@ import GMT from '../components/GMT.astro';
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
-      <GMT /> 
+    <GMT />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      is:inline></script>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17779239970"></script>
+
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) {
+        (window as any).dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17779239970");
+    </script>
   </head>
   <body class="antialiased">
-     <GMT /> 
-    <Header class="mb-4"/>
+    <GMT />
+    <Header class="mb-4" />
     <main class="mt-4">
-      <HeroWithBooking 
+      <HeroWithBooking
         title="To our Makeup Studio"
         subtitle="Professional Makeup | Bridal Makeup | Beauty Services"
         backgroundImage="/makeup-bg.png"
-        autoSelectFirst={false} 
+        autoSelectFirst={false}
       />
       <MakeupServices />
       <MakeUp
@@ -59,10 +77,9 @@ import GMT from '../components/GMT.astro';
         subtitle="See the stunning transformations from our expert makeup artists"
       />
       <!-- <BookingForm /> -->
-      
       <Testimonials />
       <InstagramFeed />
-        <Locations />
+      <Locations />
     </main>
     <Footer />
   </body>

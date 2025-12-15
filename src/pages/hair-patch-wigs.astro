@@ -13,7 +13,7 @@ import Testimonials from "../components/Testimonials.astro";
 import BookingForm from "../components/BookingForm.astro";
 import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
-import GMT from '../components/GMT.astro';
+import GMT from "../components/GMT.astro";
 import YoutubeVideos from "../components/YoutubeVideos.astro";
 
 const hairPatchWigImages = [
@@ -22,42 +22,42 @@ const hairPatchWigImages = [
     beforeImage: "/hairPatch/bald_image_first.jpeg",
     afterImage: "/hairPatch/transformed_image_first.jpeg",
     service: "Full Wig Installation",
-    clientName: "Client 1"
+    clientName: "Client 1",
   },
   {
     id: "2",
     beforeImage: "/hairPatch/bald_image_second.jpeg",
     afterImage: "/hairPatch/reformed_image_second.jpeg",
     service: "Hair Patch Installation",
-    clientName: "Client 2"
+    clientName: "Client 2",
   },
   {
     id: "3",
     beforeImage: "/hairPatch/bald_image_third.jpeg",
     afterImage: "/hairPatch/transformed_image_third.jpeg",
     service: "Lace Front Wig",
-    clientName: "Client 3"
+    clientName: "Client 3",
   },
   {
     id: "4",
-   beforeImage: "/hairPatch/bald_image_forth.jpeg",
-   afterImage: "/hairPatch/transformed_image_forth.jpeg",
+    beforeImage: "/hairPatch/bald_image_forth.jpeg",
+    afterImage: "/hairPatch/transformed_image_forth.jpeg",
     service: "Hair Topper",
-    clientName: "Client 4"
+    clientName: "Client 4",
   },
   {
     id: "5",
     beforeImage: "/hairPatch/bald_image_fifth.jpeg",
     afterImage: "/hairPatch/transformed_image_fifth.jpeg",
     service: "Wig Restyling",
-    clientName: "Client 5"
+    clientName: "Client 5",
   },
   {
     id: "6",
     beforeImage: "/hairPatch/bald_image_sixth.jpeg",
     afterImage: "/hairPatch/transformed_image_sixth.jpeg",
     service: "Custom Wig Design",
-    clientName: "Client 6"
+    clientName: "Client 6",
   },
 ];
 ---
@@ -75,7 +75,7 @@ const hairPatchWigImages = [
     <title>Femina Plus - Beauty & Wellness Center | Hair Patches & Wigs</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
     ></script>
-      <GMT /> 
+    <GMT />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link
@@ -87,26 +87,40 @@ const hairPatchWigImages = [
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17779239970"></script>
+
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) {
+        (window as any).dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17779239970");
+    </script>
   </head>
   <body class="antialiased">
-      <GMT /> 
-    <Header  class="mb-4"/>
+    <GMT />
+    <Header class="mb-4" />
     <main class="mt-4">
-      <HeroWithBooking 
+      <HeroWithBooking
         title="To our Hair Patch & Wigs Studio"
         subtitle="Professional Wig Installation | Hair Patches | Custom Designs"
         videoBackground="/videos/hair-patch.mp4"
         backgroundImage="/hero-section-image.jpg"
         filterSalons={["fp44"]}
-        autoSelectFirst={true} 
+        autoSelectFirst={true}
       />
       <HairPatchWigsServices />
-      <BeforeAfterGallery 
+      <BeforeAfterGallery
         title="Hair Patches & Wigs Gallery"
         subtitle="See the stunning transformations from our expert wig specialists"
         images={hairPatchWigImages}
       />
-       <YoutubeVideos />
+      <YoutubeVideos />
       <Locations filterLocations={["FP44"]} />
       <!-- <BookingForm /> -->
       <Testimonials />
