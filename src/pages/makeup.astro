@@ -56,6 +56,15 @@ import GMT from "../components/GMT.astro";
 
       gtag("config", "AW-17779239970");
     </script>
+
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) {
+        (window as any).dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TG9QGE938J");
+    </script>
   </head>
   <body class="antialiased">
     <GMT />
