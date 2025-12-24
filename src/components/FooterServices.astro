@@ -57,6 +57,7 @@ const hairPatchWigServices = [
           <button
             type="button"
             data-service="Hair Cut / Styling"
+            data-section="hair"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -67,6 +68,7 @@ const hairPatchWigServices = [
           <button
             type="button"
             data-service="Hair SPA"
+            data-section="hair"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -77,6 +79,7 @@ const hairPatchWigServices = [
           <button
             type="button"
             data-service="Hair Color"
+            data-section="hair"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -87,6 +90,7 @@ const hairPatchWigServices = [
           <button
             type="button"
             data-service="Hair Extensions"
+            data-section="hair"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -97,6 +101,7 @@ const hairPatchWigServices = [
           <button
             type="button"
             data-service="Nano Plastia"
+            data-section="hair"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -266,6 +271,7 @@ const hairPatchWigServices = [
             type="button"
             data-service="New Hair Patch Installation"
             data-hair-patch-wig="true"
+            data-section="gents"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -277,6 +283,7 @@ const hairPatchWigServices = [
             type="button"
             data-service="Hair Patch Re-tightening & Maintenance"
             data-hair-patch-wig="true"
+            data-section="gents"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -288,6 +295,7 @@ const hairPatchWigServices = [
             type="button"
             data-service="Lace Front Hair Wigs"
             data-hair-patch-wig="true"
+            data-section="gents"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -299,6 +307,7 @@ const hairPatchWigServices = [
             type="button"
             data-service="Hair Toppers for Ladies"
             data-hair-patch-wig="true"
+            data-section="gents"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -310,6 +319,7 @@ const hairPatchWigServices = [
             type="button"
             data-service="Female Full Wigs Installation"
             data-hair-patch-wig="true"
+            data-section="gents"
             class="text-white hover:text-gray-300 transition-colors duration-200 text-sm font-manrope text-left cursor-pointer"
             onclick="openBookingModal(this)"
           >
@@ -466,6 +476,8 @@ const hairPatchWigServices = [
   }
 </style>
 <script is:inline>
+  const DEFAULT_WHATSAPP = "8725055006";
+  const FP44_WHATSAPP = "9877399758";
   const allSalons = [
     {
       value: "fp44",
@@ -525,6 +537,9 @@ const hairPatchWigServices = [
     const whatsappBtn = document.getElementById("modalWhatsappBtn");
     const serviceNameDisplay = document.getElementById("modal-service-name");
     const serviceSelect = document.getElementById("modelSelectService");
+    const section = button.getAttribute("data-section") || "";
+    const isFp44Service = section == "hair" || section == "gents";
+    const finalWhatsapp = isFp44Service ? FP44_WHATSAPP : DEFAULT_WHATSAPP;
 
     if (!modal || !salonSelect || !whatsappBtn || !serviceSelect) return;
 
@@ -542,7 +557,6 @@ const hairPatchWigServices = [
 
     // Read the clicked service name
     currentService = button.getAttribute("data-service") || "";
-    console.log(currentService, "service");
 
     if (currentService && currentService.trim() !== "") {
       serviceSelect.parentElement.classList.add("hidden");

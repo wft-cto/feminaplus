@@ -348,6 +348,9 @@ import { Image } from "astro:assets";
 </style>
 
 <script is:inline>
+  const DEFAULT_WHATSAPP = "8725055006";
+  const HAIR_PATCH_WHATSAPP = "9877399758";
+
   const services = [
     {
       value: "hair-services",
@@ -472,6 +475,60 @@ import { Image } from "astro:assets";
     document.body.style.overflow = "hidden";
 
     setTimeout(() => salonSelect.focus(), 100);
+
+    salonSelect.onchange = function () {
+      const selectedSalon = salonSelect.options[salonSelect.selectedIndex];
+
+      if (!selectedSalon) return;
+
+      const serviceValue =
+        serviceSelect.options[serviceSelect.selectedIndex]?.value || "";
+
+      const isHairService =
+        serviceValue.includes("patch") || serviceValue.includes("wig");
+
+      const whatsappNumber = isHairService
+        ? HAIR_PATCH_WHATSAPP
+        : DEFAULT_WHATSAPP;
+
+      selectedSalon.setAttribute("data-whatsapp", whatsappNumber);
+      whatsappBtn.classList.remove("pointer-events-none", "opacity-50");
+      whatsappBtn.classList.add("pointer-events-auto");
+    };
+
+    serviceSelect.onchange = function () {
+      const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+      const selectedServiceName = selectedOption.textContent;
+      const selectedServiceValue = selectedOption.value;
+
+      currentService = selectedServiceName;
+
+      const isHairService =
+        selectedServiceValue.toLowerCase().includes("patch") ||
+        selectedServiceValue.toLowerCase().includes("wig");
+
+      // 🔁 UPDATE WHATSAPP NUMBER
+      const whatsappNumber = isHairService
+        ? HAIR_PATCH_WHATSAPP
+        : DEFAULT_WHATSAPP;
+
+      // Update selected salon whatsapp
+      const selectedSalon = salonSelect.options[salonSelect.selectedIndex];
+
+      if (selectedSalon) {
+        selectedSalon.setAttribute("data-whatsapp", whatsappNumber);
+      }
+
+      // Enable WhatsApp button
+      whatsappBtn.classList.remove("pointer-events-none", "opacity-50");
+      whatsappBtn.classList.add("pointer-events-auto");
+
+      if (isHairService) {
+        salonSelect.innerHTML =
+          '<option value="fp44" data-whatsapp="9877399758" selected>' +
+          "FP44 SCO 268, SECTOR 44-C, Chandigarh</option>";
+      }
+    };
   }
 
   function closeBookingModal() {

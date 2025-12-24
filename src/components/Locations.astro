@@ -16,10 +16,12 @@ interface Location {
 
 interface Props {
   filterLocations?: string[];
+  isHairPatchWigs?: boolean;
 }
 
 const {
   filterLocations,
+   isHairPatchWigs = false,
 } = Astro.props;
 
 const allLocations: Location[] = [
@@ -31,8 +33,9 @@ const allLocations: Location[] = [
     address: "SCO 268, SECTOR 44-C, Chandigarh",
     phonenumber: "017246228844",
     phonenumber_display: "0172 46228844",
-    whatsappnumber: "9877399758",
-    whatsappnumber_display: "9877399758",
+    whatsappnumber: isHairPatchWigs ? "9877399758" : "8725055006",
+    whatsappnumber_display: isHairPatchWigs ? "9877399758" : "8725055006",
+    whatsappnumber_display: isHairPatchWigs ? "9877399758" : "8725055006",
   },
   {
     title: "FP LUXE",
