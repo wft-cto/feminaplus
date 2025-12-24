@@ -586,11 +586,7 @@ const hairPatchWigServices = [
       const option = document.createElement("option");
       option.value = salon.value;
       option.textContent = salon.name;
-      // option.setAttribute("data-whatsapp", salon.whatsapp);
-      option.setAttribute(
-        "data-whatsapp",
-        salon.value == "fp44" ? finalWhatsapp : DEFAULT_WHATSAPP,
-      );
+      option.setAttribute("data-whatsapp", salon.whatsapp);
       if (isHairPatchWig && index === 0) {
         option.selected = true;
       }

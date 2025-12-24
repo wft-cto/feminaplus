@@ -485,9 +485,7 @@ import { Image } from "astro:assets";
         serviceSelect.options[serviceSelect.selectedIndex]?.value || "";
 
       const isHairService =
-        serviceValue.includes("hair") ||
-        serviceValue.includes("patch") ||
-        serviceValue.includes("wig");
+        serviceValue.includes("patch") || serviceValue.includes("wig");
 
       const whatsappNumber = isHairService
         ? HAIR_PATCH_WHATSAPP
@@ -506,7 +504,6 @@ import { Image } from "astro:assets";
       currentService = selectedServiceName;
 
       const isHairService =
-        selectedServiceValue.toLowerCase().includes("hair") ||
         selectedServiceValue.toLowerCase().includes("patch") ||
         selectedServiceValue.toLowerCase().includes("wig");
 
