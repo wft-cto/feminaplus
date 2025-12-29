@@ -24,7 +24,7 @@ import { Image } from "astro:assets";
             <img
               src="/logo.svg"
               alt="Femina Plus"
-              class="h-12 md:h-16 w-auto brightness-0 invert"
+              class="h-12 md:h-16 w-auto brightness-0 invert lg:w-28 xl:w-auto"
             />
           </a>
         </div>
@@ -45,7 +45,7 @@ import { Image } from "astro:assets";
                   class="relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
-    hover:after:w-full"
+    hover:after:w-full text-base lg:text-sm xl:text-base"
                 >
                   Locations
                 </a>
@@ -55,7 +55,7 @@ import { Image } from "astro:assets";
                   class={`relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
-    hover:after:w-full ${
+    hover:after:w-full text-base lg:text-sm xl:text-base ${
       Astro.url.pathname == "/makeup/"
         ? "after:w-full text-gray-300"
         : "after:w-0"
@@ -69,7 +69,7 @@ import { Image } from "astro:assets";
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
 
-    hover:after:w-full
+    hover:after:w-full text-base lg:text-sm xl:text-base
 
     ${
       Astro.url.pathname == "/hair-color/"
@@ -87,7 +87,7 @@ import { Image } from "astro:assets";
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
 
-    hover:after:w-full
+    hover:after:w-full lg:text-sm xl:text-base text-base
 
     ${
       Astro.url.pathname == "/hair-patch-wigs/"
@@ -104,7 +104,7 @@ import { Image } from "astro:assets";
                   class={`relative text-white hover:text-gray-300 transition
     after:content-[''] after:absolute after:left-0 after:-bottom-1
     after:h-[2px] after:bg-white after:transition-all after:duration-300
-    hover:after:w-full
+    hover:after:w-full text-base lg:text-sm xl:text-base
     ${
       Astro.url.hash == "#testimonials"
         ? "after:w-full text-gray-300"
@@ -148,7 +148,7 @@ import { Image } from "astro:assets";
             class="bg-black book-btn rounded-full hidden lg:flex items-center gap-3 text-[14px] text-white
           pl-6 pr-[6px] py-2 transition-all duration-300
           shadow-[0_0_0px_0_white]
-          hover:shadow-[0_0_15px_3px_white]"
+          hover:shadow-[0_0_15px_3px_white] text-base lg:text-sm xl:text-base"
             onclick="openBookingModal(this)"
           >
             Book Appointment
