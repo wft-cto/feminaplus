@@ -562,3 +562,31 @@
 .service-slider .slick-arrow.slick-disabled {
     display: none !important;
 }
+
+@media (min-width: 320px) and (max-width: 640px) {
+  [data-aos="fade-right"] {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  [data-aos="fade-left"] {
+    transform: translate3d(-10px, 0, 0);
+  }
+}
+
+/* mobile arrows fix */
+@media (max-width: 640px) {
+  .instagram-slider .slick-prev,
+  .instagram-slider .slick-next {
+    top: 0% !important;          /* keep vertically centered */
+    transform: translateY(-50%);  /* correct vertical position */
+    z-index: 10;
+  }
+
+  .instagram-slider .slick-prev {
+    left: 5px !important;
+  }
+
+  .instagram-slider .slick-next {
+    right: 5px !important;
+  }
+}
