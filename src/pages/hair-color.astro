@@ -9,6 +9,33 @@ import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
 import HairColorGallery from "../components/HairColor.astro";
 import GMT from "../components/GMT.astro";
+
+const services = [
+  {
+    name: "Global Hair Color",
+  },
+  {
+    name: "Highlights & hair streaks",
+  },
+  {
+    name: "Balayage & ombre",
+  },
+  {
+    name: "Baby-lights",
+  },
+  {
+    name: "Color correction",
+  },
+  {
+    name: "Color maintenance",
+  },
+  {
+    name: "Color retouch/root touch up",
+  },
+  {
+    name: "Olaplex treatment",
+  },
+];
 ---
 
 <html lang="en">
@@ -51,13 +78,14 @@ import GMT from "../components/GMT.astro";
   </head>
   <body class="antialiased">
     <GMT />
-    <Header class="mb-4" />
+    <Header class="mb-4" services={services} />
     <main class="mt-4">
       <HeroWithBooking
         title="To our Hair Color Studio"
         subtitle="Professional Hair color  Services"
         backgroundImage="/hair-color-hero.jpg"
         autoSelectFirst={false}
+        type="hair color"
       />
       <HairColorService />
       <HairColorGallery

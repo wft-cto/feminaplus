@@ -6,46 +6,53 @@ import customerFifth from "../../public/testimonial/testimonial_image_fifth_new.
 import customerThree from "../../public/testimonial/testimonial_image_third_new.webp";
 import customerOne from "../../public/testimonial/testimonial_image_first_new.webp";
 import customerTwo from "../../public/testimonial/testimonial_image_second_new.webp";
+import HairPatchWigsFirst from "../../public/hairPatch/transformed_image_first.jpeg";
+import HairPatchWigsSecond from "../../public/hairPatch/reformed_image_second.jpeg";
+import HairPatchWigsThird from "../../public/hairPatch/transformed_image_third.jpeg";
+import HairPatchWigsForth from "../../public/hairPatch/transformed_image_forth.jpeg";
+import HairPatchWigsFifth from "../../public/hairPatch/transformed_image_fifth.jpeg";
+import HairPatchWigsSixth from "../../public/hairPatch/transformed_image_sixth.jpeg";
 import customerOneVideo from "../../public/videos/testimonial_video_first.mp4";
 import customerTwoVideo from "../../public/videos/testimonial_video_second.mp4";
 import customerThirdVideo from "../../public/videos/testimonial_video_third.mp4";
 import customerForthVideo from "../../public/videos/testimonial_video_forth.mp4";
 import customerFifthVideo from "../../public/videos/testimonial_video_fifth.mp4";
 import customerSixthVideo from "../../public/videos/testimonial_video_sixth.mp4";
-
+import "../css/style.css";
+const { images = false } = Astro.props;
 
 const solutions = [
   {
-    image: customerOne,
+    image: images ? HairPatchWigsFirst : customerOne,
     Video: customerTwoVideo,
-    description: "hair Artist color",
+    description: images ? "Full Wig Installation" : "hair Artist color",
   },
   {
     name: "Sheela devi",
-    image: customerSixth,
+    image: images ? HairPatchWigsSecond : customerSixth,
     Video: customerOneVideo,
-    description: "hair Artist color",
+    description: images ? "Hair Patch Installation" : "hair Artist color",
   },
   {
     name: "Jasmeet kaur",
-    image: customerThree,
+    image:  images ? HairPatchWigsThird : customerThree,
     Video: customerThirdVideo,
-    description: "hair Artist color",
+    description: images ? "Lace Front Wig" : "hair Artist color",
   },
   {
-    image: customerForth,
+    image:  images ? HairPatchWigsForth : customerForth,
     Video: customerForthVideo,
-    description: "hair Artist color",
+    description: images ? "Hair Topper" : "hair Artist color",
   },
    {
-    image: customerFifth,
+    image:  images ? HairPatchWigsFifth : customerFifth,
     Video: customerFifthVideo,
-    description: "hair Artist color",
+    description: images ? "Wig Restyling" : "hair Artist color",
   },
    {
-    image: customerTwo,
+    image: images ? HairPatchWigsSixth : customerTwo,
     Video: customerSixthVideo,
-    description: "hair Artist color",
+    description: images ? "Custom Wig Design" : "hair Artist color",
   },
 ];
 import { Image } from "astro:assets";
@@ -80,12 +87,12 @@ import { Image } from "astro:assets";
     <div class="testimonals">
       {
         solutions.map((facility) => (
-          <div class="relative slide-item">
-         <img 
-    class="video-thumb w-full h-full object-cover"
-    src={facility.image.src}
-    alt={facility.name}
-  />
+          <div class={`relative slide-item ${images ? 'images-mode' : ''}`}>
+        <Image 
+        src={facility.image}      
+        alt={`${facility.name ?? "Salon"} facility image`}  
+        class="video-thumb w-full h-full object-cover"
+      />
 
   <!-- VIDEO (hidden by default) -->
   <video
@@ -97,6 +104,8 @@ import { Image } from "astro:assets";
   
   
             <div class="absolute bottom-[38px] w-full">
+              {!images && (
+  <>
               <div class="w-full flex justify-center items-center pb-[42px]">
                <div class="play-btn absolute bottom-[38px] left-0 right-0 mx-auto w-[81px] h-[52px] bg-white rounded-[50px] flex justify-center items-center cursor-pointer">
                   <svg
@@ -116,8 +125,10 @@ import { Image } from "astro:assets";
                   </svg>
                 </div>
               </div>
+              </>
+)}
               <div>
-                <p class="text-[18px] font-medium font-manrope text-white">
+                <p class="text-[18px] font-medium font-manrope text-white desc-shadow">
                   {facility.description}
                 </p>
               </div>

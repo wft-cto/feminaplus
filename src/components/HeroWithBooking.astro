@@ -1,5 +1,6 @@
 ---
 import "../css/style.css";
+import FloatingWhatsApp from "./FloatingWhatsApp.astro";
 
 interface Props {
   title?: string;
@@ -9,6 +10,7 @@ interface Props {
   whatsappNumber?: string;
   filterSalons?: string[];
   autoSelectFirst?: boolean;
+  type?: string;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   whatsappNumber = "8725055006",
   filterSalons,
   autoSelectFirst = false,
+  type,
 } = Astro.props;
 
 const allSalons = [
@@ -196,6 +199,8 @@ const salons = filterSalons
       </div>
     </div>
   </div>
+  <!-- WhatsApp floating button -->
+  <FloatingWhatsApp type={type} />
 </section>
 
 <style>

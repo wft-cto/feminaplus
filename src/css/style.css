@@ -563,6 +563,13 @@
     display: none !important;
 }
 
+.slide-item.images-mode::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: .4;
+}
 @media (min-width: 320px) and (max-width: 1024px) {
   [data-aos="fade-right"] {
     transform: translate3d(10px, 0, 0);
@@ -589,4 +596,7 @@
   .instagram-slider .slick-next {
     right: 5px !important;
   }
+}
+.desc-shadow {
+  filter: drop-shadow(0 8px 25px rgba(0,0,0,.9));
 }

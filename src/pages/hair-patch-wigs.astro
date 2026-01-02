@@ -60,6 +60,33 @@ const hairPatchWigImages = [
     clientName: "Client 6",
   },
 ];
+
+const services = [
+  {
+    name: "New Hair Patch Installation for men",
+  },
+  {
+    name: "Hair Patch Re-tightening & Maintenance",
+  },
+  {
+    name: "Lace Front Hair Wigs",
+  },
+  {
+    name: "Full Head - Ladies Hair Wig Installation",
+  },
+  {
+    name: "Hair Toppers for Ladies",
+  },
+  {
+    name: "Custom Wig Design",
+  },
+  {
+    name: "Wig Restyling",
+  },
+  {
+    name: "Wig Maintenance & re-tightening",
+  },
+];
 ---
 
 <html lang="en">
@@ -100,7 +127,7 @@ const hairPatchWigImages = [
   </head>
   <body class="antialiased">
     <GMT />
-    <Header class="mb-4" />
+    <Header class="mb-4" services={services} />
     <main class="mt-4">
       <HeroWithBooking
         title="To our Hair Patch & Wigs Studio"
@@ -109,6 +136,7 @@ const hairPatchWigImages = [
         backgroundImage="/hero_section_image_new.webp"
         filterSalons={["fp44"]}
         autoSelectFirst={true}
+        type="hair patch wigs"
       />
       <HairPatchWigsServices />
       <BeforeAfterGallery
@@ -119,7 +147,7 @@ const hairPatchWigImages = [
       <YoutubeVideos />
       <Locations filterLocations={["FP44"]} isHairPatchWigs={true} />
       <!-- <BookingForm /> -->
-      <Testimonials />
+      <Testimonials images={hairPatchWigImages} />
       <InstagramFeed />
     </main>
     <Footer />

@@ -15,6 +15,33 @@ import BookingForm from "../components/BookingForm.astro";
 import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
 import GMT from "../components/GMT.astro";
+
+const services = [
+  {
+    name: "Bridal Makeup",
+  },
+  {
+    name: "Party Make Up",
+  },
+  {
+    name: "Engagement Make Up",
+  },
+  {
+    name: "Photoshoot Make Up",
+  },
+  {
+    name: "Pre-wedding Make Up",
+  },
+  {
+    name: "Celebrity Make Up",
+  },
+  {
+    name: "Reception Make Up",
+  },
+  {
+    name: "Destination Make Ups",
+  },
+];
 ---
 
 <html lang="en">
@@ -56,13 +83,14 @@ import GMT from "../components/GMT.astro";
   </head>
   <body class="antialiased">
     <GMT />
-    <Header class="mb-4" />
+    <Header class="mb-4" services={services} />
     <main class="mt-4">
       <HeroWithBooking
         title="To our Makeup Studio"
         subtitle="Professional Makeup | Bridal Makeup | Beauty Services"
         backgroundImage="/makeup_bg_new.webp"
         autoSelectFirst={false}
+        type="Makeup"
       />
       <MakeupServices />
       <MakeUp

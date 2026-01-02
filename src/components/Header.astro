@@ -2,16 +2,32 @@
 import arrow from "../../public/arrow-top-right.svg";
 import close from "../../public/close.svg";
 import { Image } from "astro:assets";
+const { services = [] } = Astro.props;
 ---
 
 <header data-aos="fade-down" class="w-full absolute top-0 left-0 z-[9999999]">
   <!-- Top bar with phone number -->
-  <div class="bg-black text-white py-2 px-4">
-    <p class="text-sm text-center py-4">
-      Experience Professional Makeup—<span class="font-extrabold">
-        Attractive offers for First-Time Clients</span
-      >
-    </p>
+  <div
+    class="bg-black text-white flex flex-wrap gap-4 justify-center py-2 text-sm"
+  >
+    {
+      services && services.length > 0 ? (
+        <ul class="flex flex-wrap gap-4 justify-center py-4 text-sm">
+          {services.map((item: any, i: number) => (
+            <li>
+              {item?.name} {i < services.length - 1 && "|"}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-sm text-center py-4">
+          Experience Professional Makeup—
+          <span class="font-extrabold">
+            Attractive offers for First-Time Clients
+          </span>
+        </p>
+      )
+    }
   </div>
 
   <!-- Main navigation -->
@@ -21,10 +37,12 @@ import { Image } from "astro:assets";
         <!-- Logo -->
         <div class="flex items-center">
           <a href="/" class="flex items-center">
-            <img
+            <Image
               src="/logo_femina_new.png"
               alt="Femina Plus"
               class="h-12 md:h-16 w-auto brightness-0 invert lg:w-28 xl:w-auto"
+              width={100}
+              height={100}
             />
           </a>
         </div>
