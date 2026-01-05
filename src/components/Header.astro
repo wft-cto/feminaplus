@@ -12,7 +12,7 @@ const { services = [] } = Astro.props;
   >
     {
       services && services.length > 0 ? (
-        <ul class="flex flex-wrap gap-1 sm:gap-4 justify-center py-0 sm:py-4 text-sm">
+        <ul class="flex flex-wrap gap-1 sm:gap-4 justify-center py-0 sm:py-4 text-sm text-center">
           {services.map((item: any) => (
             <li>{item}</li>
           ))}
