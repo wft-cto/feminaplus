@@ -9,6 +9,10 @@ import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
 import HairColorGallery from "../components/HairColor.astro";
 import GMT from "../components/GMT.astro";
+
+const services = [
+  "Transform your look with rich, long-lasting hair color that protects, nourishes, and enhances your natural beauty — customized by professional color specialists.",
+];
 ---
 
 <html lang="en">
@@ -51,13 +55,14 @@ import GMT from "../components/GMT.astro";
   </head>
   <body class="antialiased">
     <GMT />
-    <Header class="mb-4" />
+    <Header class="mb-4" services={services} />
     <main class="mt-4">
       <HeroWithBooking
         title="To our Hair Color Studio"
         subtitle="Professional Hair color  Services"
         backgroundImage="/hair-color-hero.jpg"
         autoSelectFirst={false}
+        type="hair color"
       />
       <HairColorService />
       <HairColorGallery

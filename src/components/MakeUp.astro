@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "../css/style.css";
 
 interface BeforeAfterImage {
@@ -96,10 +97,12 @@ const beforeAfterImages = images;
           <div class="relative aspect-[3/4] overflow-hidden">
             <!-- Before Image -->
             <div class="before-image-container absolute inset-0">
-              <img
+              <Image
                 src={item.beforeImage}
                 alt={`Before - ${item.service}`}
                 class="w-full h-full object-cover"
+                width={800}
+                height={600}
               />
             </div>
             <!-- Slider Handle (for mobile/interactive) -->

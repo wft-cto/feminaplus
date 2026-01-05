@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "../css/style.css";
 
 
@@ -50,10 +51,12 @@ const beforeAfterImages = instagramPosts;
           
           <!-- Image (Clickable) -->
           <a href={item.permalink} target="_blank" rel="noopener noreferrer">
-            <img 
+            <Image 
               src={item.beforeImage} 
               alt="Gallery Image" 
               class="w-full h-[350px] object-cover"
+              width={800}
+              height={600}
             />
           </a>
 
@@ -72,10 +75,12 @@ const beforeAfterImages = instagramPosts;
     rel="noopener noreferrer"
     class="ml-4"
   >
-    <img 
+    <Image 
       src="/youtube_logo.png"
       alt="YouTube Logo" 
       class="w-[100px] h-[60px] object-contain"
+      width={100}
+      height={60}
     />
   </a>
 </div>

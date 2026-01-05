@@ -60,6 +60,10 @@ const hairPatchWigImages = [
     clientName: "Client 6",
   },
 ];
+
+const services = [
+  "Natural-Looking Hair Patches Designed to Match Your Style — Comfortable, Secure, and Completely Undetectable. Get expert consultation and start feeling confident again",
+];
 ---
 
 <html lang="en">
@@ -100,7 +104,7 @@ const hairPatchWigImages = [
   </head>
   <body class="antialiased">
     <GMT />
-    <Header class="mb-4" />
+    <Header class="mb-4" services={services} />
     <main class="mt-4">
       <HeroWithBooking
         title="To our Hair Patch & Wigs Studio"
@@ -109,6 +113,7 @@ const hairPatchWigImages = [
         backgroundImage="/hero_section_image_new.webp"
         filterSalons={["fp44"]}
         autoSelectFirst={true}
+        type="hair patch wigs"
       />
       <HairPatchWigsServices />
       <BeforeAfterGallery
@@ -119,7 +124,7 @@ const hairPatchWigImages = [
       <YoutubeVideos />
       <Locations filterLocations={["FP44"]} isHairPatchWigs={true} />
       <!-- <BookingForm /> -->
-      <Testimonials />
+      <Testimonials images={hairPatchWigImages} />
       <InstagramFeed />
     </main>
     <Footer />
