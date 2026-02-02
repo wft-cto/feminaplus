@@ -1,56 +1,52 @@
 ---
-import { Image } from "astro:assets";
-import userOne from "../../public/insta_image_first.jpg";
-import userTwo from "../../public/insta_image_second.jpg";
-import userThree from "../../public/insta_image_third.jpg";
-import userFour from "../../public/insta_image_forth.jpg";
-import userFive from "../../public/insta_image_sixth.jpg";
-import userSixth from "../../public/insta_image_fifth.jpg";
-import instagram from "../../public/instagram.svg";
-import Logo from "../../public/femina-logo.svg";
-
 // Instagram feed component - integrates with Instagram API
 // For demo purposes, using placeholder data
 // In production, replace this with actual Instagram API call
 const instagramPosts = [
   {
     id: "1",
-    media_url: userOne,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_first.jpg",
     permalink: "https://www.instagram.com/p/DO1C_ovEgL6/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "2",
-    media_url: userTwo,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_second.jpg",
     permalink: "https://www.instagram.com/p/DRPQRC_kt2_/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "3",
-    media_url: userThree,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_third.jpg",
     permalink: "https://www.instagram.com/reel/DQbvCYZDAii/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "4",
-    media_url: userFour,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_forth.jpg",
     permalink: "https://www.instagram.com/reel/DQN8Gw7khXb/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "5",
-    media_url: userFive,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_sixth.jpg",
     permalink: "https://www.instagram.com/reel/DRJ8_VFkl_x/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
   },
   {
     id: "5",
-    media_url: userSixth,
+    media_url:
+      "https://assets.feminaplussalon.com/public/insta_image_fifth.jpg",
     permalink: "https://www.instagram.com/reel/DPY1ywwiL1h/",
     caption:
       "Hair stylists at JUICE believe that beauty is different for every person",
@@ -104,7 +100,7 @@ async function fetchInstagramPosts() {
         instagramPosts.map((posts) => (
           <a href={posts.permalink} target="_blank" rel="noopener noreferrer">
             <div class="border rounded-[20px] overflow-hidden border-[#4c4c4c]">
-              <Image
+              <img
                 class="w-full h-[480px] object-cover object-top"
                 src={posts.media_url}
                 alt={`${posts.media_url}`}
@@ -125,7 +121,10 @@ async function fetchInstagramPosts() {
                 >
                   <div class="flex items-center gap-[10px]">
                     <div class="w-[47px] h-[47px] bg-white flex justify-center items-center rounded-[50px]">
-                      <Image src={Logo} alt={`${Logo}`} />
+                      <img
+                        src="https://assets.feminaplussalon.com/public/femina-logo.svg"
+                        alt="femina-logo"
+                      />
                     </div>
                     <div>
                       <p class="font-manrope text-white font-bold text-[16px] text-whites">
@@ -144,7 +143,10 @@ async function fetchInstagramPosts() {
                     </div>
                   </div>
                   <div>
-                    <Image src={instagram} alt={`${instagram}`} />
+                    <img
+                      src="https://assets.feminaplussalon.com/public/instagram.svg"
+                      alt="instagram"
+                    />
                   </div>
                 </div>
               </div>

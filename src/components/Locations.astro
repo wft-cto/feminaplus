@@ -1,10 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import showroomOne from "../../public/showroom-image-1.jpg";
-import showroomTwo from "../../public/showroom-image-2.jpg";
-import showroomThree from "../../public/showroom-image-3.jpg";
-import showroomFour from "../../public/showroom-image-4.jpg";
-import showroomFive from "../../public/showroom-image-5.jpg";
+
 
 interface Location {
   title: string;
@@ -28,7 +24,7 @@ const allLocations: Location[] = [
   {
     title: "FP44",
     location: "SCO 268, SECTOR 44-C, CHD. - 0172 46228844, 9877399758",
-    image: showroomOne,
+    image:       "https://assets.feminaplussalon.com/public/showroom-image-1.jpg",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.1810114964064!2d76.74692179678958!3d30.713311300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fec34877564e7%3A0xd275303055eea805!2sFemina%20Plus!5e0!3m2!1sen!2sin!4v1764237095731!5m2!1sen!2sin",
     address: "SCO 268, SECTOR 44-C, Chandigarh",
     phonenumber: "017246228844",
@@ -40,7 +36,7 @@ const allLocations: Location[] = [
   {
     title: "FP LUXE",
     location: "SCO 164-165, SECTOR 9-C, CHD. - 0172 4024040, 79-73268966",
-    image: showroomThree,
+    image:       "https://assets.feminaplussalon.com/public/showroom-image-3.jpg",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.15931549183!2d76.78587599511891!3d30.742026109036036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feda6c8f25a63%3A0xf9705c422afee5a5!2sFemina%20Plus%20Luxe%20Salon%20%7C%20Best%20Salon%20in%20Chandigarh!5e0!3m2!1sen!2sin!4v1764237297051!5m2!1sen!2sin",
   address: "SCO 164-165, SECTOR 9-C, Chandigarh",
     phonenumber: "01724024040",
@@ -51,7 +47,7 @@ const allLocations: Location[] = [
   {
     title: "FP KHARAR",
     location: "SCO 55, SECTOR 125, NEW SUNNY ENCLAVE - 9815931884",
-    image: showroomFour,
+    image:       "https://assets.feminaplussalon.com/public/showroom-image-4.jpg",
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109734.28030189735!2d76.59139554409984!3d30.74098821969087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fefcf8644992b%3A0xe949d199c0873f02!2sFEMINA%20PLUS%20KHARAR!5e0!3m2!1sen!2sin!4v1764592838898!5m2!1sen!2sin",
     address: "SCO 55, SECTOR 125, NEW SUNNY ENCLAVE",
@@ -61,7 +57,7 @@ const allLocations: Location[] = [
   {
     title: "FP PKL",
     location: "SCO 386, SECTOR 8 - 0172-4025050, 9815962884",
-    image: showroomTwo,
+    image:       "https://assets.feminaplussalon.com/public/showroom-image-2.jpg",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.6639952056075!2d76.84649557621923!3d30.699728587225827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f936a09856d13%3A0xb5706ded9d1af6f4!2sFemina%20Plus%20Luxe%20%7C%20Best%20Salon%20in%20Panchkula!5e0!3m2!1sen!2sin!4v1764592953195!5m2!1sen!2sin", 
     address: "SCO 386, SECTOR 8, Panchkula",
     phonenumber: "01724025050",
@@ -72,7 +68,7 @@ const allLocations: Location[] = [
   {
     title: "FP ZIRAKPUR",
     location: "Pooja Plazio above Gopal Sweets, Zirakpur - 9872234488",
-    image: showroomFive,
+    image:       "https://assets.feminaplussalon.com/public/showroom-image-5.jpg",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27462.787987888692!2d76.79353938411842!3d30.638227010429993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f95ae46eb3c4f%3A0xb4ff05585afaa28e!2sFemina%20FLAUNT%20Studio%20Salon%20-%20Bridal%20Makeup%20Salon%20%7C%20Party%20Makeup%20%7C%20Best%20Salon%20%7C%20Best%20Makeup%20Studio%20in%20Zirakpur!5e0!3m2!1sen!2sin!4v1764593216291!5m2!1sen!2sin",
     address: "Pooja Plazio above Gopal Sweets, Zirakpur",
     phonenumber: "9872234488",
@@ -207,7 +203,7 @@ const shopLocaiton = filterLocations
           >
             <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-0 group">
               <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`} class="overflow-hidden">
-                <Image
+                <img
                   class="w-full h-full mx-auto object-cover grayscale transition-all duration-500 ease-in-out group-hover:grayscale-0 group-hover:scale-105 group-hover:rounded-none aspect-[3/2]"
                   src={location.image}
                   alt={`${location.image}`}

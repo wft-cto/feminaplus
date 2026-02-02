@@ -1,27 +1,13 @@
 ---
-import loreal from "../../public/loreal.png";
-import kérastase from "../../public/kerastase.png";
-import olaplex from "../../public/olaplex.png";
-import swati from "../../public/swati.png";
-import gk from "../../public/gk.png";
-import ft from "../../public/ft.jpg";
-import Moroccanoil from "../../public/mr.jpg";
-import Dermalogica from "../../public/dermalogica.png";
-import { Image } from "astro:assets";
-
 const brands = [
-  loreal,
-  kérastase,
-  olaplex,
-  Moroccanoil,
-  Dermalogica,
-  swati,
-  ft,
-  gk,
-  kérastase,
-  olaplex,
-  swati,
-  Moroccanoil,
+  "https://assets.feminaplussalon.com/public/loreal.png",
+  "https://assets.feminaplussalon.com/public/kerastase.png",
+  "https://assets.feminaplussalon.com/public/olaplex.png",
+  "https://assets.feminaplussalon.com/public/swati.png",
+  "https://assets.feminaplussalon.com/public/gk.png",
+  "https://assets.feminaplussalon.com/public/ft.jpg",
+  "https://assets.feminaplussalon.com/public/mr.jpg",
+  "https://assets.feminaplussalon.com/public/dermalogica.png",
 ];
 ---
 
@@ -37,11 +23,7 @@ const brands = [
             data-aos-delay={index % 2 === 0 ? "400" : "800"}
             class="border border-[#F6F6F6] py-[12px] md:py-[42px] px-[49px] w-full h-[70px] md:h-[181px] flex items-center justify-center"
           >
-            <Image
-              src={brand}
-              alt={`${brand}`}
-              class="object-contain w-full h-full"
-            />
+            <img src={brand} alt={brand} class="object-contain w-full h-full" />
           </div>
         ))
       }

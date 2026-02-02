@@ -1,12 +1,9 @@
----
-import { Image } from "astro:assets";
-import arrow from "../../public/arrow-top-right.svg";
-import curve from "../../public/black-curve.png";
-import promo from "../../public/promo.jpg";
----
-
 <section class="py-16 bg-gray-50 relative">
-  <Image class="absolute w-full top-0 z-[999]" src={curve} alt={`${curve}`} />
+  <img
+    class="absolute w-full top-0 z-[999]"
+    src="https://assets.feminaplussalon.com/public/black-curve.png"
+    alt="black-curve"
+  />
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-[30px] mb-[30px] md:mt-[134px] md:mb-[127px] bg-white gap-12 items-center"
@@ -44,21 +41,21 @@ import promo from "../../public/promo.jpg";
           onclick="openBookingModal(this)"
         >
           Book now
-          <Image
+          <img
             class="bg-white w-fit rounded-full py-[11px] px-[21px]"
-            src={arrow}
-            alt={`${arrow}`}
+            src="https://assets.feminaplussalon.com/public/arrow-top-right.svg"
+            alt="arrow-top-right"
           />
         </button>
       </div>
       <div class="relative">
-        <Image
+        <img
           data-aos="zoom-in"
           data-aos-delay="1200"
           data-aos-duration="500"
           class="w-full"
-          src={promo}
-          alt={`${promo}`}
+          src="https://assets.feminaplussalon.com/public/promo.jpg"
+          alt="promo"
         />
         <div
           data-aos="fade-left"

@@ -1,18 +1,14 @@
 ---
 import "../css/style.css";
-import start from "../../public/star.svg";
-import medal from "../../public/medal.svg";
-import cup from "../../public/cup.svg";
-import { Image } from "astro:assets";
 ---
 
 <div
   class="relative -z-10 pb-[3.232%]"
-  style="background-image: url('/golden_bar_new.webp'); background-size: cover; background-position: center;"
+  style="background-image: url('https://assets.feminaplussalon.com/public/golden_bar_new.webp'); background-size: cover; background-position: center;"
 >
   <div
     class="absolute bottom-0 left-0 w-full z-[9999] bg-no-repeat bg-cover p-0 h-[4vw]"
-    style="background-image: url('/golden-bar-cut-shape.png');"
+    style="background-image: url('https://assets.feminaplussalon.com/public/golden-bar-cut-shape.png');"
   >
   </div>
 
@@ -20,7 +16,10 @@ import { Image } from "astro:assets";
     <div class="">
       <div class="flex flex-wrap justify-between items-center gap-8 lg:gap-16">
         <div class="flex items-center gap-2">
-          <Image src={start} alt={`${start}`} />
+          <img
+            src="https://assets.feminaplussalon.com/public/star.svg"
+            alt="star"
+          />
           <p
             class="text-[12px] md:text-[15px] lg:text-[22px] text-white font-manrope"
           >
@@ -29,7 +28,10 @@ import { Image } from "astro:assets";
         </div>
 
         <div class="flex items-center gap-2">
-          <Image src={medal} alt={`${medal}`} />
+          <img
+            src="https://assets.feminaplussalon.com/public/medal.svg"
+            alt="${medal"
+          />
           <p
             class="text-[12px] md:text-[15px] lg:text-[22px] text-white font-manrope"
           >
@@ -38,7 +40,10 @@ import { Image } from "astro:assets";
         </div>
 
         <div class="flex items-center gap-2">
-          <Image src={cup} alt={`${cup}`} />
+          <img
+            src="https://assets.feminaplussalon.com/public/cup.svg"
+            alt="cup"
+          />
           <p
             class="text-[12px] md:text-[15px] lg:text-[22px] text-white font-manrope"
           >

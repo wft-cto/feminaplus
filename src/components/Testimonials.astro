@@ -1,20 +1,27 @@
 ---
 import curve from "../../public/our-customers-shape.png";
 import customerSixth from "../../public/testimonial/testimonial_image_sixth_new.webp";
+
 import customerForth from "../../public/testimonial/testimonial_image_forth_new.webp";
 import customerFifth from "../../public/testimonial/testimonial_image_fifth_new.webp";
 import customerThree from "../../public/testimonial/testimonial_image_third_new.webp";
+
 import customerOne from "../../public/testimonial/testimonial_image_first_new.webp";
 import customerTwo from "../../public/testimonial/testimonial_image_second_new.webp";
-import HairPatchWigsFirst from "../../public/hairPatch/transformed_image_first.jpeg";
-import HairPatchWigsSecond from "../../public/hairPatch/reformed_image_second.jpeg";
-import HairPatchWigsThird from "../../public/hairPatch/transformed_image_third.jpeg";
-import HairPatchWigsForth from "../../public/hairPatch/transformed_image_forth.jpeg";
-import HairPatchWigsFifth from "../../public/hairPatch/transformed_image_fifth.jpeg";
-import HairPatchWigsSixth from "../../public/hairPatch/transformed_image_sixth.jpeg";
+import testimonialWigsFirst from "../../public/testimonial/transformed_image_first.jpeg";
+import testimonialWigsSecond from "../../public/testimonial/reformed_image_second.jpeg";
+
+import testimonialWigsThird from "../../public/testimonial/transformed_image_third.jpeg";
+
+import testimonialWigsForth from "../../public/testimonial/transformed_image_forth.jpeg";
+
+import testimonialWigsFifth from "../../public/testimonial/transformed_image_fifth.jpeg";
+
+import testimonialWigsSixth from "../../public/testimonial/transformed_image_sixth.jpeg";
 import customerOneVideo from "../../public/videos/testimonial_video_first.mp4";
-import customerTwoVideo from "../../public/videos/testimonial_video_second.mp4";
+
 import customerThirdVideo from "../../public/videos/testimonial_video_third.mp4";
+
 import customerForthVideo from "../../public/videos/testimonial_video_forth.mp4";
 import customerFifthVideo from "../../public/videos/testimonial_video_fifth.mp4";
 import customerSixthVideo from "../../public/videos/testimonial_video_sixth.mp4";
@@ -23,35 +30,35 @@ const { images = false } = Astro.props;
 
 const solutions = [
   {
-    image: images ? HairPatchWigsFirst : customerOne,
-    Video: customerTwoVideo,
+    image: images ? "https://assets.feminaplussalon.com/public/testimonial/transformed_image_first.jpeg" : `https://assets.feminaplussalon.com/public/testimonial/testimonial_image_first_new.webp`,
+    Video: "https://assets.feminaplussalon.com/public/videos/testimonial_video_second.mp4",
     description: images ? "Full Wig Installation" : "hair Artist color",
   },
   {
     name: "Sheela devi",
-    image: images ? HairPatchWigsSecond : customerSixth,
-    Video: customerOneVideo,
+    image: images ? "https://assets.feminaplussalon.com/public/testimonial/reformed_image_second.jpeg"  :   "https://assets.feminaplussalon.com/public/testimonial/testimonial_image_sixth_new.webp" ,
+    Video:  "https://assets.feminaplussalon.com/public/videos/testimonial_video_first.mp4" ,
     description: images ? "Hair Patch Installation" : "hair Artist color",
   },
   {
     name: "Jasmeet kaur",
-    image:  images ? HairPatchWigsThird : customerThree,
-    Video: customerThirdVideo,
+    image:  images ? "https://assets.feminaplussalon.com/public/testimonial/transformed_image_third.jpeg"  : "https://assets.feminaplussalon.com/public/testimonial/testimonial_image_third_new.webp" ,
+    Video: "https://assets.feminaplussalon.com/public/videos/testimonial_video_third.mp4" ,
     description: images ? "Lace Front Wig" : "hair Artist color",
   },
   {
-    image:  images ? HairPatchWigsForth : customerForth,
-    Video: customerForthVideo,
+    image:  images ? "https://assets.feminaplussalon.com/public/testimonial/transformed_image_forth.jpeg" :"https://assets.feminaplussalon.com/public/testimonial/testimonial_image_forth_new.webp",
+    Video: "https://assets.feminaplussalon.com/public/videos/testimonial_video_forth.mp4",
     description: images ? "Hair Topper" : "hair Artist color",
   },
    {
-    image:  images ? HairPatchWigsFifth : customerFifth,
-    Video: customerFifthVideo,
+    image:  images ? "https://assets.feminaplussalon.com/public/testimonial/transformed_image_fifth.jpeg"  : "https://assets.feminaplussalon.com/public/testimonial/testimonial_image_fifth_new.webp",
+    Video: "https://assets.feminaplussalon.com/public/videos/testimonial_video_fifth.mp4",
     description: images ? "Wig Restyling" : "hair Artist color",
   },
    {
-    image: images ? HairPatchWigsSixth : customerTwo,
-    Video: customerSixthVideo,
+    image: images ?   "https://assets.feminaplussalon.com/public/testimonial/transformed_image_sixth.jpeg"  : "https://assets.feminaplussalon.com/public/testimonial/testimonial_image_second_new.webp",
+    Video: "https://assets.feminaplussalon.com/public/videos/testimonial_video_sixth.mp4",
     description: images ? "Custom Wig Design" : "hair Artist color",
   },
 ];
@@ -63,7 +70,7 @@ import { Image } from "astro:assets";
   data-aos-duration="400"
   data-aos-delay="400"
   data-aos-anchor-placement="top-bottom"
-  id="testimonials"
+  id="testimonial"
   class="pt-6 md:py-16 relative bg-[#F6F6F6] text-black"
 >
   <Image class="absolute w-full top-0 z-[999]" src={curve} alt={`${curve}`} />
@@ -84,12 +91,12 @@ import { Image } from "astro:assets";
         </h2>
       </div>
     </div>
-    <div class="testimonals">
+    <div class="testimonial">
       {
         solutions.map((facility) => (
           <div class={`relative slide-item ${images ? 'images-mode' : ''}`}>
-        <Image 
-        src={facility.image}      
+        <img 
+        src={`${facility.image}`}      
         alt={`${facility.name ?? "Salon"} facility image`}  
         class="video-thumb w-full h-full object-cover"
       />
@@ -141,15 +148,15 @@ import { Image } from "astro:assets";
 </section>
 
 <style>
-  .testimonals .slick-arrow {
+  .testimonial .slick-arrow {
     color: white !important;
     background-color: black !important;
   }
 
-  .testimonals .slide-dots {
+  .testimonial .slide-dots {
     width: fit-content !;
   }
-  .testimonals .slick-center .slide-img {
+  .testimonial .slick-center .slide-img {
     height: 100%;
     width: 100%;
     border-radius: 0px;
@@ -184,15 +191,15 @@ import { Image } from "astro:assets";
     height: 535px;
   } */
 
-  .testimonals .slide-item {
+  .testimonial .slide-item {
   position: relative;
   width: 100%;
   height: 535px; /* Fixed height for all slides */
   overflow: hidden;
 }
 
-.testimonals .slide-item img,
-.testimonals .slide-item video {
+.testimonial .slide-item img,
+.testimonial .slide-item video {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures content fills the container without stretching */
@@ -202,7 +209,7 @@ import { Image } from "astro:assets";
   
 </style>
 <script is:inline>
-  $(".testimonals").slick({
+  $(".testimonial").slick({
     centerMode: true,
     slidesToScroll: 1,
     autoplay: true,

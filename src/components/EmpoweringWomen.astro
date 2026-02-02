@@ -1,20 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import demandingIcon from "../../public/demanding_icon.svg";
-import marqueLogo from "../../public/marque-logo.svg";
-
-import empowringLogoOne from "../../public/hair_patch_new.webp";
-import empowringLogoTwo from "../../public/makeup_new.webp";
-import empowringHairColor from "../../public/hair_color_new.webp";
-import empowringLogoThree from "../../public/empowering-logo-3.svg";
-import empowringLogoFour from "../../public/empowering-logo-4.svg";
-import empowringLogoFive from "../../public/empowering-logo-5.svg";
-import empowringLogoSix from "../../public/empowering-logo-6.svg";
 
 const mainServices = [
   {
     name: "Hair Patch",
-    icon: empowringLogoOne,
+    icon: "https://assets.feminaplussalon.com/public/hair_patch_new.webp",
     details: [
       "New Hair Patch Installation",
       "Hair patch Re-tightening & Maintenance",
@@ -26,7 +15,7 @@ const mainServices = [
   },
   {
     name: "Makeup",
-    icon: empowringLogoTwo,
+    icon: "https://assets.feminaplussalon.com/public/makeup_new.webp",
     details: [
       "Bridal Make Up",
       "Party Make Up",
@@ -38,7 +27,7 @@ const mainServices = [
   },
   {
     name: "Hair Color",
-    icon: empowringHairColor,
+    icon: "https://assets.feminaplussalon.com/public/hair_color_new.webp",
     details: [
       "Global Hair Color",
       "Highlights & hair streaks",
@@ -55,7 +44,7 @@ const mainServices = [
 const services = [
   {
     name: "Kera Smoothing",
-    icon: empowringLogoThree,
+    icon: "https://assets.feminaplussalon.com/public/empowering-logo-3.svg",
     details: [
       "80-90% straight hair results",
       "Smooths frizzy hair",
@@ -67,7 +56,7 @@ const services = [
   },
   {
     name: "Hair Botox",
-    icon: empowringLogoFour,
+    icon: "https://assets.feminaplussalon.com/public/empowering-logo-4.svg",
     details: [
       "50-70% straight hair results",
       "Works on chemically treated damaged hair",
@@ -80,7 +69,7 @@ const services = [
   },
   {
     name: "Keratin Treatment",
-    icon: empowringLogoFive,
+    icon: "https://assets.feminaplussalon.com/public/empowering-logo-5.svg",
     details: [
       "30-50% straight hair results",
       "Improves hair texture",
@@ -93,7 +82,7 @@ const services = [
   },
   {
     name: "Nano Plastia",
-    icon: empowringLogoSix,
+    icon: "https://assets.feminaplussalon.com/public/empowering-logo-6.svg",
     details: [
       "50-70% straight hair results",
       "The most advanced hair treatment at present",
@@ -151,7 +140,10 @@ const marqueText = [
       <div
         class="flex gap-[10px] w-fit transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white] rounded-full p-[10px] group-hover:border-none border-[#D9D9D9] border bg-white"
       >
-        <Image src={demandingIcon} alt={`${demandingIcon}`} />
+        <img
+          src="https://assets.feminaplussalon.com/public/demanding_icon.svg"
+          alt="demanding_icon"
+        />
         <p class="text-[12px] font-manrope font-bold">Best Demanding</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-4">
@@ -170,7 +162,7 @@ const marqueText = [
                   class="relative rounded-full min-w-[135px] w-[135px] h-[183px] bg-white 
             group-hover:bg-[#363636] overflow-hidden flex items-center justify-center"
                 >
-                  <Image
+                  <img
                     class="absolute -right-[0px] top-0 w-full h-full object-cover"
                     src={service.icon}
                     alt={`${service.icon}`}
@@ -227,7 +219,7 @@ const marqueText = [
               >
                 <div class="px-[29px] flex gap-[10px] min-h-[12px] lg:mb-9 md:gap-[78px] items-center md:min-h-[210px] justify-center flex-wrap md:flex-nowrap md:justify-center lg:justify-normal">
                   <div class="relative rounded-full min-w-[135px] w-[135px] bg-white group-hover:bg-[#363636] h-[183px] overflow-hidden">
-                    <Image
+                    <img
                       class="absolute -right-[0px] top-0 w-full h-full object-cover"
                       src={mainServices[2].icon}
                       alt={`${mainServices[2].icon}`}
@@ -287,7 +279,7 @@ const marqueText = [
                 class="rounded-full w-[135px]  h-[183px] bg-white group-hover:bg-[#363636]
                   flex items-center justify-center"
               >
-                <Image
+                <img
                   src={service.icon}
                   alt={`${service.icon}`}
                   class="object-contain max-w-full max-h-full"
@@ -342,7 +334,10 @@ const marqueText = [
       {
         marqueText.map((marquee) => (
           <div class="flex gap-5">
-            <Image src={marqueLogo} alt={`${marqueLogo}`} />
+            <img
+              src="https://assets.feminaplussalon.com/public/marque-logo.svg"
+              alt="marque-logo"
+            />
             <p class="text-[34px] ml-[5px] font-anticdidone">{marquee.name}</p>
           </div>
         ))
