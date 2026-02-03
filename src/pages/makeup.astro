@@ -1,4 +1,7 @@
 ---
+import SEOHead from "../components/SEOHead.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import FAQ from "../components/FAQ.astro";
 import Header from "../components/Header.astro";
 import HeroWithBooking from "../components/HeroWithBooking.astro";
 import MakeupServices from "../components/MakeupServices.astro";
@@ -19,36 +22,76 @@ import GMT from "../components/GMT.astro";
 const services = [
   "Premium salon-grade makeup designed to enhance your natural beauty — flawless, long-lasting, and personalized for every occasion.",
 ];
+
+// FAQ Data for Makeup Page
+const faqs = [
+  {
+    question: "What types of makeup services does Femina Plus offer?",
+    answer: "Femina Plus offers a comprehensive range of professional makeup services including bridal makeup, party makeup, engagement makeup, reception makeup, cocktail makeup, everyday/natural makeup, HD makeup, airbrush makeup, and makeup lessons. Each service is customized to complement your features, outfit, and occasion."
+  },
+  {
+    question: "What is the difference between HD makeup and airbrush makeup?",
+    answer: "HD (High Definition) makeup uses specially formulated products that photograph beautifully under all lighting conditions, perfect for events with professional photography. Airbrush makeup is applied using an airbrush gun, creating an ultra-smooth, flawless, and long-lasting finish that's sweat-proof and transfer-resistant. Both techniques are popular for bridal and special occasion makeup."
+  },
+  {
+    question: "How much does bridal makeup cost at Femina Plus?",
+    answer: "Bridal makeup packages at Femina Plus vary based on the type of makeup (traditional, HD, airbrush), whether it includes pre-bridal treatments, number of looks required, and location. We offer customized bridal packages starting from basic bridal makeup to complete bridal beauty packages with hair styling, draping, and accessories. Contact us for a detailed quote based on your specific requirements."
+  },
+  {
+    question: "Do you offer makeup trials for weddings?",
+    answer: "Yes! We highly recommend makeup trials for all bridal clients. During the trial session, our makeup artists will understand your preferences, test different looks, and finalize the perfect style for your wedding day. Trials help ensure you're completely satisfied and comfortable with your bridal look before the big day. Trials can be booked separately or included in bridal packages."
+  },
+  {
+    question: "What makeup brands does Femina Plus use?",
+    answer: "Femina Plus uses only premium, professional-grade makeup brands including MAC, Huda Beauty, Estée Lauder, Bobbi Brown, NARS, Urban Decay, and other internationally recognized brands. We select products based on their quality, longevity, and suitability for different skin types. All products are genuine, dermatologically tested, and safe for sensitive skin."
+  },
+  {
+    question: "How long does a makeup session take?",
+    answer: "The duration varies by service type. Party or engagement makeup typically takes 45-60 minutes, while bridal makeup with hair styling takes approximately 1.5-2 hours. HD and airbrush makeup may require additional time for application and setting. We recommend arriving 15-20 minutes early for consultation and skin preparation."
+  },
+  {
+    question: "Can I bring my own makeup products?",
+    answer: "While we use premium professional products, you're welcome to bring specific items you'd like incorporated into your look, such as a favorite lipstick shade or special occasion products. However, we recommend using our professional products for the base, foundation, and primary application as they're specifically chosen for their longevity and photogenic qualities."
+  },
+  {
+    question: "Do you provide makeup services at home or wedding venues?",
+    answer: "Yes! Femina Plus offers on-location makeup services for weddings, parties, and special events. Our makeup artists can come to your home, hotel, or wedding venue with all necessary equipment and products. On-location services are available based on location and availability. Additional charges may apply for travel and setup."
+  },
+  {
+    question: "Is the makeup suitable for all skin types?",
+    answer: "Absolutely! Our experienced makeup artists are trained to work with all skin types including oily, dry, combination, sensitive, and acne-prone skin. We conduct a skin analysis before application and select products specifically suited to your skin type and concerns. If you have specific allergies or sensitivities, please inform us during booking."
+  },
+  {
+    question: "How do I maintain my makeup throughout the event?",
+    answer: "Our professional makeup is designed to last 8-12 hours. We use setting sprays and long-wear products to ensure longevity. For touch-ups, we recommend carrying blotting papers for oil control, the lipstick shade we used, and a compact powder. For bridal clients, we provide a touch-up kit with essential products. Avoid touching your face and use blotting papers instead of powder for the first few hours."
+  }
+];
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Femina Plus - Expert Hair, Makeup & Nails. Your Hair | Makeup | Nails | Skin | Lashes"
+    <SEOHead
+      title="Professional Makeup Services - Bridal & Party Makeup"
+      description="Expert makeup services at Femina Plus including bridal makeup, party makeup, HD makeup, and airbrush makeup. Book your appointment with our professional makeup artists for flawless, long-lasting results."
+      keywords="makeup artist, bridal makeup, party makeup, HD makeup, airbrush makeup, professional makeup, engagement makeup, wedding makeup, makeup services"
+      canonical="https://feminaplussalon.com/makeup"
+      ogImage="/makeup_bg_new.webp"
     />
-    <title>Femina Plus - Beauty & Wellness Center | Makeup</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
-    ></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <LocalBusinessSchema serviceType="makeup" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
     <GMT />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) {
@@ -76,6 +119,10 @@ const services = [
       />
       <!-- <BookingForm /> -->
       <Testimonials />
+      <FAQ
+        faqs={faqs}
+        subtitle="Everything you need to know about our professional makeup services"
+      />
       <InstagramFeed />
       <Locations />
     </main>

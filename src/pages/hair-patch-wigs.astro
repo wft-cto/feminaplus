@@ -1,4 +1,7 @@
 ---
+import SEOHead from "../components/SEOHead.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import FAQ from "../components/FAQ.astro";
 import Header from "../components/Header.astro";
 import HeroWithBooking from "../components/HeroWithBooking.astro";
 import HairPatchWigsServices from "../components/HairPatchWigsServices.astro";
@@ -64,35 +67,75 @@ const hairPatchWigImages = [
 const services = [
   "Natural-Looking Hair Patches Designed to Match Your Style — Comfortable, Secure, and Completely Undetectable. Get expert consultation and start feeling confident again",
 ];
+
+// FAQ Data for Hair Patch & Wigs Page
+const faqs = [
+  {
+    question: "What are hair patches and how do they work?",
+    answer: "Hair patches (also called hair systems or toupees) are custom-made hairpieces designed to cover areas of hair loss or thinning. They're made from natural human hair or high-quality synthetic fibers and are attached to your scalp using medical-grade adhesives, clips, or bonding techniques. Modern hair patches are virtually undetectable, providing a natural look that seamlessly blends with your existing hair."
+  },
+  {
+    question: "What types of hair patches and wigs does Femina Plus offer?",
+    answer: "Femina Plus offers a comprehensive range including full wigs, partial wigs, hair toppers, lace front wigs, monofilament wigs, custom hair patches for men and women, integration systems, and specialized solutions for medical hair loss. We provide both ready-to-wear options and custom-designed pieces tailored to match your natural hair color, texture, density, and style preferences."
+  },
+  {
+    question: "How long do hair patches last?",
+    answer: "With proper care and maintenance, a quality hair patch typically lasts 6-12 months, depending on the type of hair (human vs. synthetic), attachment method, and how well it's maintained. Human hair patches generally last longer and can be styled like natural hair. Regular maintenance appointments every 3-4 weeks are recommended to ensure optimal appearance and secure attachment."
+  },
+  {
+    question: "Is the hair patch installation process painful?",
+    answer: "No, the hair patch installation process is completely painless and comfortable. Our expert technicians use safe, medical-grade adhesives or non-invasive attachment methods. The process typically takes 1-2 hours depending on the complexity. We ensure a secure, comfortable fit that feels natural and doesn't cause any discomfort or damage to your existing hair or scalp."
+  },
+  {
+    question: "Will people be able to tell I'm wearing a hair patch or wig?",
+    answer: "No! At Femina Plus, we specialize in creating completely natural-looking hair patches and wigs that are virtually undetectable. We custom-match color, texture, density, and hairline to blend seamlessly with your natural hair. Our advanced attachment techniques ensure a secure, natural appearance even in close proximity. Most clients report that even their close friends and family can't tell they're wearing a hair system."
+  },
+  {
+    question: "Can I swim, exercise, and shower with a hair patch?",
+    answer: "Yes! Modern hair patches are designed for an active lifestyle. Once properly installed, you can swim, shower, exercise, and engage in most activities. However, we recommend specific care routines: use mild, sulfate-free products, avoid excessive chlorine exposure, pat dry gently after swimming, and avoid pulling or tugging. We'll provide detailed care instructions specific to your attachment method and hair type."
+  },
+  {
+    question: "How much do hair patches and wigs cost?",
+    answer: "Pricing varies based on several factors including hair type (human vs. synthetic), size, customization level, attachment method, and whether it's a partial patch or full wig. Basic hair patches start from a few thousand rupees, while premium custom human hair systems can cost significantly more. We offer complimentary consultations where we assess your needs and provide detailed pricing for solutions that fit your budget and requirements."
+  },
+  {
+    question: "What's the difference between a wig and a hair patch?",
+    answer: "A wig is a full head covering that replaces all your visible hair, while a hair patch (or hair topper) covers specific areas of thinning or baldness and integrates with your existing hair. Wigs are ideal for complete hair loss or dramatic style changes, while patches are perfect for localized thinning, receding hairlines, or crown balding. Both can look completely natural when properly fitted and customized."
+  },
+  {
+    question: "How do I maintain my hair patch or wig?",
+    answer: "Proper maintenance includes: gentle washing every 7-10 days with sulfate-free shampoo, conditioning to keep hair soft, air-drying when possible, avoiding excessive heat styling, using specialized products for hair systems, regular professional maintenance every 3-4 weeks for reattachment and cleaning, proper storage on a wig stand when not worn, and protecting from direct sunlight and harsh chemicals. We provide complete care instructions and recommend professional maintenance products."
+  },
+  {
+    question: "Can I get a consultation before deciding on a hair patch?",
+    answer: "Absolutely! Femina Plus offers complimentary, confidential consultations for all hair patch and wig services. During the consultation, our specialists will: assess your hair loss pattern, discuss your lifestyle and needs, show you different options and samples, explain attachment methods, provide realistic expectations, and create a customized solution plan. Consultations are pressure-free and help you make an informed decision. Book your private consultation at our FP44 location today."
+  }
+];
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Femina Plus - Expert Hair Patches & Wigs. Professional Wig Installation | Hair Patches | Custom Wig Design"
+    <SEOHead
+      title="Hair Patches & Wigs - Natural Looking Hair Replacement Solutions"
+      description="Get natural-looking hair patches and wigs at Femina Plus. Expert installation, custom designs, and high-quality hair systems for men and women. Completely undetectable results. Free consultation available."
+      keywords="hair patches, wigs, hair replacement, hair systems, toupee, wig installation, custom wigs, hair toppers, lace front wigs, medical wigs, hair loss solutions"
+      canonical="https://feminaplussalon.com/hair-patch-wigs"
+      ogImage="/hero_section_image_new.webp"
     />
-    <title>Femina Plus - Beauty & Wellness Center | Hair Patches & Wigs</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
-    ></script>
+    <LocalBusinessSchema serviceType="hair-patch" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
     <GMT />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) {
@@ -125,6 +168,10 @@ const services = [
       <Locations filterLocations={["FP44"]} isHairPatchWigs={true} />
       <!-- <BookingForm /> -->
       <Testimonials images={hairPatchWigImages} />
+      <FAQ
+        faqs={faqs}
+        subtitle="Get expert answers about hair patches, wigs, and hair replacement solutions"
+      />
       <InstagramFeed />
     </main>
     <Footer />

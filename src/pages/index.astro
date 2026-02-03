@@ -1,4 +1,7 @@
 ---
+import SEOHead from "../components/SEOHead.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import FAQ from "../components/FAQ.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import EmpoweringWomen from "../components/EmpoweringWomen.astro";
@@ -13,36 +16,75 @@ import InstagramFeed from "../components/InstagramFeed.astro";
 import Footer from "../components/Footer.astro";
 import YoutubeVideos from "../components/YoutubeVideos.astro";
 import GMT from "../components/GMT.astro";
+
+// FAQ Data for Homepage
+const faqs = [
+  {
+    question: "What services does Femina Plus offer?",
+    answer: "Femina Plus offers a comprehensive range of beauty and wellness services including professional makeup (bridal, party, and everyday), hair coloring and treatments, hair patches and wigs, nail care, skin treatments, lash extensions, and specialized beauty services. We provide expert consultations and personalized service packages to meet your unique beauty needs."
+  },
+  {
+    question: "Where are Femina Plus salons located?",
+    answer: "Femina Plus has multiple salon locations across India, making it convenient for you to access our premium beauty services. Each location is equipped with state-of-the-art facilities and staffed by experienced beauty professionals. Visit our Locations section on this page to find the nearest salon to you with complete address details and contact information."
+  },
+  {
+    question: "How can I book an appointment at Femina Plus?",
+    answer: "Booking an appointment at Femina Plus is easy! You can book directly through our website using the booking form on any service page, call us on our salon phone numbers, or send us a WhatsApp message using the floating WhatsApp button on our website. We recommend booking in advance, especially for bridal and special occasion services."
+  },
+  {
+    question: "What brands and products does Femina Plus use?",
+    answer: "Femina Plus exclusively uses premium, salon-grade products from internationally renowned beauty brands. We partner with leading brands in makeup, hair care, and skincare to ensure the highest quality results. All our products are carefully selected for their effectiveness, safety, and long-lasting results."
+  },
+  {
+    question: "Does Femina Plus offer bridal packages?",
+    answer: "Yes! Femina Plus specializes in bridal beauty services with comprehensive bridal packages including pre-bridal treatments, bridal makeup, hair styling, mehendi, and more. Our experienced bridal makeup artists work with you to create your perfect wedding day look. We offer trial sessions and customized packages to suit your requirements and budget."
+  },
+  {
+    question: "Are the hair patches and wigs natural-looking?",
+    answer: "Absolutely! At Femina Plus, we specialize in creating completely natural-looking hair patches and wigs that are virtually undetectable. Our expert technicians use premium quality materials and advanced installation techniques to ensure a comfortable, secure fit that looks and feels like your own hair. We offer custom designs matched to your natural hair color, texture, and style."
+  },
+  {
+    question: "What are the hair color services available?",
+    answer: "Femina Plus offers a full range of professional hair coloring services including full hair coloring, highlights, balayage, ombre, root touch-ups, color correction, and gray coverage. Our experienced colorists use premium salon-grade hair color products that are gentle on your hair while providing rich, long-lasting color. We offer personalized color consultations to help you choose the perfect shade."
+  },
+  {
+    question: "How long do makeup services typically take?",
+    answer: "The duration varies depending on the type of makeup service. A standard party makeup session typically takes 45-60 minutes, while bridal makeup can take 1.5-2 hours including hair styling. Professional or everyday makeup usually takes 30-45 minutes. We recommend scheduling extra time for trial sessions and consultations, especially for special events."
+  },
+  {
+    question: "What safety and hygiene measures does Femina Plus follow?",
+    answer: "Femina Plus maintains the highest standards of hygiene and safety. We follow strict sanitization protocols for all tools and equipment, use disposable items where applicable, and ensure our salon spaces are regularly cleaned and disinfected. All our beauty professionals are trained in hygiene best practices to provide you with a safe and comfortable experience."
+  },
+  {
+    question: "Can I get a consultation before booking a service?",
+    answer: "Yes, we highly encourage consultations! Femina Plus offers complimentary consultations for all our services. During a consultation, our experts will assess your needs, discuss your preferences, recommend suitable treatments, and provide you with a personalized service plan. Consultations can be scheduled in-person at any of our locations or via phone/WhatsApp."
+  }
+];
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Femina Plus - Expert Hair, Makeup & Nails. Your Hair | Makeup | Nails | Skin | Lashes"
+    <SEOHead
+      title="Femina Plus - Premier Beauty Salon & Wellness Center"
+      description="Femina Plus offers expert beauty services including professional makeup, hair coloring, hair patches & wigs, nail care, skin treatments, and lash extensions. Visit our multiple locations across India for premium beauty solutions."
+      keywords="beauty salon, makeup artist, hair coloring, hair patches, wigs, bridal makeup, nail care, skin treatment, lash extensions, beauty services India"
+      ogImage="/hero_section_image_new.webp"
     />
-    <title>Femina Plus - Beauty Salon</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
-    ></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <LocalBusinessSchema />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
     <GMT />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) {
@@ -67,6 +109,10 @@ import GMT from "../components/GMT.astro";
       <!-- <BookingForm /> -->
       <InstagramFeed />
       <YoutubeVideos />
+      <FAQ
+        faqs={faqs}
+        subtitle="Get answers to common questions about our beauty services, locations, and booking process"
+      />
     </main>
     <Footer />
   </body>

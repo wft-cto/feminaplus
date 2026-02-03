@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: any;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  canonical,
+  ogType = "website",
+  ogImage = "/hero_section_image_new.webp",
+  noindex = false,
+  schema
+} = Astro.props;
+
+const siteUrl = "https://feminaplussalon.com";
+const fullCanonical = canonical || `${siteUrl}${Astro.url.pathname}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+// Default site name
+const siteName = "Femina Plus";
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+---
+
+<!-- Primary Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={fullCanonical} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={fullCanonical} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="author" content="Femina Plus" />
+<meta name="geo.region" content="IN" />
+<meta name="geo.placename" content="India" />
+
+<!-- Language -->
+<meta http-equiv="content-language" content="en" />
+
+<!-- Structured Data -->
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+)}
+
+<!-- Preconnect to external domains for performance -->
+<link rel="preconnect" href="https://code.jquery.com" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="preconnect" href="https://unpkg.com" />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link rel="preconnect" href="https://assets.feminaplussalon.com" />

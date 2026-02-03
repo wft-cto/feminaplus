@@ -1,4 +1,7 @@
 ---
+import SEOHead from "../components/SEOHead.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import FAQ from "../components/FAQ.astro";
 import Header from "../components/Header.astro";
 import HeroWithBooking from "../components/HeroWithBooking.astro";
 import HairColorService from "../components/HairColorService.astro";
@@ -13,37 +16,76 @@ import GMT from "../components/GMT.astro";
 const services = [
   "Transform your look with rich, long-lasting hair color that protects, nourishes, and enhances your natural beauty — customized by professional color specialists.",
 ];
+
+// FAQ Data for Hair Color Page
+const faqs = [
+  {
+    question: "What hair coloring services does Femina Plus offer?",
+    answer: "Femina Plus provides comprehensive hair coloring services including full hair color, highlights, lowlights, balayage, ombre, color melt, root touch-up, gray coverage, color correction, and fashion colors. Our experienced colorists use premium salon-grade products to achieve beautiful, long-lasting results while maintaining hair health."
+  },
+  {
+    question: "How long does hair coloring take?",
+    answer: "The duration varies based on the service: Root touch-ups typically take 45-60 minutes, full hair color takes 1.5-2 hours, highlights or balayage can take 2-3 hours, and complex color corrections may take 3-4 hours or multiple sessions. The exact time depends on your hair length, thickness, current color, and desired result. We'll provide an accurate time estimate during your consultation."
+  },
+  {
+    question: "Will hair coloring damage my hair?",
+    answer: "At Femina Plus, we use premium, ammonia-free or low-ammonia hair color formulas enriched with conditioning agents that minimize damage. Our colorists are trained in techniques that protect hair integrity. We also offer pre-color treatments and recommend post-color care routines including deep conditioning masks and color-safe products to maintain hair health and vibrancy."
+  },
+  {
+    question: "How often should I get my hair colored?",
+    answer: "Root touch-ups are recommended every 4-6 weeks for complete gray coverage or maintaining all-over color. Full color refresh can be done every 6-8 weeks. Highlights and balayage typically need refreshing every 8-12 weeks as they grow out more naturally. Fashion colors may require more frequent maintenance (3-4 weeks). Your colorist will recommend a personalized schedule based on your color choice and hair growth rate."
+  },
+  {
+    question: "Can you match my natural hair color exactly?",
+    answer: "Yes! Our professional colorists are experts at color matching. We use advanced color analysis techniques to precisely match your natural hair color for seamless root touch-ups or gray coverage. We can also create custom color formulas to achieve your desired shade. Bring a reference photo if you have a specific color in mind."
+  },
+  {
+    question: "What is the difference between highlights and balayage?",
+    answer: "Highlights use foils to create uniform, defined lighter streaks throughout the hair, offering more dramatic contrast. Balayage is a hand-painted technique that creates a more natural, sun-kissed, gradient effect with softer regrowth lines. Balayage requires less frequent maintenance as it grows out more naturally. Both techniques can be customized to achieve your desired look, and our colorists can help you choose the best option."
+  },
+  {
+    question: "Do you offer color correction services?",
+    answer: "Yes, Femina Plus specializes in color correction for previous coloring mishaps, uneven color, unwanted tones, or box dye removal. Color correction is a complex process that may require multiple sessions to safely achieve desired results without compromising hair health. Our expert colorists will assess your hair, explain the process, timeline, and provide realistic expectations during a consultation."
+  },
+  {
+    question: "What hair color brands does Femina Plus use?",
+    answer: "We exclusively use premium professional hair color brands including L'Oréal Professionnel, Wella Professionals, Schwarzkopf, Matrix, and other internationally recognized salon-grade products. These professional formulas offer superior color quality, longevity, and hair care benefits compared to retail box dyes. All products are genuine and safe for all hair types."
+  },
+  {
+    question: "How do I maintain my hair color at home?",
+    answer: "To maintain vibrant color: Use sulfate-free, color-safe shampoos and conditioners; wash hair less frequently with lukewarm water; apply weekly color-protecting hair masks; minimize heat styling; protect hair from sun exposure; and avoid chlorinated pools. We recommend specific professional products during your appointment. With proper care, your color will remain vibrant for 6-8 weeks."
+  },
+  {
+    question: "Can I color my hair if it's chemically treated or damaged?",
+    answer: "It depends on the extent of damage and previous treatments. Our colorists will conduct a thorough hair analysis and strand test to assess hair condition. For compromised hair, we may recommend pre-color treatments, gentler color formulas, or postponing coloring until hair health improves. In some cases, we can safely proceed with low-damage techniques like balayage or semi-permanent color. Your hair's health is our priority."
+  }
+];
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Femina Plus - Expert Hair, Makeup & Nails. Your Hair | Makeup | Nails | Skin | Lashes"
+    <SEOHead
+      title="Professional Hair Color Services - Highlights, Balayage & More"
+      description="Transform your look with expert hair coloring services at Femina Plus. Offering full color, highlights, balayage, ombre, gray coverage, and color correction by professional colorists using premium products."
+      keywords="hair coloring, hair highlights, balayage, ombre hair, hair color correction, gray coverage, professional hair color, hair colorist, hair dye services"
+      canonical="https://feminaplussalon.com/hair-color"
+      ogImage="/hair-color-hero.jpg"
     />
-    <title>Femina Plus - Beauty & Wellness Center | Makeup</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
-    ></script>
+    <LocalBusinessSchema serviceType="hair-color" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
     <GMT />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) {
@@ -71,6 +113,10 @@ const services = [
       />
       <!-- <BookingForm /> -->
       <Testimonials />
+      <FAQ
+        faqs={faqs}
+        subtitle="Common questions about our professional hair coloring services"
+      />
       <InstagramFeed />
       <Locations />
     </main>

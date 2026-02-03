@@ -12,7 +12,8 @@
     "@fontsource/antic-didone": "^5.2.8",
     "@fontsource/manrope": "^5.2.8",
     "aos": "^2.3.4",
-    "astro": "^5.15.5",
+    "astro": "^5.17.1",
+    "ci": "^2.3.0",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
