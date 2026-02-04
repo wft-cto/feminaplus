@@ -16,14 +16,14 @@ const { title = "Frequently Asked Questions", subtitle, faqs } = Astro.props;
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
+  mainEntity: faqs.map((faq) => ({
     "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
+    name: faq.question,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
+      text: faq.answer,
+    },
+  })),
 };
 ---
 
@@ -31,53 +31,64 @@ const faqSchema = {
   <div class="max-w-5xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="text-4xl md:text-5xl font-anticdidone font-bold mb-4 text-black">
+      <h2
+        class="text-4xl md:text-5xl font-anticdidone font-bold mb-4 text-black"
+      >
         {title}
       </h2>
-      {subtitle && (
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto font-manrope">
-          {subtitle}
-        </p>
-      )}
+      {
+        subtitle && (
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto font-manrope">
+            {subtitle}
+          </p>
+        )
+      }
     </div>
 
     <!-- FAQ Items -->
     <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <div
-          class="faq-item border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md"
-          data-aos="fade-up"
-          data-aos-delay={index * 50}
-        >
-          <button
-            class="faq-question w-full text-left px-6 py-5 bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center gap-4"
-            aria-expanded="false"
-            aria-controls={`faq-answer-${index}`}
-          >
-            <h3 class="text-lg md:text-xl font-manrope font-semibold text-black pr-4">
-              {faq.question}
-            </h3>
-            <svg
-              class="faq-icon w-6 h-6 flex-shrink-0 transform transition-transform duration-300 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+      {
+        faqs.map((faq, index) => (
           <div
-            id={`faq-answer-${index}`}
-            class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            class="faq-item border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay={index * 50}
           >
-            <div class="px-6 py-5 bg-gray-50 border-t border-gray-200">
-              <p class="text-gray-700 leading-relaxed font-manrope whitespace-pre-line">
-                {faq.answer}
-              </p>
+            <button
+              class="faq-question w-full text-left px-6 py-5 bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center gap-4"
+              aria-expanded="false"
+              aria-controls={`faq-answer-${index}`}
+            >
+              <h3 class="text-lg md:text-xl font-manrope font-semibold text-black pr-4">
+                {faq.question}
+              </h3>
+              <svg
+                class="faq-icon w-6 h-6 flex-shrink-0 transform transition-transform duration-300 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id={`faq-answer-${index}`}
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+            >
+              <div class="px-6 py-5 bg-gray-50 border-t border-gray-200">
+                <p class="text-gray-700 leading-relaxed font-manrope whitespace-pre-line">
+                  {faq.answer}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 
@@ -87,42 +98,43 @@ const faqSchema = {
 
 <script>
   // FAQ Accordion functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const faqItems = document.querySelectorAll('.faq-item');
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      const icon = item.querySelector('.faq-icon');
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      const answer: any = item.querySelector(".faq-answer");
+      const icon: any = item.querySelector(".faq-icon");
 
       if (question && answer && icon) {
-        question.addEventListener('click', () => {
-          const isExpanded = question.getAttribute('aria-expanded') === 'true';
+        question.addEventListener("click", () => {
+          const isExpanded = question.getAttribute("aria-expanded") === "true";
 
           // Close all other FAQs (optional - remove if you want multiple open)
-          faqItems.forEach(otherItem => {
+          faqItems.forEach((otherItem) => {
             if (otherItem !== item) {
-              const otherQuestion = otherItem.querySelector('.faq-question');
-              const otherAnswer = otherItem.querySelector('.faq-answer');
-              const otherIcon = otherItem.querySelector('.faq-icon');
+              const otherQuestion: any =
+                otherItem.querySelector(".faq-question");
+              const otherAnswer: any = otherItem.querySelector(".faq-answer");
+              const otherIcon: any = otherItem.querySelector(".faq-icon");
 
               if (otherQuestion && otherAnswer && otherIcon) {
-                otherQuestion.setAttribute('aria-expanded', 'false');
-                otherAnswer.style.maxHeight = '0px';
-                otherIcon.style.transform = 'rotate(0deg)';
+                otherQuestion.setAttribute("aria-expanded", "false");
+                otherAnswer.style.maxHeight = "0px";
+                otherIcon.style.transform = "rotate(0deg)";
               }
             }
           });
 
           // Toggle current FAQ
           if (isExpanded) {
-            question.setAttribute('aria-expanded', 'false');
-            answer.style.maxHeight = '0px';
-            icon.style.transform = 'rotate(0deg)';
+            question.setAttribute("aria-expanded", "false");
+            answer.style.maxHeight = "0px";
+            icon.style.transform = "rotate(0deg)";
           } else {
-            question.setAttribute('aria-expanded', 'true');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            icon.style.transform = 'rotate(180deg)';
+            question.setAttribute("aria-expanded", "true");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
           }
         });
       }
