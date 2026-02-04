@@ -97,26 +97,26 @@ const faqSchema = {
 </section>
 
 <script>
-  // FAQ Accordion functionality
   document.addEventListener("DOMContentLoaded", () => {
-    const faqItems = document.querySelectorAll(".faq-item");
+    const faqItems = document.querySelectorAll<HTMLElement>(".faq-item");
 
     faqItems.forEach((item) => {
-      const question = item.querySelector(".faq-question");
-      const answer: any = item.querySelector(".faq-answer");
-      const icon: any = item.querySelector(".faq-icon");
+      const question = item.querySelector<HTMLElement>(".faq-question");
+      const answer = item.querySelector<HTMLElement>(".faq-answer");
+      const icon = item.querySelector<HTMLElement>(".faq-icon");
 
       if (question && answer && icon) {
         question.addEventListener("click", () => {
           const isExpanded = question.getAttribute("aria-expanded") === "true";
 
-          // Close all other FAQs (optional - remove if you want multiple open)
           faqItems.forEach((otherItem) => {
             if (otherItem !== item) {
-              const otherQuestion: any =
-                otherItem.querySelector(".faq-question");
-              const otherAnswer: any = otherItem.querySelector(".faq-answer");
-              const otherIcon: any = otherItem.querySelector(".faq-icon");
+              const otherQuestion =
+                otherItem.querySelector<HTMLElement>(".faq-question");
+              const otherAnswer =
+                otherItem.querySelector<HTMLElement>(".faq-answer");
+              const otherIcon =
+                otherItem.querySelector<HTMLElement>(".faq-icon");
 
               if (otherQuestion && otherAnswer && otherIcon) {
                 otherQuestion.setAttribute("aria-expanded", "false");
@@ -126,7 +126,6 @@ const faqSchema = {
             }
           });
 
-          // Toggle current FAQ
           if (isExpanded) {
             question.setAttribute("aria-expanded", "false");
             answer.style.maxHeight = "0px";
