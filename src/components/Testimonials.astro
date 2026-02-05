@@ -1,6 +1,4 @@
 ---
-import curve from "../../public/our-customers-shape.png";
-
 import "../css/style.css";
 const { images = false } = Astro.props;
 
@@ -49,13 +47,14 @@ import { Image } from "astro:assets";
   id="testimonials"
   class="pt-6 md:py-16 relative bg-[#F6F6F6] text-black"
 >
-  <Image class="absolute w-full top-0 z-[999]" src={curve} alt={`${curve}`} />
+  <img class="absolute w-full top-0 z-[999]"   src="https://assets.feminaplussalon.com/public/our-customers-shape.png"
+            alt="our-customers-shape" />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="relative md:grid md:grid-cols-10 gap-12 pb-20">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 z-0"
-        style="background-image: url('/gen-health-bg.svg');"
+        style="background-image: url('https://assets.feminaplussalon.com/public/gen-health-bg.svg');"
       >
       </div>
 

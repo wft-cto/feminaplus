@@ -1,10 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../../public/FP-logo.svg";
-import visa from "../../public/visa.svg";
-import mastercard from "../../public/mastercard.svg";
-import rupay from "../../public/rupay.png";
-import marqueLogo from "../../public/white-logo-marquee.svg";
 import FooterServices from "./FooterServices.astro";
 
 const locations = [
@@ -56,7 +51,7 @@ const marqueText = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-[46px]">
     <div
       class="flex flex-col md:flex-row md:gap-[40px] lg:gap-[218px]"
-      style="background-image: url('/gen-health-bg.svg'); "
+      style="background-image: url('https://assets.feminaplussalon.com/public/gen-health-bg.svg'); "
     >
       <!-- Top section -->
 
@@ -277,13 +272,22 @@ const marqueText = [
       </p>
       <div class="flex gap-2">
         <a href="#" class="grayscale transition"
-          ><Image src={visa} alt={`${visa}`} /></a
+          ><img
+            src={`https://assets.feminaplussalon.com/public/visa.svg`}
+            alt=`visa`
+          /></a
         >
         <a href="#" class="grayscale transition"
-          ><Image src={mastercard} alt={`${mastercard}`} /></a
+          ><img
+            src={`https://assets.feminaplussalon.com/public/mastercard.svg`}
+            alt=`mastercard`
+          /></a
         >
         <a href="#" class="grayscale transition"
-          ><Image src={rupay} alt={`${rupay}`} /></a
+          ><img
+            src={`https://assets.feminaplussalon.com/public/rupay.png`}
+            alt=`rupay`
+          /></a
         >
       </div>
     </div>
@@ -298,7 +302,10 @@ const marqueText = [
       {
         marqueText.map((marquee) => (
           <div class="flex gap-5">
-            <Image src={marqueLogo} alt={`${marqueLogo}`} />
+            <img
+              src={`https://assets.feminaplussalon.com/public/white-logo-marquee.svg`}
+              alt="marquee"
+            />
             <p class="text-[34px] ml-[5px] font-anticdidone">{marquee.name}</p>
           </div>
         ))

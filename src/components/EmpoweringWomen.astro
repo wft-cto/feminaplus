@@ -1,5 +1,4 @@
 ---
-
 const mainServices = [
   {
     name: "Hair Patch",
@@ -110,7 +109,7 @@ const marqueText = [
 <section id="services" class="pt-16 pb-0 md:py-16 relative bg-white">
   <div
     class="absolute top-2 left-0 w-full pb-[252.69px] z-[9999] bg-no-repeat bg-cover"
-    style="background-image: url('/featured-bg.svg');opacity:50%;"
+    style="background-image: url('https://assets.feminaplussalon.com/public/featured-bg.svg');opacity:50%;"
   >
   </div>
   <div
@@ -272,7 +271,7 @@ const marqueText = [
         services.map((service) => (
           <div
             data-aos="zoom-in"
-            class="border relative  group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer h-[600px]"
+            class="border relative  group border-[#D3D3D3] hover:bg-black p-6 bg-[#F6F6F6] after:bg-black after:absolute after:h-1 after:w-0 after:-bottom-3 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer h-[600px] md:h-[500px] lg:h-[600px]"
           >
             <div class="w-full text-center flex justify-center">
               <div
@@ -297,7 +296,7 @@ const marqueText = [
                 ))}
               </ul>
             </div>
-            <div class="flex absolute md:relative lg:aboslute md:justify-center lg:justify-end md:mt-4 right-5 bottom-4 md:right-1 md:bottom-1 w-full justify-end">
+            <div class="flex absolute md:relative lg:aboslute md:justify-end lg:justify-end md:mt-4 right-5 bottom-4 md:right-1 md:bottom-1 w-full justify-end">
               <div class="border-[#D9D9D9] transition-all duration-300 shadow-[0_0_0px_0_white] hover:shadow-[0_0_15px_3px_white]  bg-white group-hover:bg-black w-fit py-[13px] px-[27px] rounded-full border">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -357,7 +356,7 @@ const marqueText = [
     autoplaySpeed: 3000,
     centerPadding: "60px",
     slidesToShow: 4,
-    infinite: false,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1110,

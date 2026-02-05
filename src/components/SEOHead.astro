@@ -16,7 +16,7 @@ const {
   keywords,
   canonical,
   ogType = "website",
-  ogImage = "/hero_section_image_new.webp",
+  ogImage = "https://assets.feminaplussalon.com/public/hero_section_image_new.webp",
   noindex = false,
   schema
 } = Astro.props;
@@ -43,7 +43,7 @@ const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 <link rel="canonical" href={fullCanonical} />
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/fav_femina.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://assets.feminaplussalon.com/public/fav_femina.png" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />

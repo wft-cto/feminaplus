@@ -25,12 +25,14 @@ npm install              # Install all dependencies
 ## Architecture
 
 ### Tech Stack
+
 - **Framework**: Astro v5.15.5 (SSG mode)
 - **Styling**: Tailwind CSS with custom fonts (Antic Didone, Manrope)
 - **Runtime JS**: jQuery for mobile menu, AOS for scroll animations, Slick carousel
 - **Analytics**: Google Tag Manager (G-TG9QGE938J)
 
 ### Project Structure
+
 ```
 src/
 ├── pages/               # File-based routing
@@ -107,7 +109,7 @@ All pages now use dedicated SEO components for better search engine optimization
       description="Expert makeup services at Femina Plus..."
       keywords="makeup, bridal makeup, party makeup"
       canonical="https://feminaplussalon.com/makeup"
-      ogImage="/makeup_bg_new.webp"
+      ogImage="https://assets.feminaplussalon.com/public/makeup_bg_new.webp"
     />
     ```
 
@@ -126,6 +128,7 @@ All pages now use dedicated SEO components for better search engine optimization
   - Features: Accordion functionality, AOS animations, Schema.org structured data
   - SEO benefits: Rich snippets in search results, voice search optimization
   - Example usage:
+
     ```astro
     const faqs = [
       {
@@ -211,6 +214,7 @@ All pages now use dedicated SEO components for better search engine optimization
 ### Environment Variables
 
 If enabling Instagram integration:
+
 ```env
 INSTAGRAM_ACCESS_TOKEN=your_token
 INSTAGRAM_USER_ID=me
@@ -269,6 +273,7 @@ All pages are optimized for traditional SEO, Answer Engine Optimization (AEO), a
 ### Adding FAQ Content
 
 When adding or updating FAQ sections:
+
 - Write 8-10 questions per page minimum
 - Focus on long-tail keywords and conversational queries
 - Answer in natural, helpful language (not keyword-stuffed)

@@ -22,43 +22,55 @@ import YoutubeVideos from "../components/YoutubeVideos.astro";
 const hairPatchWigImages = [
   {
     id: "1",
-    beforeImage: "/hairPatch/bald_image_first.jpeg",
-    afterImage: "/hairPatch/transformed_image_first.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_first.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/transformed_image_first.jpeg",
     service: "Full Wig Installation",
     clientName: "Client 1",
   },
   {
     id: "2",
-    beforeImage: "/hairPatch/bald_image_second.jpeg",
-    afterImage: "/hairPatch/reformed_image_second.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_second.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/reformed_image_second.jpeg",
     service: "Hair Patch Installation",
     clientName: "Client 2",
   },
   {
     id: "3",
-    beforeImage: "/hairPatch/bald_image_third.jpeg",
-    afterImage: "/hairPatch/transformed_image_third.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_third.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/transformed_image_third.jpeg",
     service: "Lace Front Wig",
     clientName: "Client 3",
   },
   {
     id: "4",
-    beforeImage: "/hairPatch/bald_image_forth.jpeg",
-    afterImage: "/hairPatch/transformed_image_forth.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_forth.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/transformed_image_forth.jpeg",
     service: "Hair Topper",
     clientName: "Client 4",
   },
   {
     id: "5",
-    beforeImage: "/hairPatch/bald_image_fifth.jpeg",
-    afterImage: "/hairPatch/transformed_image_fifth.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_fifth.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/transformed_image_fifth.jpeg",
     service: "Wig Restyling",
     clientName: "Client 5",
   },
   {
     id: "6",
-    beforeImage: "/hairPatch/bald_image_sixth.jpeg",
-    afterImage: "/hairPatch/transformed_image_sixth.jpeg",
+    beforeImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/bald_image_sixth.jpeg",
+    afterImage:
+      "https://assets.feminaplussalon.com/public/hairPatch/transformed_image_sixth.jpeg",
     service: "Custom Wig Design",
     clientName: "Client 6",
   },
@@ -72,44 +84,54 @@ const services = [
 const faqs = [
   {
     question: "What are hair patches and how do they work?",
-    answer: "Hair patches (also called hair systems or toupees) are custom-made hairpieces designed to cover areas of hair loss or thinning. They're made from natural human hair or high-quality synthetic fibers and are attached to your scalp using medical-grade adhesives, clips, or bonding techniques. Modern hair patches are virtually undetectable, providing a natural look that seamlessly blends with your existing hair."
+    answer:
+      "Hair patches (also called hair systems or toupees) are custom-made hairpieces designed to cover areas of hair loss or thinning. They're made from natural human hair or high-quality synthetic fibers and are attached to your scalp using medical-grade adhesives, clips, or bonding techniques. Modern hair patches are virtually undetectable, providing a natural look that seamlessly blends with your existing hair.",
   },
   {
     question: "What types of hair patches and wigs does Femina Plus offer?",
-    answer: "Femina Plus offers a comprehensive range including full wigs, partial wigs, hair toppers, lace front wigs, monofilament wigs, custom hair patches for men and women, integration systems, and specialized solutions for medical hair loss. We provide both ready-to-wear options and custom-designed pieces tailored to match your natural hair color, texture, density, and style preferences."
+    answer:
+      "Femina Plus offers a comprehensive range including full wigs, partial wigs, hair toppers, lace front wigs, monofilament wigs, custom hair patches for men and women, integration systems, and specialized solutions for medical hair loss. We provide both ready-to-wear options and custom-designed pieces tailored to match your natural hair color, texture, density, and style preferences.",
   },
   {
     question: "How long do hair patches last?",
-    answer: "With proper care and maintenance, a quality hair patch typically lasts 6-12 months, depending on the type of hair (human vs. synthetic), attachment method, and how well it's maintained. Human hair patches generally last longer and can be styled like natural hair. Regular maintenance appointments every 3-4 weeks are recommended to ensure optimal appearance and secure attachment."
+    answer:
+      "With proper care and maintenance, a quality hair patch typically lasts 6-12 months, depending on the type of hair (human vs. synthetic), attachment method, and how well it's maintained. Human hair patches generally last longer and can be styled like natural hair. Regular maintenance appointments every 3-4 weeks are recommended to ensure optimal appearance and secure attachment.",
   },
   {
     question: "Is the hair patch installation process painful?",
-    answer: "No, the hair patch installation process is completely painless and comfortable. Our expert technicians use safe, medical-grade adhesives or non-invasive attachment methods. The process typically takes 1-2 hours depending on the complexity. We ensure a secure, comfortable fit that feels natural and doesn't cause any discomfort or damage to your existing hair or scalp."
+    answer:
+      "No, the hair patch installation process is completely painless and comfortable. Our expert technicians use safe, medical-grade adhesives or non-invasive attachment methods. The process typically takes 1-2 hours depending on the complexity. We ensure a secure, comfortable fit that feels natural and doesn't cause any discomfort or damage to your existing hair or scalp.",
   },
   {
     question: "Will people be able to tell I'm wearing a hair patch or wig?",
-    answer: "No! At Femina Plus, we specialize in creating completely natural-looking hair patches and wigs that are virtually undetectable. We custom-match color, texture, density, and hairline to blend seamlessly with your natural hair. Our advanced attachment techniques ensure a secure, natural appearance even in close proximity. Most clients report that even their close friends and family can't tell they're wearing a hair system."
+    answer:
+      "No! At Femina Plus, we specialize in creating completely natural-looking hair patches and wigs that are virtually undetectable. We custom-match color, texture, density, and hairline to blend seamlessly with your natural hair. Our advanced attachment techniques ensure a secure, natural appearance even in close proximity. Most clients report that even their close friends and family can't tell they're wearing a hair system.",
   },
   {
     question: "Can I swim, exercise, and shower with a hair patch?",
-    answer: "Yes! Modern hair patches are designed for an active lifestyle. Once properly installed, you can swim, shower, exercise, and engage in most activities. However, we recommend specific care routines: use mild, sulfate-free products, avoid excessive chlorine exposure, pat dry gently after swimming, and avoid pulling or tugging. We'll provide detailed care instructions specific to your attachment method and hair type."
+    answer:
+      "Yes! Modern hair patches are designed for an active lifestyle. Once properly installed, you can swim, shower, exercise, and engage in most activities. However, we recommend specific care routines: use mild, sulfate-free products, avoid excessive chlorine exposure, pat dry gently after swimming, and avoid pulling or tugging. We'll provide detailed care instructions specific to your attachment method and hair type.",
   },
   {
     question: "How much do hair patches and wigs cost?",
-    answer: "Pricing varies based on several factors including hair type (human vs. synthetic), size, customization level, attachment method, and whether it's a partial patch or full wig. Basic hair patches start from a few thousand rupees, while premium custom human hair systems can cost significantly more. We offer complimentary consultations where we assess your needs and provide detailed pricing for solutions that fit your budget and requirements."
+    answer:
+      "Pricing varies based on several factors including hair type (human vs. synthetic), size, customization level, attachment method, and whether it's a partial patch or full wig. Basic hair patches start from a few thousand rupees, while premium custom human hair systems can cost significantly more. We offer complimentary consultations where we assess your needs and provide detailed pricing for solutions that fit your budget and requirements.",
   },
   {
     question: "What's the difference between a wig and a hair patch?",
-    answer: "A wig is a full head covering that replaces all your visible hair, while a hair patch (or hair topper) covers specific areas of thinning or baldness and integrates with your existing hair. Wigs are ideal for complete hair loss or dramatic style changes, while patches are perfect for localized thinning, receding hairlines, or crown balding. Both can look completely natural when properly fitted and customized."
+    answer:
+      "A wig is a full head covering that replaces all your visible hair, while a hair patch (or hair topper) covers specific areas of thinning or baldness and integrates with your existing hair. Wigs are ideal for complete hair loss or dramatic style changes, while patches are perfect for localized thinning, receding hairlines, or crown balding. Both can look completely natural when properly fitted and customized.",
   },
   {
     question: "How do I maintain my hair patch or wig?",
-    answer: "Proper maintenance includes: gentle washing every 7-10 days with sulfate-free shampoo, conditioning to keep hair soft, air-drying when possible, avoiding excessive heat styling, using specialized products for hair systems, regular professional maintenance every 3-4 weeks for reattachment and cleaning, proper storage on a wig stand when not worn, and protecting from direct sunlight and harsh chemicals. We provide complete care instructions and recommend professional maintenance products."
+    answer:
+      "Proper maintenance includes: gentle washing every 7-10 days with sulfate-free shampoo, conditioning to keep hair soft, air-drying when possible, avoiding excessive heat styling, using specialized products for hair systems, regular professional maintenance every 3-4 weeks for reattachment and cleaning, proper storage on a wig stand when not worn, and protecting from direct sunlight and harsh chemicals. We provide complete care instructions and recommend professional maintenance products.",
   },
   {
     question: "Can I get a consultation before deciding on a hair patch?",
-    answer: "Absolutely! Femina Plus offers complimentary, confidential consultations for all hair patch and wig services. During the consultation, our specialists will: assess your hair loss pattern, discuss your lifestyle and needs, show you different options and samples, explain attachment methods, provide realistic expectations, and create a customized solution plan. Consultations are pressure-free and help you make an informed decision. Book your private consultation at our FP44 location today."
-  }
+    answer:
+      "Absolutely! Femina Plus offers complimentary, confidential consultations for all hair patch and wig services. During the consultation, our specialists will: assess your hair loss pattern, discuss your lifestyle and needs, show you different options and samples, explain attachment methods, provide realistic expectations, and create a customized solution plan. Consultations are pressure-free and help you make an informed decision. Book your private consultation at our FP44 location today.",
+  },
 ];
 ---
 
@@ -124,7 +146,8 @@ const faqs = [
     />
     <LocalBusinessSchema serviceType="hair-patch" />
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline
+    ></script>
     <GMT />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
@@ -135,7 +158,8 @@ const faqs = [
     <script
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       is:inline></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"
+    ></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]) {

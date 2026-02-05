@@ -1,6 +1,4 @@
 ---
-import arrow from "../../public/arrow-top-right.svg";
-import close from "../../public/close.svg";
 import { Image } from "astro:assets";
 const { services = [] } = Astro.props;
 ---
@@ -36,7 +34,7 @@ const { services = [] } = Astro.props;
         <div class="flex items-center">
           <a href="/" class="flex items-center">
             <Image
-              src="/logo_femina_new.png"
+              src="https://assets.feminaplussalon.com/public/logo_femina_new.png"
               alt="Femina Plus"
               class="h-12 md:h-16 w-auto brightness-0 invert lg:w-28 xl:w-auto"
               width={100}
@@ -50,7 +48,10 @@ const { services = [] } = Astro.props;
           <div class="main-navbar">
             <div class="navigation">
               <button class="block lg:hidden w-6 h-6 menu-close">
-                <Image src={close} alt="close" />
+                <img
+                  src="https://assets.feminaplussalon.com/public/close.svg"
+                  alt="close"
+                />
               </button>
 
               <div
@@ -168,10 +169,10 @@ const { services = [] } = Astro.props;
             onclick="openBookingModal(this)"
           >
             Book Appointment
-            <Image
+            <img
               class="bg-white w-fit rounded-full py-[11px] px-[21px]"
-              src={arrow}
-              alt={`${arrow}`}
+              src="https://assets.feminaplussalon.com/public/arrow-top-right.svg"
+              alt="arrow-top-right"
             />
           </button>
         </div>
