@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "@fontsource/antic-didone": "^5.2.8",
     "@fontsource/manrope": "^5.2.8",
     "aos": "^2.3.4",
