@@ -1,0 +1,398 @@
+---
+import SEOHead from "../components/SEOHead.astro";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
+import FAQ from "../components/FAQ.astro";
+import Header from "../components/Header.astro";
+import HeroWithBooking from "../components/HeroWithBooking.astro";
+import PricingNav from "../components/PricingNav.astro";
+import PricingSection from "../components/PricingSection.astro";
+import Testimonials from "../components/Testimonials.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
+import Locations from "../components/Locations.astro";
+import Footer from "../components/Footer.astro";
+import GMT from "../components/GMT.astro";
+
+const services = [
+  "Transparent pricing across all our beauty & wellness services — no hidden charges.",
+];
+
+const categories = [
+  { id: "hair-women", label: "Hair Women" },
+  { id: "hair-men", label: "Hair Men" },
+  { id: "toddler-haircut", label: "Toddler's" },
+  { id: "hair-treatment", label: "Hair Treatment" },
+  { id: "threading", label: "Threading" },
+  { id: "waxing", label: "Waxing" },
+  { id: "pedicure", label: "Pedicure" },
+  { id: "manicure", label: "Manicure" },
+  { id: "facials", label: "Facials" },
+  { id: "cleanup", label: "Cleanup" },
+  { id: "bleach", label: "Bleach" },
+  { id: "makeup", label: "Makeup" },
+  { id: "hair-patch", label: "Hair Patch" },
+];
+
+// ---------------------------------------------------------------------------
+// PRICING DATA
+// ---------------------------------------------------------------------------
+
+const hairWomen = {
+  id: "hair-women",
+  title: "Hair — Women",
+  categoryName: "Hair (Women)",
+  subGroups: [
+    {
+      name: "Basic Services",
+      items: [
+        { name: "Head Wash", price: "₹400", note: "onwards" },
+        { name: "Blow Dry (with wash)", price: "₹550", note: "onwards" },
+        { name: "Hair Cut", price: "₹700" },
+        { name: "Head Massage", price: "₹700" },
+        { name: "Ironing (with wash)", price: "₹700" },
+        { name: "Iron Curls", price: "₹800", note: "onwards" },
+        { name: "Hair Cut By Nazim", price: "₹800" },
+        { name: "Hair Cut (Short)", price: "₹900" },
+        { name: "Hair Cut By Rachit", price: "₹2,000" },
+        { name: "Hair Bun", price: "₹1,000 – ₹1,500" },
+      ],
+    },
+    {
+      name: "Root Touch Up",
+      items: [
+        { name: "Loreal", price: "₹1,300" },
+        { name: "Organic", price: "₹1,500" },
+      ],
+    },
+    {
+      name: "Hair Color",
+      items: [
+        { name: "Global", price: "₹4,500", note: "onwards" },
+        { name: "Organic", price: "₹5,000", note: "onwards" },
+        { name: "Fashion Streaking", price: "₹5,000", note: "onwards" },
+      ],
+    },
+    {
+      name: "Therapy",
+      items: [
+        { name: "Smoothening", price: "₹5,000", note: "onwards" },
+        { name: "Keratin", price: "₹6,000", note: "onwards" },
+        { name: "Botox", price: "₹8,000", note: "onwards" },
+        { name: "NanoPlastia", price: "₹8,000", note: "onwards" },
+        { name: "Silk Therapy", price: "₹10,000", note: "onwards" },
+      ],
+    },
+  ],
+};
+
+const hairMen = {
+  id: "hair-men",
+  title: "Hair — Men",
+  categoryName: "Hair (Men)",
+  dark: true,
+  subGroups: [
+    {
+      name: "Basic Services",
+      items: [
+        { name: "Hair Styling", price: "₹200" },
+        { name: "Shave", price: "₹250" },
+        { name: "Beard Trim", price: "₹250" },
+        { name: "Beard Trim (Fading)", price: "₹300" },
+        { name: "Head Massage", price: "₹400" },
+        { name: "Hair Cut (Trim)", price: "₹400", note: "onwards" },
+        { name: "Hair Cut (Fading)", price: "₹500" },
+        { name: "Hair Cut By Arshad", price: "₹500" },
+      ],
+    },
+    {
+      name: "Hair Color",
+      items: [
+        { name: "Beard Color", price: "₹600", note: "onwards" },
+        { name: "Loreal", price: "₹1,300" },
+        { name: "Organic", price: "₹1,500" },
+        { name: "Fashion Streaking", price: "₹2,500", note: "onwards" },
+      ],
+    },
+    {
+      name: "Therapy",
+      items: [
+        { name: "Smoothening", price: "₹3,100", note: "onwards" },
+        { name: "Keratin", price: "₹3,100", note: "onwards" },
+      ],
+    },
+  ],
+};
+
+const toddlerHaircut = {
+  id: "toddler-haircut",
+  title: "Toddler's Hair Cut",
+  categoryName: "Toddler's Hair Cut",
+  items: [
+    { name: "Baby Boy", price: "₹350" },
+    { name: "Baby Girl", price: "₹500" },
+  ],
+};
+
+const hairTreatment = {
+  id: "hair-treatment",
+  title: "Hair Treatment",
+  categoryName: "Hair Treatment",
+  dark: true,
+  items: [
+    { name: "Deep Conditioning", price: "₹1,000", note: "onwards" },
+    { name: "Botanical Hair Spa", price: "₹1,300", note: "onwards" },
+    { name: "Deep Conditioning (Luxury)", price: "₹1,500", note: "onwards" },
+    { name: "Dry Scalp Treatment", price: "₹1,500" },
+    { name: "Hydration Hair Spa", price: "₹1,500" },
+    { name: "Oily Scalp Treatment", price: "₹1,500" },
+    { name: "Dandruff Treatment", price: "₹1,700", note: "onwards" },
+    { name: "Keratin Hair Spa", price: "₹2,000" },
+    { name: "Hydration Treatment", price: "₹3,500" },
+    { name: "Olaplex Treatment", price: "₹3,500", note: "onwards" },
+    { name: "Fine Hair Treatment", price: "₹4,000" },
+    { name: "Smooth & Shine Treatment", price: "₹4,000", note: "onwards" },
+  ],
+};
+
+const threading = {
+  id: "threading",
+  title: "Threading",
+  categoryName: "Threading",
+  items: [
+    { name: "Upper Lips", price: "₹50" },
+    { name: "Eye Brows", price: "₹100" },
+    { name: "Full Face", price: "₹300" },
+    { name: "Full Face Wax", price: "₹500" },
+  ],
+};
+
+const waxing = {
+  id: "waxing",
+  title: "Waxing",
+  categoryName: "Waxing",
+  dark: true,
+  waxingItems: [
+    { name: "Full Arms", honey: "₹400", rica: "₹600" },
+    { name: "Half Arms", honey: "₹200", rica: "₹400" },
+    { name: "Under Arms", honey: "₹100", rica: "₹200" },
+    { name: "Full Legs", honey: "₹400", rica: "₹600" },
+    { name: "Half Legs", honey: "₹200", rica: "₹400" },
+    { name: "Bikini", honey: "₹800", rica: "₹1,400" },
+    { name: "Full Body", honey: "₹1,500", rica: "₹2,500" },
+  ],
+};
+
+const pedicure = {
+  id: "pedicure",
+  title: "Pedicure",
+  categoryName: "Pedicure",
+  items: [
+    { name: "Reflexology (Legs Massage)", price: "₹600" },
+    { name: "Luxury Pedi", price: "₹1,000" },
+    { name: "Crystal Pedi", price: "₹1,500" },
+  ],
+};
+
+const manicure = {
+  id: "manicure",
+  title: "Manicure",
+  categoryName: "Manicure",
+  dark: true,
+  items: [
+    { name: "Luxury Mani", price: "₹800" },
+    { name: "Crystal Mani", price: "₹1,000" },
+  ],
+};
+
+const facials = {
+  id: "facials",
+  title: "Facials",
+  categoryName: "Facials",
+  items: [
+    { name: "Aroma Magic", price: "₹1,700", note: "onwards" },
+    { name: "Breakout Clearing", price: "₹2,000" },
+    { name: "O3+ Time Expert", price: "₹2,500", note: "onwards" },
+    { name: "Ozone", price: "₹2,500", note: "onwards" },
+    { name: "Seaweed Whitening", price: "₹2,500" },
+    { name: "Express Whitening Facial", price: "₹2,800" },
+    { name: "Organic Harvest", price: "₹3,500" },
+    { name: "Kanpeki", price: "₹5,000", note: "onwards" },
+  ],
+};
+
+const cleanup = {
+  id: "cleanup",
+  title: "Cleanup",
+  categoryName: "Cleanup",
+  dark: true,
+  items: [
+    { name: "Aroma", price: "₹1,000" },
+    { name: "O3+", price: "₹1,500" },
+    { name: "Ozone", price: "₹2,000" },
+    { name: "Organic Harvest", price: "₹2,000" },
+    { name: "Casmara", price: "₹2,500" },
+    { name: "Kanpeki", price: "₹3,500" },
+  ],
+};
+
+const bleach = {
+  id: "bleach",
+  title: "Bleach",
+  categoryName: "Bleach",
+  items: [
+    { name: "Face Bleach", price: "₹350" },
+    { name: "Organic Face Bleach", price: "₹500" },
+    { name: "Stomach", price: "₹500" },
+    { name: "Back", price: "₹500" },
+    { name: "Body Bleach", price: "₹1,500" },
+  ],
+};
+
+const makeup = {
+  id: "makeup",
+  title: "Makeup",
+  categoryName: "Makeup",
+  dark: true,
+  items: [
+    { name: "Basic Party Make Up", price: "₹3,000" },
+    { name: "HD Party Make Up", price: "₹4,500" },
+    { name: "Party Makeup (by Komal)", price: "₹6,000" },
+    { name: "Celebrity Party Makeup (by Komal)", price: "₹10,000" },
+    { name: "Engagement Make Up", price: "₹7,000" },
+    { name: "HD Engagement Make Up", price: "₹10,000" },
+    { name: "Engagement Make Up by Komal", price: "₹15,000 – ₹20,000" },
+    { name: "Destination Engagement By Komal", price: "₹25,000" },
+    { name: "Basic Bridal Make Up", price: "₹11,000" },
+    { name: "HD Bridal Make Up", price: "₹15,000" },
+    { name: "Bridal Make Up by Komal at Salon", price: "₹20,000 – ₹30,000" },
+    { name: "Destination Bridal Make Up by Komal", price: "₹25,000 – ₹40,000" },
+  ],
+};
+
+const hairPatch = {
+  id: "hair-patch",
+  title: "Hair Patch",
+  categoryName: "Hair Patch",
+  items: [
+    { name: "Glue Service", price: "₹1,200" },
+    { name: "Hair Bonding Service Sitting Package", price: "₹12,000" },
+    { name: "Outside Patch Service", price: "₹1,700" },
+    { name: "Tape Service", price: "₹900" },
+    { name: "Hair Color / Organic Color", price: "₹700 / ₹800" },
+    { name: "Head Massage Extra (15 mins)", price: "₹300" },
+    { name: "Glow Pack", price: "₹500" },
+    { name: "Front Area Glue", price: "₹300" },
+    { name: "Hair Styling", price: "₹200" },
+    { name: "Beard", price: "₹250 – ₹300" },
+  ],
+};
+
+const allSections = [
+  hairWomen, hairMen, toddlerHaircut, hairTreatment,
+  threading, waxing, pedicure, manicure,
+  facials, cleanup, bleach, makeup, hairPatch,
+];
+
+const faqs = [
+  {
+    question: "Are the prices the same at all Femina Plus locations?",
+    answer: "Our pricing is standardized across all Femina Plus salon branches. However, certain premium services may have slight variations depending on the location and the senior stylist you choose. We recommend confirming the exact pricing with your preferred branch when booking your appointment."
+  },
+  {
+    question: "Do you offer any packages or combo discounts?",
+    answer: "Yes, Femina Plus offers special combo packages for bridal services, pre-wedding grooming, and regular maintenance packages. We also run seasonal promotions and first-time client offers. Ask at your nearest branch or message us on WhatsApp for current package deals and discounts."
+  },
+  {
+    question: "What payment methods are accepted?",
+    answer: "We accept cash, all major credit and debit cards, UPI payments (Google Pay, PhonePe, Paytm), and net banking. For bridal and premium packages, we also offer the option to pay in installments. Payment is collected at the salon after your service is completed."
+  },
+  {
+    question: "Do prices include taxes?",
+    answer: "The prices listed on our menu are base service prices. Applicable GST will be added to the final bill as per government regulations. Our staff will always inform you of the total amount including taxes before proceeding with any service."
+  },
+  {
+    question: "What does 'onwards' mean in the pricing?",
+    answer: "Services marked 'onwards' have a starting price that may vary depending on factors like hair length, hair density, product quantity required, and the complexity of the service. For example, hair color pricing depends on your hair length and the amount of product needed. Our stylists will give you an exact quote during your consultation."
+  },
+  {
+    question: "Can I get a consultation before booking a service?",
+    answer: "Absolutely! We offer free consultations for all our services. Whether you're considering a hair color change, a hair treatment, or bridal makeup, our experts will assess your needs, discuss options, and provide a detailed price estimate before you commit to any service."
+  },
+  {
+    question: "Is there an extra charge for home or venue services?",
+    answer: "Yes, on-location services such as bridal makeup at your home or wedding venue may include additional charges for travel and setup. The exact amount depends on the distance and the services booked. Contact us for a customized quote for on-location services."
+  },
+  {
+    question: "How do I book an appointment?",
+    answer: "You can book an appointment through our website using the booking form, call us directly at your nearest branch, or send us a WhatsApp message using the green button on any section of this page. We recommend booking at least a day in advance, and 2-4 weeks ahead for bridal services."
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <SEOHead
+      title="Service Pricing & Menu"
+      description="View the complete pricing menu for Femina Plus salon services including hair, makeup, facials, waxing, manicure, pedicure, and more. Transparent pricing with no hidden charges across all our branches."
+      keywords="salon pricing, beauty service prices, hair cut price, bridal makeup cost, facial price, waxing rates, salon menu, Femina Plus pricing"
+      canonical="https://feminaplussalon.com/pricing"
+      ogImage="https://assets.feminaplussalon.com/public/hero_section_image_new.webp"
+    />
+    <LocalBusinessSchema />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" is:inline></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      is:inline></script>
+    <GMT />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TG9QGE938J"></script>
+    <script>
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) {
+        (window as any).dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TG9QGE938J");
+    </script>
+  </head>
+  <body class="antialiased">
+    <GMT />
+    <Header class="mb-4" services={services} />
+    <main class="mt-4">
+      <HeroWithBooking
+        title="Our Pricing"
+        subtitle="Hair · Beauty · Makeup · SPA · Academy"
+        backgroundImage="https://assets.feminaplussalon.com/public/hero_section_image_new.webp"
+        autoSelectFirst={false}
+      />
+
+      <PricingNav categories={categories} />
+
+      {allSections.map(section => (
+        <PricingSection {...section} />
+      ))}
+
+      <FAQ
+        faqs={faqs}
+        subtitle="Common questions about our pricing and services"
+      />
+      <Testimonials />
+      <InstagramFeed />
+      <Locations />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<script
+  is:inline
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../js/Global.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
