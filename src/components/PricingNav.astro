@@ -1,0 +1,82 @@
+---
+interface Category {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  categories: Category[];
+}
+
+const { categories } = Astro.props;
+---
+
+<nav id="pricing-nav" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="pricing-nav-scroll flex gap-1 overflow-x-auto py-3">
+      {categories.map(cat => (
+        <a
+          href={`#${cat.id}`}
+          class="pricing-nav-link px-4 py-2 text-sm font-manrope font-medium text-gray-400 hover:text-black whitespace-nowrap rounded-full transition-all duration-200"
+          data-section={cat.id}
+        >
+          {cat.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .pricing-nav-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .pricing-nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .pricing-nav-link.active {
+    color: #000;
+    background-color: #f3f4f6;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('pricing-nav');
+    if (!nav) return;
+
+    const links = nav.querySelectorAll('.pricing-nav-link');
+    const sections = document.querySelectorAll('[data-pricing-section]');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const target = document.getElementById(href.slice(1));
+        if (target) {
+          const y = target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 16;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          links.forEach(l => l.classList.remove('active'));
+          const activeLink = nav.querySelector(`a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
